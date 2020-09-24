@@ -87,7 +87,7 @@ export default new VueRouter({
     // about
     {
       path: '/about',
-      component: () => import('@/views/AboutView.vue'),
+      component: () => import('@/views/AboutMain.vue'),
     },
 
     // bookmark

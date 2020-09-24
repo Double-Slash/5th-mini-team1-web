@@ -6,11 +6,11 @@
         <h1>어디있니</h1>
       </router-link>
       <nav>
-        <router-link to="/">파트너 찾기</router-link>
-        <router-link to="/">크루 찾기</router-link>
-        <router-link to="/">공모전</router-link>
-        <router-link to="/">레퍼런스</router-link>
-        <router-link to="/">about</router-link>
+        <router-link to="/partner">파트너 찾기</router-link>
+        <router-link to="/crew">크루 찾기</router-link>
+        <router-link to="/contest">공모전</router-link>
+        <router-link to="/reference">레퍼런스</router-link>
+        <router-link to="/about">about</router-link>
       </nav>
       <aside>
         <ul v-if="userInfo">
@@ -22,7 +22,7 @@
           </li>
           <img :src="userInfo.src || null" class="image-wrapper user-image" />
         </ul>
-        <button v-else="userInfo">Log In</button>
+        <button v-else>Log In</button>
       </aside>
     </div>
   </header>
