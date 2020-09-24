@@ -13,7 +13,7 @@
 <script>
 export default {
   props: {
-    info: Array,
+    info: Object,
   },
   data() {
     return {
