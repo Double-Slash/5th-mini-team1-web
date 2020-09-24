@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <AppHeader></AppHeader>
-    <router-view></router-view>
-    <AppFooter></AppFooter>
+    <AppHeader />
+    <main class="view-wrapper">
+      <router-view></router-view>
+    </main>
+    <AppFooter />
   </div>
 </template>
 
@@ -20,11 +22,27 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+.view-wrapper {
+  width: 1728px;
+  padding-top: 138px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1919px) {
+  .view-wrapper {
+    width: 1376px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .view-wrapper {
+    width: 1280px;
+  }
+}
+
+@media (max-width: 1312px) {
+  .view-wrapper {
+    width: 912px;
+  }
 }
 </style>
