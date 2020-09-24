@@ -113,6 +113,11 @@ button {
   font-weight: bold;
   line-height: 1.33;
   background: none;
+  outline:none;
+}
+button:hover{
+  background-color:#2e88db;
+  color:white;
 }
 
 .image-wrapper {
