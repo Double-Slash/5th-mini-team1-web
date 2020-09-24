@@ -10,7 +10,7 @@
         <router-link to="/crew">크루 찾기</router-link>
         <router-link to="/contest">공모전</router-link>
         <router-link to="/reference">레퍼런스</router-link>
-        <router-link to="/about">about</router-link>
+        <router-link to="/about">ABOUT</router-link>
       </nav>
       <aside>
         <ul v-if="userInfo">
@@ -73,6 +73,10 @@ header {
   opacity: 0.36;
   border-radius: 20px;
   background-color: #2e88db;
+}
+/* 라우터 활성화시 */
+.router-link-exact-active {
+  color:#2e88db;
 }
 
 h1 {
