@@ -22,18 +22,30 @@
           </li>
           <img :src="userInfo.src || null" class="image-wrapper user-image" />
         </ul>
-        <button v-else>Log In</button>
+        <button v-else @click="clickLogInBtn">Log In</button>
+        <LogInModal v-if="logInModalActive" />
       </aside>
     </div>
   </header>
 </template>
 
 <script>
+import LogInModal from "./LogInModal.vue";
+
 export default {
+  components: {
+    LogInModal,
+  },
   data() {
     return {
       userInfo: false, // dummy -> vuex로 변경 예정
+      logInModalActive: false,
     };
+  },
+  methods: {
+    clickLogInBtn() {
+      this.logInModalActive = true;
+    },
   },
   // to do...
   // 1.유저 정보가 있는지에 따라 우측 상단(로그인 버튼, 유저 프로필) 분기 처리
@@ -76,7 +88,7 @@ header {
 }
 /* 라우터 활성화시 */
 .router-link-exact-active {
-  color:#2e88db;
+  color: #2e88db;
 }
 
 h1 {
@@ -113,11 +125,11 @@ button {
   font-weight: bold;
   line-height: 1.33;
   background: none;
-  outline:none;
+  outline: none;
 }
-button:hover{
-  background-color:#2e88db;
-  color:white;
+button:hover {
+  background-color: #2e88db;
+  color: white;
 }
 
 .image-wrapper {
