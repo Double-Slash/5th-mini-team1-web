@@ -1,21 +1,25 @@
 <template>
   <div id="about">
     <div class='about-header'>
-      <img src="../assets/img/profile.png" width="250" height="250"/>
-      <div class='title'>사람을 찾습니다!<br>
-      마음이 맞는 프로젝트를 진행하고픈 사람,<br>
-      나를 알리고 싶은 사람,도대체 어디있니?
-      </div><br>
-      <div class='subtitle'>
-      "어디있니"는 팀을 찾거나 프로젝트를 진행하고 싶을 때 함께 할 팀 혹은 개인을 찾는 기능으로<br>
-      특정 나이대에 국한되지 않고 협업할 사람을 찾을 수 있게 도와주는 웹서비스입니다.
+      <div class='header-img'>
+        <img src="../assets/img/profile.png" width="250" height="250"/>
       </div>
-      <div style='clear:both;'></div>
+      <div class="header-title">
+        <div class='title'>사람을 찾습니다!<br>
+        마음이 맞는 프로젝트를 진행하고픈 사람,<br>
+        나를 알리고 싶은 사람,도대체 어디있니?
+        </div><br>
+        <div class='subtitle'>
+        "어디있니"는 팀을 찾거나 프로젝트를 진행하고 싶을 때 함께 할 팀 혹은 개인을 찾는 기능으로<br>
+        특정 나이대에 국한되지 않고 협업할 사람을 찾을 수 있게 도와주는 웹서비스입니다.
+        </div>
+      </div>
     </div>
 
+    <p class='introduce'>어디있니 팀원소개</p>
     <div class='about-content'>
-        <p class='introduce'>어디있니 팀원소개</p>
-        <ProfileCard v-for="profile in develInfo" :key="profile.id" :info="profile"></ProfileCard>
+        <ProfileCard class='content-item'
+        v-for="profile in develInfo" :key="profile.id" :info="profile"></ProfileCard>
     </div>
   </div>
 </template>
@@ -31,7 +35,7 @@ export default {
           img: 'profile.png',
           name: '이승희',
           group: 'DoubleSlash 5th 기획팀',
-          content: '안녕하세욥!',
+          content: '안녕하세욥!안녕하세욥!안녕하세욥!안녕하세욥!안녕하세욥!안녕하세욥!',
         },
         {
           img: 'profile.png',
@@ -86,10 +90,19 @@ export default {
   text-align: left;
 }
 /* header start */
-.about-header img{
+.about-header{
+  display:flex;
+  justify-content: space-between;
+}
+.header-img{
+  flex:1;
+  min-width:300px;
+}
+.header-img img{
   border-radius: 500px;
-  margin-right:50px;
-  float:left;
+}
+.header-title{
+  flex:3
 }
 .title{
   padding-top:45px;
@@ -100,14 +113,22 @@ export default {
   font-size:16px;
 }
 /* header end */
-/* content start */
-.about-content{
-  margin-top:70px;
-}
-.about-content > p{
+.introduce{
   font-size:22px;
   font-weight: bold;
-  margin-bottom:20px;
+  margin: 70px 0 20px 0px;
+}
+
+/* content start */
+.about-content{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  align-content: space-between;
+}
+.content-item{
+  width:48%;
+  margin-top:15px;
 }
 /* content end */
 
