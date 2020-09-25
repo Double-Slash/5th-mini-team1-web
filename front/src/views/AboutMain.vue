@@ -121,14 +121,9 @@ export default {
 
 /* content start */
 .about-content{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:space-between;
-  align-content: space-between;
-}
-.content-item{
-  width:48%;
-  margin-top:15px;
+  display:grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-gap:1rem;
 }
 /* content end */
 
