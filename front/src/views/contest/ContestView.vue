@@ -1,36 +1,43 @@
 <template>
-  <div class='contest-write'>
+  <div class='contest-view'>
     <div class='write-from'>
       <div class='item'>
         <img src="@/assets/img/profile.png" width="300" height="350"/>
       </div>
-      <div class='item type'><label for="time">접수기간</label></div>
-      <div class='item'><textarea v-model="term" id="time"/></div>
 
-      <div class='item type'><label for="who1">주최</label> </div>
-      <div class='item'><textarea v-model="who1" id="who1"/></div>
+      <div class="item item-title">금융핀테크공모전</div>
 
-      <div class='item type'><label for="who2">주관</label></div>
-      <div class='item'><textarea id="who2" v-model="who2" /></div>
+      <div class='item-icon'>
+        <img src="@/assets/svg/share.svg" width="25" height="25"/>
+        <img src="@/assets/svg/bookmark_black.svg" width="25" height="25" />
+      </div>
+      <div class='item'>접수기간</div>
+      <div class='item-content'>2020.09.03 ~ 2020.09.18</div>
 
-      <div class='item type'><label for="prize">시상</label></div>
-      <div class='item'><textarea v-model="prize" id="prize"/></div>
+      <div class='item'>주최</div>
+      <div class='item-content'>교육부</div>
 
-      <div class='item type'><label for="more">세부사항</label></div>
-      <div class='item'><textarea id="more" class='more-info'></textarea></div>
+      <div class='item'>주관</div>
+      <div class='item-content'>한국과학창의재단</div>
+
+      <div class='item'>시상</div>
+      <div class='item-content'>1천만원 이하</div>
+
+      <div class='item'>세부사항</div>
+      <div class='item-content'>큼융핀테크공모전은ㅇㅁㄴㅇㄴㅁㅇㅁㄴㅇㅁㄴㅇ<br>asd</div>
     </div>
   </div>
 </template>
 
 <script>
+
 export default {
   // axios 통신
 };
 </script>
 
 <style scoped>
-.contest-write{
-  width:75%;
+.contest-view{
   margin:0 auto;
   padding-top:70px;
   text-align: center;
@@ -38,43 +45,30 @@ export default {
 /* write-from start*/
 .write-from{
   display:grid;
-  grid-template-columns: 2fr 1fr 3fr;
+  grid-template-columns: 3fr 1fr 2fr 1fr 1fr;
+  grid-auto-rows: minmax(30px,auto);
   justify-items: start;
   align-items: top;
-  grid-gap: 1rem;
 }
 .item:nth-child(1){
-  grid-row:1/6;
+  grid-row:1/7;
+  justify-self: center;
 }
-.item label{
-  display:inline-block;
-  min-width:8vw;
-  margin-left:10px;
-  text-align: left;
+.item-title{
+  grid-column: 2/5;
+  font-size:24px;
   font-weight: bold;
 }
-textarea{
-  height:40px;
-  min-width:250px;
-  width:30vw;
-  border: 2px solid rgba(46,136,219,1);
-  padding:5px;
+.item-icon{
+  min-width: 80px;
 }
-.more-info{
-  height: 80px;
+.item-icon img{
+  margin: 10px 15px 0 0;
+  vertical-align: bottom;
 }
-/* write-form end*/
-/* write-submit start*/
-.write-submit{
-  width:100%;
-  margin-top:40px;
-}
-.write-submit button{
-  padding:10px;
-  background:rgba(46,136,219,1);
-  color:white;
-  border-radius:30px;
-  outline:none;
+.item-content{
+  grid-column:3/6;
+  text-align: left;
 }
 /* write-submit end*/
 </style>
