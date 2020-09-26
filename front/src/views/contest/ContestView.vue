@@ -1,6 +1,6 @@
 <template>
   <div class='contest-view'>
-    <div class='write-from'>
+    <div class='view-from'>
       <div class='item'>
         <img src="@/assets/img/profile.png" width="300" height="350"/>
       </div>
@@ -43,7 +43,7 @@ export default {
   text-align: center;
 }
 /* write-from start*/
-.write-from{
+.view-from{
   display:grid;
   grid-template-columns: 3fr 1fr 2fr 1fr 1fr;
   grid-auto-rows: minmax(30px,auto);
