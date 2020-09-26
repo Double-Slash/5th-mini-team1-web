@@ -8,19 +8,19 @@
          {{filePath}}
       </div>
       <div class='item type'><label for="time">접수기간</label></div>
-      <div class='item'><textarea v-model="term" id="time"/></div>
+      <div class='item data'><textarea v-model="term" id="time"/></div>
 
       <div class='item type'><label for="who1">주최</label> </div>
-      <div class='item'><textarea v-model="who1" id="who1"/></div>
+      <div class='item data'><textarea v-model="who1" id="who1"/></div>
 
       <div class='item type'><label for="who2">주관</label></div>
-      <div class='item'><textarea id="who2" v-model="who2" /></div>
+      <div class='item data'><textarea id="who2" v-model="who2" /></div>
 
       <div class='item type'><label for="prize">시상</label></div>
-      <div class='item'><textarea v-model="prize" id="prize"/></div>
+      <div class='item data'><textarea v-model="prize" id="prize"/></div>
 
       <div class='item type'><label for="more">세부사항</label></div>
-      <div class='item'><textarea id="more" class='more-info'></textarea></div>
+      <div class='item data'><textarea id="more" class='more-info'></textarea></div>
     </div>
     <div class='write-submit'>
       <button @click="submitForm()">작성하기</button>
@@ -53,21 +53,19 @@ export default {
 
 <style scoped>
 .contest-write{
-  width:75%;
-  margin:0 auto;
   padding-top:70px;
   text-align: center;
 }
 /* write-from start*/
 .write-from{
   display:grid;
-  grid-template-columns: 2fr 1fr 3fr;
+  grid-template-columns:  3fr 1fr 2fr 1fr 1fr;
   justify-items: start;
   align-items: top;
-  grid-gap: 1rem;
 }
 .item:nth-child(1){
   grid-row:1/6;
+  justify-self: center;
 }
 .file-label{
   background-image: url("../../assets/img/profile.png");
@@ -84,13 +82,17 @@ export default {
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
-
+.type{
+  justify-self:right;
+}
 .item label{
   display:inline-block;
   min-width:8vw;
-  margin-left:10px;
   text-align: left;
   font-weight: bold;
+}
+.data{
+  grid-column:3/6;
 }
 textarea{
   height:40px;
