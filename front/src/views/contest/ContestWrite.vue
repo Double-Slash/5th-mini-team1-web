@@ -53,7 +53,9 @@ export default {
 
 <style scoped>
 .contest-write{
-  padding-top:70px; 
+  width:75%;
+  margin:0 auto;
+  padding-top:70px;
   text-align: center;
 }
 /* write-from start*/
