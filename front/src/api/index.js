@@ -1,4 +1,10 @@
 import axios from "axios";
+import store from "@/store";
+
+axios.interceptors.request.use((config) => {
+  config.headers.Authorization = store.state.token;
+  return config;
+});
 
 const baseurl = ""; // OR axios baseurl settings
 
@@ -13,7 +19,14 @@ function examplefunc(id) {
 function examplefunc2(userInfo) {
   return axios.get(`${api.login}/${userInfo}`);
 }
-export { examplefunc, examplefunc2 };
+
+// 로그인 post
+function postLogIn() {
+  return { token: "33rfwesfi" };
+  // return axios.post(`${api.login}`, data);
+}
+
+export { examplefunc, examplefunc2, postLogIn };
 
 /*
 스토어에서 다음과 같이 불러오면 좋을 것 같습니다.

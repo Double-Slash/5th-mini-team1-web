@@ -4,11 +4,16 @@ import getters from "./getters";
 import mutations from "./mutations";
 import actions from "./actions";
 
+// cookie
+import { getTokenCookie } from "@/utils/cookies";
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   strict: process.env.NODE_ENV !== "production",
   state: {
+    token: getTokenCookie() || "", // jwt token
+    errorMessage: "", // 서버 에러 메시지
   },
   getters,
   mutations,
