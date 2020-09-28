@@ -14,10 +14,10 @@
           <br />
           혜택과 소식을 만나보세요.
         </h1>
-        <form @submit.prevent="">
+        <form @submit.prevent="submitLogIn">
           <div>
-            <input type="text" placeholder="ID" />
-            <input type="text" placeholder="PASSWORD" />
+            <input type="text" placeholder="ID" v-model="id" />
+            <input type="text" placeholder="PASSWORD" v-model="password" />
           </div>
           <div class="button-wrapper">
             <button type="submit" class="login-btn">로그인</button>
@@ -26,7 +26,7 @@
               <span>또는</span>
               <div class="division-line"></div>
             </div>
-            <div class="login-btn google-btn">
+            <div class="login-btn google-btn" @click="submitGoogle">
               <img
                 src="@/assets/svg/google.svg"
                 alt="구글 이미지"
@@ -44,9 +44,51 @@
 
 <script>
 export default {
+  data() {
+    return {
+      id: "",
+      password: "",
+      errorMessage: "",
+    };
+  },
   methods: {
+    // 우측 상단 닫기 버튼 클릭
     clickCancelBtn() {
       this.$parent.$data.logInModalActive = false;
+    },
+    // id, 비밀번호 input 초기화
+    initInput() {
+      this.id = "";
+      this.password = "";
+    },
+    // 구글 로그인 버튼 클릭
+    submitGoogle() {
+      // to do...
+      // 구글 로그인 로직
+    },
+    // 로그인 버튼 클릭
+    async submitLogIn() {
+      try {
+        this.errorMessage = "";
+        // id, password 중에 하나라도 비어있는 경우
+        if (this.id.trim() === "" || this.password.trim() === "") {
+          throw new Error("아이디 혹은 비밀번호를 입력하지 않았습니다.");
+        }
+        // id를 특정 글자 이상 입력하지 않을 경우
+        if (this.id.length < 8) {
+          throw new Error("id를 8글자 이상 입력하지 않았습니다.");
+        }
+        // 비밀번호를 특정 글자 이상 입력하지 않을 경우
+        if (this.password.length < 8) {
+          throw new Error("비밀번호를 8글자 이상 입력하지 않았습니다.");
+        }
+        await this.$store.dispatch("submitLogIn");
+        this.$parent.$data.logInModalActive = false;
+      } catch (error) {
+        this.errorMessage = error;
+      } finally {
+        this.initInput();
+      }
     },
   },
 };
@@ -63,7 +105,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  padding: 64px 144px;
+  padding: 56px 144px;
   background-color: rgba(57, 57, 57, 0.3);
 }
 
@@ -84,7 +126,7 @@ article {
 
 /* modal 제목 */
 h1 {
-  margin-bottom: 40px;
+  margin-bottom: 16px;
   font-size: 20px;
   line-height: 1.33;
   letter-spacing: -0.72px;
@@ -94,7 +136,7 @@ h1 {
 input {
   width: 100%;
   padding: 8px 0;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   border-bottom: 1px solid #393939;
 }
 
@@ -123,7 +165,7 @@ input {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-top: 24px;
+  margin-top: 16px;
 }
 
 /* 버튼 절취선 */
