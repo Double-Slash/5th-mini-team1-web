@@ -1,9 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-
-// cookie
 import { getTokenCookie } from "@/utils/cookies";
-
 import getters from "./getters";
 import mutations from "./mutations";
 import actions from "./actions";
@@ -14,9 +11,9 @@ export default new Vuex.Store({
   strict: process.env.NODE_ENV !== "production",
   state: {
     token: getTokenCookie() || "", // jwt token
-    errorMessage: "" // 서버 에러 메시지
+    errorMessage: "", // 서버 에러 메시지
   },
   getters,
   mutations,
-  actions
+  actions,
 });

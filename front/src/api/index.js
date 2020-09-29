@@ -1,7 +1,10 @@
+/* eslint no-param-reassign: "error" */
 import axios from "axios";
 
-axios.interceptors.request.use((config) => {
-  config.headers.Authorization = this.store.state.token;
+const instance = axios.create({});
+
+instance.interceptors.request.use((config) => {
+  config.headers.Authorization = this.$store.state.token;
   return config;
 });
 
