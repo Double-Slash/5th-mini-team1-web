@@ -1,13 +1,237 @@
 <template>
-  <div>CrewWrite</div>
+  <div class='crew-write'>
+    <div class='write-form'>
+      <div class='form-img'>
+        <img src="@/assets/img/profile.png" width="300" height="350"/>
+      </div>
+      <div class="form-type"><label for="term">활동기간</label></div>
+      <div class="form-input"><textarea id="term"></textarea></div>
+
+      <div class="form-type"><label for="projectID">프로젝트</label></div>
+      <div class="form-input"><textarea id="projectID"></textarea></div>
+
+      <div class="form-type"><label for="briefInfo">간단설명</label></div>
+      <div class="form-input"><textarea id="briefInfo" style='height:200px;'></textarea></div>
+    </div>
+    <div class="write-content">
+      <div class="content-type">분야선택</div>
+      <div class="content-input gap">
+        <input type="radio" id="option1" name="test" value="option1" checked="checked">
+        <label for="option1">기획/아이디어</label>
+        <input type="radio" id="option2" name="test" value="option2">
+        <label for="option2" >광고/마케팅</label>
+        <input type="radio" id="option3" name="test" value="option3">
+        <label for="option3">디자인/캐릭터</label>
+        <input type="radio" id="option4" name="test" value="option4">
+        <label for="option4">소프트웨어/게임</label>
+        <br>
+        <input type="radio" id="option5" name="test" value="option5">
+        <label for="option5">웹/모바일/플래시</label>
+        <input type="radio" id="option6" name="test" value="option6">
+        <label for="option6">문학/글/시나리오</label>
+        <input type="radio" id="option7" name="test" value="option7">
+        <label for="option7">건축/건설/도시</label>
+        <input type="radio" id="option8" name="test" value="option8">
+        <label for="option8">과학/공학</label>
+      </div>
+
+    <div class="content-type">활동지역</div>
+    <div class="content-select">
+      <select>
+        <option selected>시/도</option>
+        <option>서울</option>
+        <option>수원</option>
+      </select>
+      <select>
+        <option selected>시/군/구</option>
+        <option>아ㅏㅏㅏ</option>
+      </select>
+    </div>
+    <div class="content-type"><label for="teamName">팀이름</label></div>
+    <div class='content-input gap'><textarea class='team' id="teamName"></textarea></div>
+    <div class="content-type"><label for="teamIntro">팀소개</label></div>
+    <div class='content-text gap'><textarea id="teamIntro"></textarea></div>
+    <div class="content-type"><label for="teamProject">프로젝트소개</label></div>
+    <div class='content-text gap'><textarea id="teamProject"></textarea></div>
+    <div class="content-type"><label for="teaminfo">모집안내</label></div>
+    <div class='content-text gap'><textarea id="teaminfo"></textarea></div>
+    <div class="content-type"><label for="requirement">자격요건 및<br> 우대사항</label></div>
+    <div class='content-text gap'><textarea id="requirement"></textarea></div>
+   <div class="content-type">해시태그</div>
+   <div class='content-hashtag'>
+     <div class="hashtag"><label for="hash1"># </label><input id="hash1" type='text'></div>
+     <div class="hashtag"><label for="hash2"># </label><input id="hash2" type='text'></div>
+     <div class="hashtag"><label for="hash3"># </label><input id="hash3" type='text'></div>
+     <div class="hashtag"><label for="hash4"># </label><input id="hash4" type='text'></div>
+     <div class="hashtag"><label for="hash5"># </label><input id="hash5" type='text'></div>
+   </div>
+   <div class="content-type gap manager">담당자 정보</div>
+   <div class='content-manager'>
+      <PartnerCard :item="item"></PartnerCard>
+      <PartnerCard :item="item"></PartnerCard>
+   </div>
+   <div class="content-btn">
+   <button>확인</button>
+   </div>
+  </div>
+  </div>
 </template>
 
 <script>
-export default {
+import PartnerCard from '@/components/PostCard/PartnerCard.vue';
 
+export default {
+  data() {
+    return {
+      hashTags: ['수도권', 'UI/UX', '웹디자인'],
+      item: {
+        job: "웹 디자이너",
+        name: "강세정",
+        description: '3년차/공모전o/스타트업/SNS운영/팀빌딩원함',
+        hashTag: ['UI/UX', '웹디자인'],
+      },
+    };
+  },
+  components: {
+    PartnerCard,
+  },
 };
 </script>
+<style scoped>
+.crew-write{
+  margin:0 auto;
+  padding-top:70px;
+  text-align: center;
+}
+.write-form textarea{
+  height:35px;
+  min-width:250px;
+  width:30vw;
+}
+/* write-form start*/
+.write-form{
+  display:grid;
+  grid-template-rows:0.8fr 0.8fr 3fr;
+  grid-template-columns: 2fr 1fr 6fr;
+  justify-items: start;
+}
+.form-img{
+  grid-row:1/4;
+}
+.form-type{
+  justify-self: center;
+  font-weight: bold;
+}
+/* write-form end */
+/* write-content start */
+.write-content{
+  display:grid;
+  grid-template-columns: 1fr 8fr;
+  margin-top:40px;
+  text-align: left;
+}
+.content-type{
+  align-self:center;
+  font-weight: bold;
+}
+.team{
+  height: 35px;
+  min-width: 330px;
+}
+.content-text textarea{
+  width:100%;
+  height: 200px;
+}
+.content-hashtag{
+  display:grid;
+  gap:10px;
+  grid-template-columns: repeat(5,1fr);
+}
+.hashtag:nth-child(3n){
+  grid-column: 3/6;
+}
+.hashtag{
+  width:150px;
+  height: 50px;
+  padding:10px 20px;
+  border:1px solid  rgba(46,136,219,1);
+  border-radius: 30px;
+  text-align: left;
+}
+.hashtag input{
+  width:90px;
+}
+.manager{
+  grid-column: 1/3;
+}
+.content-manager{
+  grid-column: 1/3;
+}
+.content-btn{
+  grid-column: 1/3;
+  justify-self: center;
+}
 
-<style>
+.gap{
+  margin: 20px 0;
+}
+/* write-content end */
+
+/* select box custom */
+select {
+  width: 150px;
+  padding: .8em .5em;
+  appearance: none;
+  background: url('https://cdn.discordapp.com/attachments/409346663367573514/760525476715823144/arrow.png') no-repeat 95% 50%;
+  border: 1px solid rgba(46,136,219,1);
+  border-radius: 0px;
+  margin-right:30px;
+  outline:none;
+}
+
+/* radio custom */
+input[type=radio]{
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: -9999px;
+}
+input[type=radio] + label{
+  min-width:14vw;
+  width:8vw;
+  margin: 0;
+  padding: .75em 1.5em;
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  border: solid 1px #DDD;
+  background-color: #FFF;
+  line-height: 140%;
+  text-align: center;
+  box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  transition: border-color .15s ease-out,
+    color .25s ease-out,  background-color .15s ease-out, box-shadow .15s ease-out;
+  cursor: pointer;
+}
+input[type=radio]:checked + label{
+  background-color: rgba(46,136,219,1);
+  color: #FFF;
+  box-shadow: 0 0 10px rgba(102, 179, 251, 0.5);
+  border-color: rgba(46,136,219,1);
+}
+
+textarea{
+  border: 1px solid #2E88DB;
+  padding:5px;
+  outline:none;
+}
+button{
+  padding:10px 30px;
+  background:rgba(46,136,219,1);
+  color:white;
+  border-radius:30px;
+  margin-right:10px;
+  outline:none;
+}
 
 </style>
