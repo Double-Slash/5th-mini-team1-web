@@ -43,16 +43,19 @@
     </div>
     <button>지원하기</button>
     <button @click="sendMessage()">문의하기</button>
+    <AskModal v-if="onModal" @close="closeModal"></AskModal>
   </div>
 </template>
 
 <script>
 import CHashTag from '@/components/Button/HashTag.vue';
 import IntroCard from '@/components/PostCard/IntroCard.vue';
+import AskModal from '@/components/CrewAskModal.vue';
 
 export default {
   data() {
     return {
+      onModal: false,
       hashTags: ['수도권', 'UI/UX', '웹디자인'],
       items: [
         {
@@ -73,10 +76,14 @@ export default {
   components: {
     CHashTag,
     IntroCard,
+    AskModal,
   }, // axios 통신
   methods: {
     sendMessage() {
-      console.log('heelo');
+      this.onModal = true;
+    },
+    closeModal() {
+      this.onModal = false;
     },
   },
 };
