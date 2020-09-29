@@ -1,8 +1,7 @@
 import axios from "axios";
-import store from "@/store";
 
 axios.interceptors.request.use((config) => {
-  config.headers.Authorization = store.state.token;
+  config.headers.Authorization = this.store.state.token;
   return config;
 });
 
@@ -30,11 +29,9 @@ export { examplefunc, examplefunc2, postLogIn };
 
 /*
 스토어에서 다음과 같이 불러오면 좋을 것 같습니다.
-
 import {
     examplefunc
 } from "../api/index.js";
-
 async FETCH_RELEASE_INFO_RAFFLE({ commit }, id) {
         try {
             const response = await examplefunc(id);

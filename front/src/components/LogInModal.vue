@@ -44,6 +44,12 @@
 
 <script>
 export default {
+  mounted() {
+    document.body.style.overflow = "hidden";
+  },
+  destroyed() {
+    document.body.style.overflow = "unset";
+  },
   data() {
     return {
       id: "",
