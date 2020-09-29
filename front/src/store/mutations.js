@@ -6,5 +6,5 @@ export default {
   // 네트워크 에러 메시지 설정
   setErrorMessage(state, errorMessage) {
     state.errorMessage = errorMessage;
-  }
+  },
 };

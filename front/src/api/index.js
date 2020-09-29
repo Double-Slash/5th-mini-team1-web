@@ -1,10 +1,14 @@
+/* eslint no-param-reassign: "error" */
 import axios from "axios";
-import store from "@/store";
 
-axios.interceptors.request.use((config) => {
-  config.headers.Authorization = store.state.token;
-  return config;
-});
+const instance = axios.create({});
+
+instance.interceptors.request.use(
+  (config) => {
+    config.headers.Authorization = this.$store.state.token;
+    return config;
+  },
+);
 
 const baseurl = ""; // OR axios baseurl settings
 

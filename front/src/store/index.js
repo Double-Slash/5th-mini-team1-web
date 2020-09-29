@@ -1,11 +1,11 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import { getTokenCookie } from "@/utils/cookies";
 import getters from "./getters";
 import mutations from "./mutations";
 import actions from "./actions";
 
 // cookie
-import { getTokenCookie } from "@/utils/cookies";
 
 Vue.use(Vuex);
 
