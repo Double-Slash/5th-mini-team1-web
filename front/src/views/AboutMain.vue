@@ -85,7 +85,7 @@ export default {
 <style scoped>
 #about{
   padding-top:50px;
-  width:75%;
+  width:80%;
   margin: 0px auto;
   text-align: left;
 }
@@ -102,7 +102,7 @@ export default {
   border-radius: 500px;
 }
 .header-title{
-  flex:3
+  flex:2;
 }
 .title{
   padding-top:45px;
