@@ -3,16 +3,16 @@ import axios from "axios";
 
 const instance = axios.create({});
 
-instance.interceptors.request.use((config) => {
+instance.interceptors.request.use(config => {
   config.headers.Authorization = this.$store.state.token;
   return config;
 });
 
-const baseurl = ""; // OR axios baseurl settings
+const baseurl = "http://52.141.62.35:8080"; // OR axios baseurl settings
 
 const api = {
   info: `${baseurl}`,
-  login: `${baseurl}/login`,
+  login: `${baseurl}/accounts/login`
 };
 
 function examplefunc(id) {
@@ -23,9 +23,8 @@ function examplefunc2(userInfo) {
 }
 
 // 로그인 post
-function postLogIn() {
-  return { token: "33rfwesfi" };
-  // return axios.post(`${api.login}`, data);
+function postLogIn(data) {
+  return axios.post(`${api.login}/`, data);
 }
 
 export { examplefunc, examplefunc2, postLogIn };
