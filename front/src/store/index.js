@@ -10,10 +10,9 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   strict: process.env.NODE_ENV !== "production",
   state: {
-    token: getTokenCookie() || "", // jwt token
-    errorMessage: "", // 서버 에러 메시지
+    token: getTokenCookie() || "" // jwt token
   },
   getters,
   mutations,
-  actions,
+  actions
 });
