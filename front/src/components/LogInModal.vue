@@ -81,17 +81,25 @@ export default {
           throw new Error("아이디 혹은 비밀번호를 입력하지 않았습니다.");
         }
         // id를 특정 글자 이상 입력하지 않을 경우
-        if (this.id.length < 8) {
-          throw new Error("id를 8글자 이상 입력하지 않았습니다.");
+        if (this.id.length < 1) {
+          throw new Error("id를 1글자 이상 입력하지 않았습니다.");
         }
         // 비밀번호를 특정 글자 이상 입력하지 않을 경우
-        if (this.password.length < 8) {
-          throw new Error("비밀번호를 8글자 이상 입력하지 않았습니다.");
+        if (this.password.length < 1) {
+          throw new Error("비밀번호를 1글자 이상 입력하지 않았습니다.");
         }
-        await this.$store.dispatch("submitLogIn");
+        const data = {
+          username: this.id,
+          password: this.password,
+        };
+        await this.$store.dispatch("submitLogIn", data);
         this.$parent.$data.logInModalActive = false;
       } catch (error) {
-        this.errorMessage = error;
+        if (error.response) {
+          this.errorMessage = "존재하지 않은 사용자입니다.";
+        } else {
+          this.errorMessage = error;
+        }
       } finally {
         this.initInput();
       }
