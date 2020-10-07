@@ -3,7 +3,7 @@ function setTokenCookie(value) {
 }
 
 function getTokenCookie() {
-  return document.cookie.replace(/(?:(?:^|.*;\s*)til_auth\s*=\s*([^;]*).*$)|^.*$/, "$1");
+  return document.cookie.replace(/(?:(?:^|.*;\s*)token\s*=\s*([^;]*).*$)|^.*$/, "$1");
 }
 
 function deleteCookie(value) {
