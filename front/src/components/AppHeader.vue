@@ -13,14 +13,17 @@
         <router-link to="/about">ABOUT</router-link>
       </nav>
       <aside>
-        <ul v-if="userInfo">
+        <ul v-if="token">
           <li class="image-wrapper">
             <img src="@/assets/svg/double-bookmark.svg" />
           </li>
           <li class="image-wrapper">
             <img src="@/assets/svg/message.svg" />
           </li>
-          <img :src="userInfo.src || null" class="image-wrapper user-image" />
+          <!-- to do
+            1.userInfo가 생기면 img에 thumbnail 적용
+           -->
+          <img :src="null" class="image-wrapper user-image" />
         </ul>
         <button v-else @click="clickLogInBtn">Log In</button>
         <LogInModal v-if="logInModalActive" />
@@ -31,6 +34,7 @@
 
 <script>
 import LogInModal from "./LogInModal.vue";
+import { mapState } from "vuex";
 
 export default {
   components: {
@@ -38,18 +42,17 @@ export default {
   },
   data() {
     return {
-      userInfo: false, // dummy -> vuex로 변경 예정
       logInModalActive: false,
     };
+  },
+  computed: {
+    ...mapState(["token"]),
   },
   methods: {
     clickLogInBtn() {
       this.logInModalActive = true;
     },
   },
-  // to do...
-  // 1.유저 정보가 있는지에 따라 우측 상단(로그인 버튼, 유저 프로필) 분기 처리
-  // 2.헤더를 fixed하고, 스크롤 위치에 따라 헤더 배경화면 색상 변경
 };
 </script>
 
