@@ -26,24 +26,34 @@
               <span>또는</span>
               <div class="division-line"></div>
             </div>
-            <div class="login-btn google-btn" @click="submitGoogle">
+            <GoogleLogin
+              class="login-btn google-btn"
+              :params="googleParams"
+              :onSuccess="submitGoogle"
+            >
               <img
                 src="@/assets/svg/google.svg"
                 alt="구글 이미지"
                 class="google-image"
               />
-              <span>구글 계정으로 계속하기</span>
-            </div>
+              <span>구글로 로그인하기</span>
+            </GoogleLogin>
           </div>
         </form>
       </article>
-      <button @click="clickCancelBtn" class="cancel-button">x</button>
+      <button @click="closeModal" class="cancel-button">x</button>
     </section>
   </div>
 </template>
 
 <script>
+import GoogleLogin from "vue-google-login";
+import { mapState, mapMutations } from "vuex";
+
 export default {
+  components: {
+    GoogleLogin,
+  },
   mounted() {
     document.body.style.overflow = "hidden";
   },
@@ -52,39 +62,52 @@ export default {
   },
   data() {
     return {
+      googleParams: {
+        client_id:
+          "745039563381-t976gjul7phpknjphism7i1i4fvag64q.apps.googleusercontent.com",
+      },
       id: "",
       password: "",
       errorMessage: "",
     };
   },
+  computed: {
+    ...mapState(["logInError"]),
+  },
   methods: {
+    ...mapMutations(["setLogInError"]),
+    // vuex에 로그인 정보 전달
+    async dispatchLogin(data) {
+      const response = await this.$store.dispatch("submitLogIn", data);
+      if (response) this.closeModal();
+    },
     // 우측 상단 닫기 버튼 클릭
-    clickCancelBtn() {
+    closeModal() {
       this.$parent.$data.logInModalActive = false;
     },
-    // id, 비밀번호 input 초기화
-    initInput() {
-      this.id = "";
-      this.password = "";
+    // 로컬 에러, 서버 에러 메시지 초기화
+    resetErrorMessage() {
+      this.setLogInError("");
+      this.errorMessage = "";
     },
     // 구글 로그인 버튼 클릭
-    submitGoogle() {
-      // to do...
-      // 구글 로그인 로직
+    submitGoogle(googleUser) {
+      const {
+        wc: { access_token: accessToken },
+      } = googleUser;
+      this.resetErrorMessage();
+      this.dispatchLogin(accessToken);
     },
     // 로그인 버튼 클릭
-    async submitLogIn() {
+    submitLogIn() {
       try {
-        this.errorMessage = "";
-        // id, password 중에 하나라도 비어있는 경우
+        this.resetErrorMessage();
         if (this.id.trim() === "" || this.password.trim() === "") {
           throw new Error("아이디 혹은 비밀번호를 입력하지 않았습니다.");
         }
-        // id를 특정 글자 이상 입력하지 않을 경우
         if (this.id.length < 1) {
           throw new Error("id를 1글자 이상 입력하지 않았습니다.");
         }
-        // 비밀번호를 특정 글자 이상 입력하지 않을 경우
         if (this.password.length < 1) {
           throw new Error("비밀번호를 1글자 이상 입력하지 않았습니다.");
         }
@@ -92,16 +115,12 @@ export default {
           username: this.id,
           password: this.password,
         };
-        await this.$store.dispatch("submitLogIn", data);
-        this.$parent.$data.logInModalActive = false;
+        this.dispatchLogin(data);
       } catch (error) {
-        if (error.response) {
-          this.errorMessage = "존재하지 않은 사용자입니다.";
-        } else {
-          this.errorMessage = error;
-        }
+        this.errorMessage = error;
       } finally {
-        this.initInput();
+        this.id = "";
+        this.password = "";
       }
     },
   },
@@ -138,6 +157,12 @@ article {
   height: 100%;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 /* modal 제목 */
 h1 {
   margin-bottom: 16px;
@@ -149,8 +174,8 @@ h1 {
 /* id, 비밀번호 input */
 input {
   width: 100%;
-  padding: 8px 0;
-  margin-bottom: 8px;
+  padding: 0.5vw 0;
+  margin-bottom: 12px;
   border-bottom: 1px solid #393939;
 }
 
@@ -171,6 +196,9 @@ input {
 
 /* 우측 article */
 .right-article {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding-left: 40px;
 }
 
@@ -199,7 +227,7 @@ input {
 
 /* 로그인, 구글 버튼 */
 .login-btn {
-  height: 40px;
+  height: 4vw;
   border-radius: 200px;
   background-color: #2e88db;
   color: white;
