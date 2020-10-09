@@ -12,22 +12,36 @@ const baseurl = "http://52.141.62.35:8080"; // OR axios baseurl settings
 
 const api = {
   info: `${baseurl}`,
-  login: `${baseurl}/accounts/login`
+  accounts: `${baseurl}/accounts`
 };
 
 function examplefunc(id) {
   return axios.get(`${api.info}/${id}`);
 }
 function examplefunc2(userInfo) {
-  return axios.get(`${api.login}/${userInfo}`);
+  return axios.get(`${api.accounts}/${userInfo}`);
+}
+
+// 회원가입
+function postRegister(data) {
+  return axios.post(`${api.accounts}/`, data);
 }
 
 // 로그인 post
-function postLogIn(data) {
-  return axios.post(`${api.login}/`, data);
+function postLocalLogIn(data) {
+  return axios.post(`${api.accounts}/login`, data);
 }
 
-export { examplefunc, examplefunc2, postLogIn };
+// 구글 로그인 post
+function postGoogleLogIn(toekn) {
+  return axios.post(`${api.accounts}/login`, "_", {
+    headers: {
+      Authorization: toekn
+    }
+  });
+}
+
+export { examplefunc, examplefunc2, postLocalLogIn, postGoogleLogIn, postRegister };
 
 /*
 스토어에서 다음과 같이 불러오면 좋을 것 같습니다.
