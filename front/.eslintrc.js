@@ -13,6 +13,7 @@ module.exports = {
     quotes: 0,
     "linebreak-style": 0,
     "comma-dangle": 0,
-    "arrow-parens": 0
+    "arrow-parens": 0,
+    "object-curly-newline": 0
   }
 };
