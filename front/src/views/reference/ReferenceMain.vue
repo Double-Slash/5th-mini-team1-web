@@ -4,10 +4,10 @@
            <img src="@/assets/svg/referencemain.svg" width="267" height="180"/>
             <div class = "open_ads">
             오픈 에즈
-            </div>       
+            </div>
             <div class=" explain">
-             마케팅 정보 큐레이션   
-            </div>  
+             마케팅 정보 큐레이션
+            </div>
         </div>
         <div class="ads_picture">
            <img src="@/assets/svg/referencemain.svg" width="267" height="180"/>

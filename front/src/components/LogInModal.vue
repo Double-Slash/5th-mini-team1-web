@@ -2,11 +2,7 @@
   <div class="modal-layout">
     <section>
       <article class="left-article">
-        <img
-          src="@/assets/img/modalImage.png"
-          alt="로그인 모달 사진"
-          class="modal-image"
-        />
+        <img src="@/assets/img/modalImage.png" alt="로그인 모달 사진" class="modal-image" />
       </article>
       <article class="right-article">
         <h1>
@@ -31,11 +27,7 @@
               :params="googleParams"
               :onSuccess="submitGoogle"
             >
-              <img
-                src="@/assets/svg/google.svg"
-                alt="구글 이미지"
-                class="google-image"
-              />
+              <img src="@/assets/svg/google.svg" alt="구글 이미지" class="google-image" />
               <span>구글로 로그인하기</span>
             </GoogleLogin>
           </div>
@@ -52,7 +44,7 @@ import { mapState, mapMutations } from "vuex";
 
 export default {
   components: {
-    GoogleLogin,
+    GoogleLogin
   },
   mounted() {
     document.body.style.overflow = "hidden";
@@ -63,16 +55,15 @@ export default {
   data() {
     return {
       googleParams: {
-        client_id:
-          "745039563381-t976gjul7phpknjphism7i1i4fvag64q.apps.googleusercontent.com",
+        client_id: "745039563381-t976gjul7phpknjphism7i1i4fvag64q.apps.googleusercontent.com"
       },
       id: "",
       password: "",
-      errorMessage: "",
+      errorMessage: ""
     };
   },
   computed: {
-    ...mapState(["logInError"]),
+    ...mapState(["logInError"])
   },
   methods: {
     ...mapMutations(["setLogInError"]),
@@ -93,8 +84,9 @@ export default {
     // 구글 로그인 버튼 클릭
     submitGoogle(googleUser) {
       const {
-        wc: { access_token: accessToken },
+        wc: { access_token: accessToken }
       } = googleUser;
+      console.log(googleUser);
       this.resetErrorMessage();
       this.dispatchLogin(accessToken);
     },
@@ -113,7 +105,7 @@ export default {
         }
         const data = {
           username: this.id,
-          password: this.password,
+          password: this.password
         };
         this.dispatchLogin(data);
       } catch (error) {
@@ -122,8 +114,8 @@ export default {
         this.id = "";
         this.password = "";
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
