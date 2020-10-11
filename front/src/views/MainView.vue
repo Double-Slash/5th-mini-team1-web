@@ -1,10 +1,9 @@
 <template>
-  <div>MainView</div>
+  <div>MainView </div>
 </template>
 
 <script>
 export default {
-
 };
 </script>
 
