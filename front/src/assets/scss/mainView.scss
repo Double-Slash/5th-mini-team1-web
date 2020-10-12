@@ -1,0 +1,23 @@
+$color-default:#2E88DB;
+$color-white:#ffffff;
+$color-background:#F6F6F6;
+
+
+#main-view{
+  .img-area{ width: 100vw; height: 1000px; margin-top: -138px;
+    padding: 0 140px;
+    display: flex; flex-flow: row;justify-content: flex-start; align-items: center;
+    //background-image: url("@/assets/img/modalImage.png");
+    // 절대 경로 로 변경하기
+    //background-image: url("../assets/img/mainImg.png");
+    .title{font-size: 50px; color:$color-white; }
+    .find-crew{color:$color-white; margin-top: auto}
+  }
+
+  .content-area{ background-color:$color-background ;
+
+  }
+
+}
+
+
