@@ -69,7 +69,7 @@ header {
   justify-content: space-between;
   align-items: center;
   width: 1820px;
-  padding: 48px 0;
+  padding: 32px 0;
   margin: 0 auto;
 }
 

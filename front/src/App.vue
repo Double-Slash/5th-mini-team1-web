@@ -26,7 +26,7 @@ export default {
 <style>
 .view-wrapper {
   width: 1728px;
-  padding-top: 138px;
+  padding-top: 106px;
   margin: 0 auto;
 }
 
