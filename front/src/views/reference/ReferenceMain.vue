@@ -2,7 +2,7 @@
 <div v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="10">
     <div class="reference_main">
          <div class="ads_pictures">
-           <img src="@/assets/svg/referencemain.svg" width="267" height="180"/>
+           <img src="@/assets/svg/openads.svg" width="267" height="180"/>
             <div class = "open_ads">
             오픈 에즈
             </div>
@@ -11,49 +11,67 @@
             </div>
         </div>
         <div class="ads_picture">
-           <img src="@/assets/svg/referencemain.svg" width="267" height="180"/>
+           <img src="@/assets/svg/pixabay.svg" width="267" height="180"/>
+            <div class = "open_ads">
+            픽사베이
+            </div>
+            <div class=" explain">
+             무료로 사용가능한 사진 제공
+            </div>
         </div>
         <div class="ads_picture">
-           <img src="@/assets/svg/referencemain.svg" width="267" height="180"/>
+           <img src="@/assets/svg/flaction.svg" width="267" height="180"/>
+           <div class = "open_ads">
+            FLACTION
+            </div>
+            <div class=" explain">
+             무료로 사용가능한 아이콘 제공
+            </div>
         </div>
         <div class="ads_picture">
-           <img src="@/assets/svg/referencemain.svg" width="267" height="180"/>
+           <img src="@/assets/svg/stackshare.svg" width="267" height="180"/>
+           <div class = "open_ads">
+            Stackshare
+            </div>
+            <div class=" explain">
+             트랜드와 스타트업 stack정보 제공
+            </div>
         </div>
         <div class="ads_picture">
-           <img src="@/assets/svg/referencemain.svg" width="267" height="180"/>
+           <img src="@/assets/svg/webactually.svg" width="267" height="180"/>
         </div>
         <div class="ads_picture">
-           <img src="@/assets/svg/referencemain.svg" width="267" height="180"/>
+           <img src="@/assets/svg/behance.svg" width="267" height="180"/>
         </div>
         <div class="ads_picture">
-           <img src="@/assets/svg/referencemain.svg" width="267" height="180"/>
+           <img src="@/assets/svg/freequration.svg" width="267" height="180"/>
         </div>
         <div class="ads_picture">
-           <img src="@/assets/svg/referencemain.svg" width="267" height="180"/>
+           <img src="@/assets/svg/tyle.svg" width="267" height="180"/>
         </div>
         <div class="ads_picture">
-           <img src="@/assets/svg/referencemain.svg" width="267" height="180"/>
+           <img src="@/assets/svg/pixabay.svg" width="267" height="180"/>
         </div>
         <div class="ads_picture">
-           <img src="@/assets/svg/referencemain.svg" width="267" height="180"/>
+           <img src="@/assets/svg/webactually.svg" width="267" height="180"/>
         </div>
         <div class="ads_picture">
-           <img src="@/assets/svg/referencemain.svg" width="267" height="180"/>
+           <img src="@/assets/svg/flaction.svg" width="267" height="180"/>
         </div>
         <div class="ads_picture">
-           <img src="@/assets/svg/referencemain.svg" width="267" height="180"/>
+           <img src="@/assets/svg/openads.svg" width="267" height="180"/>
         </div>
         <div class="ads_picture">
-           <img src="@/assets/svg/referencemain.svg" width="267" height="180"/>
+           <img src="@/assets/svg/behance.svg" width="267" height="180"/>
         </div>
         <div class="ads_picture">
-           <img src="@/assets/svg/referencemain.svg" width="267" height="180"/>
+           <img src="@/assets/svg/freequration.svg" width="267" height="180"/>
         </div>
         <div class="ads_picture">
-           <img src="@/assets/svg/referencemain.svg" width="267" height="180"/>
+           <img src="@/assets/svg/stackshare.svg" width="267" height="180"/>
         </div>
         <div class="ads_picture">
-           <img src="@/assets/svg/referencemain.svg" width="267" height="180"/>
+           <img src="@/assets/svg/tyle.svg" width="267" height="180"/>
         </div>
     </div>
 </div>
@@ -65,7 +83,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .open_ads{
     font-size:18px;
     font-weight: bold;

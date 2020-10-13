@@ -63,17 +63,17 @@
     </div>
   <div class = "crewmain">
       <div class = "crew"><img src="@/assets/svg/contest.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/referencemain.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/referencemain.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/referencemain.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/referencemain.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/referencemain.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/referencemain.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/referencemain.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/referencemain.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/referencemain.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/referencemain.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/referencemain.svg" width="267" height="180"/></div>
+      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
+      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
+      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
+      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
+      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
+      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
+      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
+      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
+      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
+      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
+      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
   </div>
 </div>
 </template>
@@ -84,7 +84,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 
 .crewmain{
     display:grid;
