@@ -1,4 +1,5 @@
 <template>
+<div v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="10">
     <div class="reference_main">
          <div class="ads_pictures">
            <img src="@/assets/svg/referencemain.svg" width="267" height="180"/>
@@ -55,7 +56,7 @@
            <img src="@/assets/svg/referencemain.svg" width="267" height="180"/>
         </div>
     </div>
-
+</div>
 </template>
 
 <script>
