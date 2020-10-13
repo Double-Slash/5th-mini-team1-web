@@ -4,6 +4,8 @@ $color-default:#2E88DB;
 //$color-white:#ffffff;
 $color-background:#F6F6F6;
 
+
+
 @mixin font-bundle($fs,$lh,$c){
   font-size: $fs;
   //font-weight: $fw;
@@ -26,6 +28,7 @@ $color-background:#F6F6F6;
     }
   }
 }
+
 
 ///////////
 //.view-wrapper{margin: 0}
@@ -50,70 +53,33 @@ $color-background:#F6F6F6;
     .content-title{@include font-bundle(32px,41px,black);font-family: NanumSquare, sans-serif;margin-bottom: 42px}
 
     article{display: flex; flex-flow: row wrap; justify-content: space-between;}
-    //article{display: flex; flex-flow: row; justify-content: space-between;}
-
-    .content-card{box-sizing:border-box;background-color: white;
-      width: 250px; height: 290px;
-      //width: 15vw; height: 16vw;
-      //width: 298px; height: 324px;
-
-      padding: 20px;
-
-      display: flex; flex-flow: column; justify-content: space-between;
-
-      margin-bottom: 25px;
-
-      .first-section{display: flex; flex-flow: row; align-items: center; margin-bottom: 30px}
-      .second-section{display: flex; flex-flow: column;justify-content: space-between; flex: 1;padding-bottom: 35px}
-      .third-section{display: flex; flex-flow: row; position: relative}
-
-      .img-wrapper-profile{width: 50px; height: 50px; margin-right: 30px;
-        img{width: 100%; height: 100%}
-      }
-
-      .img-wrapper-poster{width: 120px; height:180px; margin-right: 35px;
-        img{width: 100%; height: 100%}
-
-      }
-
-      .title{
-        div:nth-of-type(1){@include font-bundle(18px,13px,black);font-weight: lighter; margin-bottom: 14px}
-        div:nth-of-type(2){@include font-bundle(12px,13px,black);font-weight: lighter;}
-      }
-      .content{
-        p:nth-of-type(1){@include font-bundle(20px,13px,black);font-weight: lighter;}
-        p:nth-of-type(2){@include font-bundle(18px,24px,black);font-weight: lighter;}
-
-      }
-
-      .tags{height: 24px; margin-bottom: 10px}
-
-      .bookmark{position: absolute; bottom: 0; right: 0}
-
-    }
 
 
-    .last-content-card{width:250px; height: 290px;position: relative; background-color: $color-default;
+    .last-content-card{width:250px; height: 300px;position: relative; background-color: $color-default;
       @include font-bundle(18px,24px,white);font-weight: lighter;
       p{position: absolute; left: 20px; bottom: 145px}
       span{display: inline-block; position: absolute; right: 28px; bottom: 28px}
+
+      a:link { color: white; text-decoration: none;font-weight: lighter;@include font-bundle(18px,24px,white);}
+      a:visited { color: white; text-decoration: none;font-weight: lighter;@include font-bundle(18px,24px,white);}
+      a:hover { color: white; text-decoration: none;font-weight: lighter;@include font-bundle(18px,24px,white);}
+
     }
 
-    // 너비 조정 & flex flow 조정 위해 추천 크루 부분 클래스 하나 더 추가
-    // 텍스트 위치 조정 위해 크루 부분 클래스 하나 더 추가
-
-    .content-card-crew{width: 330px; height: 270px; flex-flow: column}
-    .poster-section{display: flex; flex-flow: row}
-    .tag-section{position: relative}
-    .content-crew{
-      margin-top: 35px;
-      &>p{@include font-bundle(12px,18px,black);font-weight: lighter;}
-      p:nth-of-type(1){margin-bottom: 38px; }
-      //p:nth-of-type(2){@include font-bundle(18px,24px,black);font-weight: lighter;}
+    .last-content-card-partner{width:276px; height: 324px;
+      //@include font-bundle(18px,24px,white);font-weight: lighter;
+      p{left: 20px; bottom: 145px}
+      span{right: 28px; bottom: 28px}
     }
-    .last-content-card-crew{
+
+    .last-content-card-crew{width:378px; height: 300px;
       &>p{position: absolute; left: 60px; bottom: 135px}
     }
+    ///수정요망
+    .last-content-card-event{width:378px; height: 300px;
+      &>p{position: absolute; left: 60px; bottom: 135px}
+    }
+
 
   }
 
