@@ -13,6 +13,7 @@
 <script>
 import AppHeader from "./components/AppHeader.vue";
 import AppFooter from "./components/AppFooter.vue";
+
 export default {
   name: "App",
   components: {
@@ -25,7 +26,7 @@ export default {
 <style>
 .view-wrapper {
   width: 1728px;
-  padding-top: 138px;
+  padding-top: 106px;
   margin: 0 auto;
 }
 @media (max-width: 1919px) {

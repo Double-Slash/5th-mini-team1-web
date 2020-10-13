@@ -35,7 +35,7 @@ export default {};
 <style scoped>
 footer {
   width: 1820px;
-  padding: 48px 0;
+  padding: 32px 0;
   margin: 0 auto;
 }
 
