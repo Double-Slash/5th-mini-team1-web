@@ -13,6 +13,7 @@ const baseurl = "http://52.141.62.35:8080"; // OR axios baseurl settings
 const api = {
   info: `${baseurl}`,
   accounts: `${baseurl}/accounts`,
+  contest: `${baseurl}/postings/contests`,
 };
 
 function examplefunc(id) {
@@ -41,7 +42,11 @@ function postGoogleLogIn(toekn) {
   });
 }
 
-export { examplefunc, examplefunc2, postLocalLogIn, postGoogleLogIn, postRegister };
+//contest/id 
+function contestId(){
+  return axios.get(`${api.contest}`);
+}
+export { examplefunc, examplefunc2, postLocalLogIn, postGoogleLogIn, postRegister,contestId };
 
 /*
 스토어에서 다음과 같이 불러오면 좋을 것 같습니다.

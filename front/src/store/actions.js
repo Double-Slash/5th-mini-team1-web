@@ -1,4 +1,4 @@
-import { postRegister, postLocalLogIn, postGoogleLogIn } from "@/api";
+import { postRegister, postLocalLogIn, postGoogleLogIn ,contestId} from "@/api";
 
 // cookie
 import { setToken } from "@/utils/jwtToken";
@@ -37,4 +37,14 @@ export default {
     }
     return response;
   },
+  async contestView({commit}){
+    let response="";
+    try{
+      const {data}=await contestId();
+      response=data;
+      commit("setContestView",response);
+    }catch(error){
+      console.error(error);
+    }
+  }
 };
