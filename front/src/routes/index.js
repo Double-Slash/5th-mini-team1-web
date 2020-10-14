@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 // import router
+import { getToken } from "@/utils/jwtToken";
 
 Vue.use(VueRouter);
 
@@ -38,6 +39,14 @@ export default new VueRouter({
     {
       path: '/crew/write',
       component: () => import('@/views/crew/CrewWrite.vue'),
+      beforeEnter(to,from,next){
+        const token=getToken();
+        if(token!==null){
+          next();
+        }else{
+         next('/crew');
+        }
+      }
     },
     {
       path: '/crew/:id',
