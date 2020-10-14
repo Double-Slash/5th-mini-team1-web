@@ -4,10 +4,10 @@
 
 <!--    로그인 전 -->
 
-<!--<template v-if="true" >-->
 <template v-if="true" >
+<!--<template v-if="false">-->
   <div class="before-login">
-        메인 사진 영역
+<!--        메인 사진 영역-->
     <section class="img-area">
       <p class="title">
 <!--        {{JSON.stringify(token)}}-->
@@ -24,8 +24,8 @@
         <div class="content-title">이번주 추천 파트너</div>
 
         <article>
-          <template v-for="post in postings">
-            <partner-card v-bind:item="post"></partner-card>
+          <template v-for="post in beforeLogin.partner">
+            <partner-card class="partner-card" v-bind:item="post"></partner-card>
           </template>
 
           <div class="last-content-card last-content-card-partner">
@@ -43,8 +43,8 @@
 
         <article>
 
-          <template v-for="post in postings">
-            <crew-card v-bind:item="post"></crew-card>
+          <template v-for="post in beforeLogin.crew">
+            <crew-card class="crew-card" v-bind:item="post"></crew-card>
           </template>
 
           <div class="last-content-card last-content-card-crew">
@@ -94,8 +94,19 @@
         <div class="content-title">이번주 추천 파트너</div>
 
         <article>
-          <template v-for="post in postings">
-            <partner-card v-bind:item="post"></partner-card>
+
+<!--          <template v-for="post in afterLogin.partner">-->
+<!--            <partner-card class="partner-card" v-bind:item="post"></partner-card>-->
+<!--          </template>-->
+
+          <template v-for="post in afterLogin.partner.slice(0,4)">
+            <partner-card class="partner-card" v-bind:item="post"></partner-card>
+          </template>
+        </article>
+        <article>
+
+          <template v-for="post in afterLogin.partner.slice(4)">
+            <partner-card class="partner-card" v-bind:item="post"></partner-card>
           </template>
 
           <div class="last-content-card last-content-card-partner">
@@ -104,13 +115,12 @@
               <span>More</span>
             </router-link>
           </div>
-          <div class="last-content-card last-content-card-partner">
-            <router-link to="/partner">
-              <p>더 많은 파트너를 만나보세요!</p>
-              <span>More</span>
-            </router-link>
-          </div>
         </article>
+
+
+
+
+
       </section>
 
       <section class="recommend-crew">
@@ -118,9 +128,15 @@
         <div class="content-title">이번주 추천 크루</div>
 
         <article>
+          <template v-for="post in afterLogin.crew.slice(0,3)">
+            <crew-card class="crew-card" v-bind:item="post"></crew-card>
+          </template>
+        </article>
 
-          <template v-for="post in postings">
-            <crew-card v-bind:item="post"></crew-card>
+        <article>
+
+          <template v-for="post in afterLogin.crew.slice(3)">
+            <crew-card class="crew-card" v-bind:item="post"></crew-card>
           </template>
 
           <div class="last-content-card last-content-card-crew">
@@ -130,43 +146,34 @@
             </router-link>
           </div>
         </article>
+
       </section>
 
       <section class="event">
         <div class="content-title">이벤트</div>
           <article>
 
-            <div  class="last-content-card last-content-card-crew">
-<!--            <div style="width: 583px;height: 256px;" class="last-content-card last-content-card-crew">-->
-            <router-link to="/crew">
-              <p>더 많은 크루를 만나보세요!</p>
-              <span>More</span>
-            </router-link>
-              </div>
-            <div  class="last-content-card last-content-card-crew">
-<!--            <div style="width: 583px;height: 256px;" class="last-content-card last-content-card-crew">-->
-              <router-link to="/crew">
-                <p>더 많은 크루를 만나보세요!</p>
+                <template v-for="event in afterLogin.event.slice(0,2)">
+                  <event-card class="event-card" v-bind:item="event"></event-card>
+                </template>
+
+<!--    <template v-if="events.length>0">-->
+<!--    </template>-->
+<!--              <template v-else>-->
+<!--                이벤트 정보가 없습니다-->
+<!--              </template>-->
+          </article>
+          <article>
+            <template v-for="event in afterLogin.event.slice(2)">
+              <event-card class="event-card" v-bind:item="event"></event-card>
+            </template>
+
+            <div class="last-content-card  last-content-card-event " v-if="events.length>0">
+              <router-link to="/contest">
+                <p>더 많은 이벤트를 만나보세요!</p>
                 <span>More</span>
               </router-link>
             </div>
-
-<!--            <template v-if="events.length>0">-->
-<!--                <template v-for="event in events">-->
-<!--                  <event-card v-bind:item="event"></event-card>-->
-<!--                </template>-->
-<!--            </template>-->
-
-<!--            <template v-else>-->
-<!--                이벤트 정보가 없습니다-->
-<!--            </template>-->
-
-<!--          <div class="last-content-card  last-content-card-event " v-if="events.length>0">-->
-<!--            <router-link to="/contest">-->
-<!--              <p>더 많은 이벤트를 만나보세요!</p>-->
-<!--              <span>More</span>-->
-<!--            </router-link>-->
-<!--          </div>-->
         </article>
       </section>
 
@@ -204,6 +211,8 @@ export default {
       dataURL: 'http://52.141.62.35:8080',
       events: [],
       postings: [],
+      beforeLogin:{ partner: [], crew: [], event: [] },
+      afterLogin: { partner: [], crew: [], event: [] },
       bannerList: [],
       hasBanner: true,
     };
@@ -232,11 +241,14 @@ export default {
 
       try {
         // 1. 이벤트 글 불러오기
-        const events_result = await axios.get(`${this.dataURL}/postings/contests`);
+        const eventsResult = await axios.get(`${this.dataURL}/postings/contests`);
         // let posting = await axios.get(this.dataURL + '/postings/admin/',token_header);
 
-        console.log('this.postings', events_result.data);
-        this.events = events_result.data;
+        // console.log('events_result.data', eventsResult.data);
+        // this.beforeLogin['event'] = events_result.data.slice(0,2);
+        this.afterLogin.event = eventsResult.data.slice(-2);
+        console.log('this',this.afterLogin.event)
+
 
         // 공모전 있으면 배너 모음에 담기
 
@@ -258,11 +270,24 @@ export default {
           // this.bannerList.push()
         }
 
-        // 2. 크루 글 불러오기 & 파트너 글 불러오기
-        const postings_result = await axios.get(`${this.dataURL}/postings/all`);
+        // 2. 파트너 글 불러오기 & 크루 글 불러오기
+        //(맨위에거)
+        const partnerResult = await axios.get(`${this.dataURL}/accounts/`);
 
-        this.postings = postings_result.data;
-        console.log('this.postingsthis.postings', this.postings);
+        this.beforeLogin.partner = partnerResult.data.slice(-3);
+        this.afterLogin.partner = partnerResult.data.slice(-7);
+        // console.log('this.beforeLogin.partnerthis.beforeLogin.partner',this.afterLogin.partner)
+
+
+        //(두번째거)
+        const crewResult = await axios.get(`${this.dataURL}/postings/all`);
+
+        this.beforeLogin.crew = crewResult.data.slice(-2);
+        this.afterLogin.crew = crewResult.data.slice(-5);
+
+
+        // this.postings = postings_result.data;
+        // console.log('this.postingsthis.postings', this.postings);
       } catch (e) {
         console.log('Error Message : server error', e);
       }

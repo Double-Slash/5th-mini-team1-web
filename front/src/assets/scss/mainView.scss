@@ -200,7 +200,8 @@ $color-background:#F6F6F6;
 
 
   .content-area{ background-color:$color-background ;width: inherit; height: auto;
-    padding: 90px 120px;
+    padding: 90px 0;
+    //padding: 90px 120px;
     //padding: 90px 16vw;
     //padding: 90px 320px;
     display: flex; flex-flow: column;
@@ -212,10 +213,16 @@ $color-background:#F6F6F6;
     .sub-title{@include font-bundle(14px,23px,$color-default);font-family: NanumSquare, sans-serif; margin-bottom: 4px}
     .content-title{@include font-bundle(32px,41px,black);font-family: NanumSquare, sans-serif;margin-bottom: 42px}
 
-    article{display: flex; flex-flow: row wrap; justify-content: space-between;}
+    article{
+      display: flex;
+      flex-flow: row ;
+      margin-bottom: 20px;
+      //justify-content: space-between;
+    }
 
-
-    .last-content-card{width:250px; height: 300px;position: relative; background-color: $color-default;
+    .last-content-card{
+      width:250px;
+      height: 300px;position: relative; background-color: $color-default;
       @include font-bundle(18px,24px,white);font-weight: lighter;
       p{position: absolute; left: 20px; bottom: 145px}
       span{display: inline-block; position: absolute; right: 28px; bottom: 28px}
@@ -226,17 +233,55 @@ $color-background:#F6F6F6;
 
     }
 
-    .last-content-card-partner{width:276px; height: 324px;
+    .partner-card{
+      flex: 1;
+      max-width: 308px;
+      //max-width: 332px;
+    }
+
+    .last-content-card-partner{
+      max-width: 308px;
+      //max-width: 332px;
+      flex: 1;
+      padding: 16px;
+      box-sizing: border-box;
+      //width:276px;
+      height: 324px;
       //@include font-bundle(18px,24px,white);font-weight: lighter;
       p{left: 20px; bottom: 145px}
       span{right: 28px; bottom: 28px}
     }
 
-    .last-content-card-crew{width:378px; height: 300px;
+    .crew-card{
+      flex: 1;
+      max-width: 416px;
+      //max-width: 448px;
+      box-sizing: border-box;
+    }
+    .last-content-card-crew{
+      max-width: 416px;
+      //max-width: 448px;
+      flex: 1;
+      padding: 24px;
+      box-sizing: border-box;
+      //width:378px;
+      height: 300px;
       &>p{position: absolute; left: 60px; bottom: 135px}
     }
-    ///수정요망
-    .last-content-card-event{width:378px; height: 300px;
+
+    .event-card{
+      flex: 1;
+      /////////수정요망
+      max-width: 600px;
+      //max-width: 448px;
+      box-sizing: border-box;
+    }
+    .last-content-card-event{
+      flex: 1;
+      padding: 24px;
+      max-width: 600px;
+      //width:378px;
+      height: 300px;
       &>p{position: absolute; left: 60px; bottom: 135px}
     }
 

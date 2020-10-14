@@ -7,10 +7,10 @@
       <div class="post-info">
         <div class="info-header">
           <h1>{{ item.title }}</h1>
-          <span>{{ item.guide_text }}</span>
+          <span>{{ item.project_description }}</span>
         </div>
         <div class="info-content">
-          <p>{{ item.project_description }}</p>
+          <p>{{ item.team_description }}</p>
         </div>
         <div class="info-location">
           <img src="@/assets/svg/peek.svg" />
