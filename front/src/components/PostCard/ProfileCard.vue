@@ -2,7 +2,7 @@
   <div class='profile-content'>
     <!--img dummy url -->
     <div class='content-img'>
-      <img :src='"../../assets/svg/profile/"+cardInfo.img' width="50" height="50" />
+      <img :src='"../../assets/img/profile/"+cardInfo.img' width="50" height="50" />
     </div>
     <div class='content-divide'>
       <div class='profile-name'>{{cardInfo.name}}<br></div>

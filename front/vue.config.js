@@ -1,5 +1,4 @@
 module.exports = {
-  lintOnSave:false,
   devServer: {
     overlay: false,
     host: "0.0.0.0",
