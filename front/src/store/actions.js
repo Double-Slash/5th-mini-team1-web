@@ -1,18 +1,74 @@
-import { postLogIn } from "@/api";
+import { postRegister, postLocalLogIn, postGoogleLogIn ,contestId,crewId,crewW} from "@/api";
 
 // cookie
-import { setTokenCookie } from "@/utils/cookies";
+import { setToken } from "@/utils/jwtToken";
 
 export default {
-  // log in data 전달
-  async submitLogIn({ commit }, data) {
+  // 회원가입
+  async submitRegister({ commit }, registerData) {
+    let response = "";
     try {
-      commit("setErrorMessage", "");
-      const { token } = await postLogIn(data);
-      commit("setToken", token);
-      setTokenCookie(token);
+      const { data } = await postRegister(registerData);
+      // to do...회원가입 결과 값 받고 난 후
+      response = data;
+      return data;
     } catch (error) {
-      commit("setErrorMessage", error.response.data);
+      commit("setRegisterError", "존재하지 않은 사용자입니다.");
+      response = "";
     }
+    return response;
+  },
+  // local login, google login
+  async submitLogIn({ commit }, logInData) {
+    let response = "";
+    try {
+      if (logInData.username) {
+        const { data } = await postLocalLogIn(logInData);
+        response = data;
+      } else {
+        const { data } = await postGoogleLogIn(logInData);
+        response = data;
+      }
+      commit("setToken", response.token);
+      setToken(response.token);
+    } catch (error) {
+      commit("setLogInError", "존재하지 않은 사용자입니다.");
+      response = "";
+    }
+    return response;
+  },
+  async contestView({commit}){
+    let response="";
+    try{
+      const {data}=await contestId();
+      response=data;
+      commit("setContestView",response);
+    }catch(error){
+      response=error;
+    }finally{
+      return response;
+    }
+  },
+  async crewView({commit},id){
+    let response="";
+    try{
+      const {data}=await crewId(id);
+      response=data;
+      commit("setCrewView",response);
+    }catch(error){
+      response=error;
+    }finally{
+      return response;
+    }
+  },
+  async crewBoardWrite({},data){
+    let response="";
+    try{
+      const test=await crewW(data);
+      response=test;
+    }catch(error){
+      response=error;
+    }
+    return response;
   },
 };

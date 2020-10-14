@@ -37,8 +37,6 @@
         </article>
       </section>
 
-
-
       <section class="recommend-crew">
         <div class="sub-title">어디있니</div>
         <div class="content-title">이번주 추천 크루</div>
@@ -60,11 +58,9 @@
 
     </section>
 
-
   </div>
 
 </template>
-
 
 <template v-else>
   <div class="after-login">
@@ -117,8 +113,6 @@
         </article>
       </section>
 
-
-
       <section class="recommend-crew">
         <div class="sub-title">어디있니</div>
         <div class="content-title">이번주 추천 크루</div>
@@ -137,8 +131,6 @@
           </div>
         </article>
       </section>
-
-
 
       <section class="event">
         <div class="content-title">이벤트</div>
@@ -178,12 +170,10 @@
         </article>
       </section>
 
-
     </section>
 
   </div>
 </template>
-
 
   </div>
 
@@ -191,14 +181,13 @@
 
 <script>
 
-  import LogInModal from "../components/LogInModal";
-  import { Carousel, Slide } from 'vue-carousel';
-  import EventCard from "../components/PostCard/EventCard";
-  import CrewCard from "../components/PostCard/CrewCard";
-  import PartnerCard from "../components/PostCard/PartnerCard";
-
-  import axios from 'axios';
-  import { mapState } from "vuex";
+import { Carousel, Slide } from 'vue-carousel';
+import axios from 'axios';
+import { mapState } from "vuex";
+import LogInModal from "../components/LogInModal";
+import EventCard from "../components/PostCard/EventCard";
+import CrewCard from "../components/PostCard/CrewCard";
+import PartnerCard from "../components/PostCard/PartnerCard";
 
 export default {
   components: {
@@ -209,80 +198,75 @@ export default {
     CrewCard,
     PartnerCard,
   },
-  data(){
-    return{
+  data() {
+    return {
       // modalToggle:false,
       dataURL: 'http://52.141.62.35:8080',
       events: [],
       postings: [],
-      bannerList : [],
-      hasBanner:true,
-    }
+      bannerList: [],
+      hasBanner: true,
+    };
   },
 
   created() {
-    this.getData()
+    this.getData();
   },
   computed: mapState({
     // 화살표 함수는 코드를 매우 간결하게 만들어 줍니다!
     token: state => state.token,
   }),
 
-  methods:{
-    async getData(){
-
+  methods: {
+    async getData() {
       // const token_header = this.token;
       // // const token = this.$cookies.get("doubleslash");
       // console.log('111111',token_header)
 
       const token_header = {
-        headers : {
-          Authorization : 'Token d9ac1142d7bd04479bbc3c454cb49017ec5c476a'
+        headers: {
+          Authorization: 'Token d9ac1142d7bd04479bbc3c454cb49017ec5c476a',
           // token : this.$cookies.get("token")
-        }
-      }
+        },
+      };
 
-      try{
-        //1. 이벤트 글 불러오기
-        let events_result = await axios.get(this.dataURL + '/postings/contests');
+      try {
+        // 1. 이벤트 글 불러오기
+        const events_result = await axios.get(`${this.dataURL}/postings/contests`);
         // let posting = await axios.get(this.dataURL + '/postings/admin/',token_header);
 
-        console.log('this.postings',events_result.data)
+        console.log('this.postings', events_result.data);
         this.events = events_result.data;
 
-        //공모전 있으면 배너 모음에 담기
+        // 공모전 있으면 배너 모음에 담기
 
-        if(this.events.length>0){
-          this.bannerList = this.events.reduce((acc,cur) =>{
-            if(acc.length < 5){
+        if (this.events.length > 0) {
+          this.bannerList = this.events.reduce((acc, cur) => {
+            if (acc.length < 5) {
               acc.push(cur.image);
             }
-            return acc
-          },[])
+            return acc;
+          }, []);
 
           // console.log('imagesimagesimages',images)
         }
 
         // 서버에서 넘어오는 이미지값 없음 !
         // 임시 처리
-        if(this.bannerList.length === 0){
-          this.hasBanner = false
+        if (this.bannerList.length === 0) {
+          this.hasBanner = false;
           // this.bannerList.push()
         }
 
-        //2. 크루 글 불러오기 & 파트너 글 불러오기
-        let postings_result = await axios.get(this.dataURL + '/postings/all');
+        // 2. 크루 글 불러오기 & 파트너 글 불러오기
+        const postings_result = await axios.get(`${this.dataURL}/postings/all`);
 
         this.postings = postings_result.data;
-        console.log('this.postingsthis.postings',this.postings)
-
-
-
-      }catch (e) {
-        console.log('Error Message : server error',e);
+        console.log('this.postingsthis.postings', this.postings);
+      } catch (e) {
+        console.log('Error Message : server error', e);
       }
-
-    }
+    },
 
   },
 };

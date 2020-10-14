@@ -119,13 +119,9 @@
             </article>
           </section>
 
-
-
         </section>
 
       </div>
-
-
 
   </div>
 
@@ -133,20 +129,18 @@
 
 <script>
 
+export default {
+  components: {
 
+  },
+  data() {
+    return {
+    };
+  },
+  methods: {
 
-  export default {
-    components: {
-
-    },
-    data(){
-      return{
-      }
-    },
-    methods:{
-
-    }
-  };
+  },
+};
 </script>
 
 <style lang="scss">

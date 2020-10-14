@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import { getTokenCookie } from "@/utils/cookies";
+import { getToken } from "@/utils/jwtToken";
 import getters from "./getters";
 import mutations from "./mutations";
 import actions from "./actions";
@@ -10,8 +10,12 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   strict: process.env.NODE_ENV !== "production",
   state: {
-    token: getTokenCookie() || "", // jwt token
-    errorMessage: "", // 서버 에러 메시지
+    token: getToken() || "", // jwt token
+    registerMessage: "", // 회원가입 결과 메시지
+    logInError: "", // log in 서버 에러
+    contest:"", // contest data
+    crew:"", //crew data
+    crewAll:"",
   },
   getters,
   mutations,

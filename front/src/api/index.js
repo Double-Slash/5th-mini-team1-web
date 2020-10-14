@@ -8,11 +8,13 @@ instance.interceptors.request.use((config) => {
   return config;
 });
 
-const baseurl = ""; // OR axios baseurl settings
+const baseurl = "http://52.141.62.35:8080"; // OR axios baseurl settings
 
 const api = {
   info: `${baseurl}`,
-  login: `${baseurl}/login`,
+  accounts: `${baseurl}/accounts`,
+  contest: `${baseurl}/postings/contests`,
+  crew: `${baseurl}/postings/`
 };
 
 function examplefunc(id) {
@@ -22,13 +24,45 @@ function examplefunc2(userInfo) {
   return axios.get(`${api.login}/${userInfo}`);
 }
 
-// 로그인 post
-function postLogIn() {
-  return { token: "33rfwesfi" };
-  // return axios.post(`${api.login}`, data);
+// 회원가입
+function postRegister(data) {
+  return axios.post(`${api.accounts}/`, data);
 }
 
-export { examplefunc, examplefunc2, postLogIn };
+// 로그인 post
+function postLocalLogIn(data) {
+  return axios.post(`${api.accounts}/login/`, data);
+}
+
+// 구글 로그인 post
+function postGoogleLogIn(toekn) {
+  return axios.post(`${api.accounts}/login`, "_", {
+    headers: {
+      Authorization: toekn,
+    },
+  });
+}
+
+//contest/id 
+function contestId(){
+  return axios.get(`${api.contest}`);
+}
+//crew/id
+function crewId(id){
+  return axios.get(`${api.crew}${id}`)
+}
+//crew/write
+function crewW(data){
+  const input=data[1];
+  const input2=data[0];
+  return axios.post(`${api.crew}`,input,{
+    headers: {
+      'Authorization': input2,
+    },
+  })
+}
+
+export { examplefunc, examplefunc2, postLocalLogIn, postGoogleLogIn, postRegister,contestId,crewId ,crewW};
 
 /*
 스토어에서 다음과 같이 불러오면 좋을 것 같습니다.

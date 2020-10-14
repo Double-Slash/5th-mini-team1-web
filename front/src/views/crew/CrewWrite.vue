@@ -5,13 +5,13 @@
         <img src="@/assets/img/profile.png" width="300" height="350"/>
       </div>
       <div class="form-type"><label for="term">활동기간</label></div>
-      <div class="form-input"><textarea id="term"></textarea></div>
+      <div class="form-input"><textarea id="term" v-model="period"></textarea></div>
 
       <div class="form-type"><label for="projectID">프로젝트</label></div>
-      <div class="form-input"><textarea id="projectID"></textarea></div>
+      <div class="form-input"><textarea id="projectID" v-model="project"></textarea></div>
 
       <div class="form-type"><label for="briefInfo">간단설명</label></div>
-      <div class="form-input"><textarea id="briefInfo" style='height:200px;'></textarea></div>
+      <div class="form-input"><textarea id="briefInfo" v-model="description" style='height:200px;'></textarea></div>
     </div>
     <div class="write-content">
       <div class="content-type">분야선택</div>
@@ -37,26 +37,22 @@
 
     <div class="content-type">활동지역</div>
     <div class="content-select">
-      <select>
-        <option selected>시/도</option>
-        <option>서울</option>
-        <option>수원</option>
-      </select>
-      <select>
-        <option selected>시/군/구</option>
-        <option>아ㅏㅏㅏ</option>
+      <select v-model="location">
+        <option selected value="">시/도</option>
+        <option value="서울">서울</option>
+        <option value="수원">수원</option>
       </select>
     </div>
     <div class="content-type"><label for="teamName">팀이름</label></div>
-    <div class='content-input gap'><textarea class='team' id="teamName"></textarea></div>
+    <div class='content-input gap'><textarea class='team' v-model="team_name" id="teamName"></textarea></div>
     <div class="content-type"><label for="teamIntro">팀소개</label></div>
-    <div class='content-text gap'><textarea id="teamIntro"></textarea></div>
+    <div class='content-text gap'><textarea v-model="team_intro" id="teamIntro"></textarea></div>
     <div class="content-type"><label for="teamProject">프로젝트소개</label></div>
     <div class='content-text gap'><textarea id="teamProject"></textarea></div>
     <div class="content-type"><label for="teaminfo">모집안내</label></div>
-    <div class='content-text gap'><textarea id="teaminfo"></textarea></div>
+    <div class='content-text gap'><textarea v-model="team_description" id="teaminfo"></textarea></div>
     <div class="content-type"><label for="requirement">자격요건 및<br> 우대사항</label></div>
-    <div class='content-text gap'><textarea id="requirement"></textarea></div>
+    <div class='content-text gap'><textarea v-model="team_requirement" id="requirement"></textarea></div>
    <div class="content-type">해시태그</div>
    <div class='content-hashtag'>
      <div class="hashtag"><label for="hash1"># </label><input id="hash1" type='text'></div>
@@ -65,24 +61,26 @@
      <div class="hashtag"><label for="hash4"># </label><input id="hash4" type='text'></div>
      <div class="hashtag"><label for="hash5"># </label><input id="hash5" type='text'></div>
    </div>
-   <div class="content-type gap manager">담당자 정보</div>
-   <div class='content-manager'>
-      <PartnerCard :item="item"></PartnerCard>
-      <PartnerCard :item="item"></PartnerCard>
-   </div>
    <div class="content-btn">
-   <button>확인</button>
+   <button style='margin-top:20px;' @click="crewPost()">확인</button>
    </div>
   </div>
   </div>
 </template>
 
 <script>
-import PartnerCard from '@/components/PostCard/PartnerCard.vue';
-
+import { getToken } from "@/utils/jwtToken";
 export default {
   data() {
     return {
+      period:'',
+      project:'',
+      description:'',
+      location:'',
+      team_name:'',
+      team_intro:'',
+      team_description:'',
+      team_requirement:'',
       hashTags: ['수도권', 'UI/UX', '웹디자인'],
       item: {
         job: "웹 디자이너",
@@ -92,9 +90,33 @@ export default {
       },
     };
   },
-  components: {
-    PartnerCard,
-  },
+  methods:{
+    async crewPost(){
+      let data=[
+        getToken(),
+        {
+          "title":this.project,
+          "content":this.description,
+          "location":this.location,
+          "team_name":this.team_name,
+          "team_description":this.team_description,
+          "project_description":this.team_intro,
+          "qualifications":this.team_requirement,
+          "author":1,
+        }
+      ]
+      const result=await this.$store.dispatch('crewBoardWrite',data);
+      if(result.response.status ===201){
+        alert('성공적으로 입력되었습니다.');
+        location.href='/crew';
+      }else if(result.response.status===400){
+        alert('빈 데이터를 채워주셔야 합니다.');
+      }else{
+        alert('알수 없는 오류로 실패하였습니다. 다시 시도해 주세요.');
+      }
+      
+    }
+  }
 };
 </script>
 <style scoped>

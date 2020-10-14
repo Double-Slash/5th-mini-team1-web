@@ -14,26 +14,38 @@
           <br />
           혜택과 소식을 만나보세요.
         </h1>
-        <form @submit.prevent="submitLogIn">
+        <form @submit.prevent="submitLogInOrRegister">
           <div>
             <input type="text" placeholder="ID" v-model="id" />
             <input type="text" placeholder="PASSWORD" v-model="password" />
           </div>
+          <div class="is-now-login-wrapper">
+            <p>{{ errorMessage || registerMessage || logInError || "" }}</p>
+            <p @click="clickLogInOrRegisterText">
+              {{ changeToLogInText("button") }}
+            </p>
+          </div>
           <div class="button-wrapper">
-            <button type="submit" class="login-btn">로그인</button>
+            <button type="submit" class="login-btn">
+              {{ changeToLogInText() }}
+            </button>
             <div class="division">
               <div class="division-line"></div>
               <span>또는</span>
               <div class="division-line"></div>
             </div>
-            <div class="login-btn google-btn" @click="submitGoogle">
+            <GoogleLogin
+              class="login-btn google-btn"
+              :params="googleParams"
+              :onSuccess="submitGoogle"
+            >
               <img
                 src="@/assets/svg/google.svg"
                 alt="구글 이미지"
                 class="google-image"
               />
-              <span>구글 계정으로 계속하기</span>
-            </div>
+              <span>구글 계정으로 로그인하기</span>
+            </GoogleLogin>
           </div>
         </form>
       </article>
@@ -43,7 +55,13 @@
 </template>
 
 <script>
+import GoogleLogin from "vue-google-login";
+import { mapActions, mapState, mapMutations } from "vuex";
+
 export default {
+  components: {
+    GoogleLogin,
+  },
   mounted() {
     document.body.style.overflow = "hidden";
   },
@@ -52,12 +70,43 @@ export default {
   },
   data() {
     return {
+      googleParams: {
+        client_id:
+          "745039563381-t976gjul7phpknjphism7i1i4fvag64q.apps.googleusercontent.com",
+      },
       id: "",
       password: "",
       errorMessage: "",
+      isNowLogin: true,
     };
   },
+  computed: {
+    ...mapState(["logInError", "registerMessage"]),
+    changeToLogInText() {
+      return function anonymous(reverse = "") {
+        if (reverse === "button") {
+          return this.isNowLogin ? "회원가입" : "로그인";
+        }
+        return this.isNowLogin ? "로그인" : "회원가입";
+      };
+    },
+  },
   methods: {
+    ...mapMutations(["setLogInError"]),
+    ...mapActions(["submitRegister", "submitLogIn"]),
+    // vuex에 로그인 정보 전달
+    async dispatchLogin(data) {
+      const response = await this.submitLogIn(data);
+      if (response) this.closeModal();
+    },
+    // 우측 상단 닫기 버튼 클릭
+    closeModal() {
+      this.$parent.$data.logInModalActive = false;
+    },
+    // 회원가입, 로그인 텍스트 클릭 시 상태 전환
+    clickLogInOrRegisterText() {
+      this.isNowLogin = !this.isNowLogin;
+    },
     // 우측 상단 닫기 버튼 클릭
     clickCancelBtn() {
       this.$parent.$data.logInModalActive = false;
@@ -68,30 +117,42 @@ export default {
       this.password = "";
     },
     // 구글 로그인 버튼 클릭
-    submitGoogle() {
-      // to do...
-      // 구글 로그인 로직
+    submitGoogle(googleUser) {
+      const {
+        wc: { access_token: accessToken },
+      } = googleUser;
+      console.log(googleUser);
+      this.resetErrorMessage();
+      this.dispatchLogin(accessToken);
     },
-    // 로그인 버튼 클릭
-    async submitLogIn() {
+    // 로그인, 회원가입 버튼 클릭
+    async submitLogInOrRegister() {
       try {
         this.errorMessage = "";
         // id, password 중에 하나라도 비어있는 경우
         if (this.id.trim() === "" || this.password.trim() === "") {
           throw new Error("아이디 혹은 비밀번호를 입력하지 않았습니다.");
         }
-        // id를 특정 글자 이상 입력하지 않을 경우
-        if (this.id.length < 8) {
-          throw new Error("id를 8글자 이상 입력하지 않았습니다.");
+        if (this.id.length < 4) {
+          throw new Error("id를 4글자 이상 입력하지 않았습니다.");
         }
-        // 비밀번호를 특정 글자 이상 입력하지 않을 경우
-        if (this.password.length < 8) {
-          throw new Error("비밀번호를 8글자 이상 입력하지 않았습니다.");
+        if (this.password.length < 4) {
+          throw new Error("비밀번호를 4글자 이상 입력하지 않았습니다.");
         }
-        await this.$store.dispatch("submitLogIn");
-        this.$parent.$data.logInModalActive = false;
+        const data = {
+          username: this.id,
+          password: this.password,
+        };
+        if (this.isNowLogin) {
+          this.dispatchLogin(data);
+        } else {
+          const { response } = await this.submitRegister(data);
+          if (response) {
+            this.isNowLogin = !this.isNowLogin;
+          }
+        }
       } catch (error) {
-        this.errorMessage = error;
+        this.errorMessage = error.message;
       } finally {
         this.initInput();
       }
@@ -120,7 +181,7 @@ section {
   position: relative;
   width: 100%;
   height: 100%;
-  padding: 72px 112px;
+  padding: 72px 96px;
   box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.16);
   background-color: #ffffff;
 }
@@ -164,6 +225,20 @@ input {
 /* 우측 article */
 .right-article {
   padding-left: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* 회원가입, 로그인 텍스트 */
+.is-now-login-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.is-now-login-wrapper > p {
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-align: right;
 }
 
 /* 로그인, 구글 계정 로그인 버튼 wrapper */
@@ -191,6 +266,7 @@ input {
 
 /* 로그인, 구글 버튼 */
 .login-btn {
+  /* height: 3vw; */
   height: 40px;
   border-radius: 200px;
   background-color: #2e88db;
