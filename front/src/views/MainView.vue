@@ -4,7 +4,7 @@
 
 <!--    로그인 전 -->
 
-<template v-if="true" >
+<template v-if="false" >
 <!--<template v-if="false">-->
   <div class="before-login">
 <!--        메인 사진 영역-->
@@ -23,37 +23,53 @@
         <div class="sub-title">어디있니</div>
         <div class="content-title">이번주 추천 파트너</div>
 
-        <article>
-          <template v-for="post in beforeLogin.partner">
-            <partner-card class="partner-card" v-bind:item="post"></partner-card>
-          </template>
+        <template v-if=" beforeLogin.partner.length > 0">
+          <article>
+            <template v-for="post in beforeLogin.partner">
+              <partner-card class="partner-card" v-bind:item="post"></partner-card>
+            </template>
 
-          <div class="last-content-card last-content-card-partner">
-            <router-link to="/partner">
-              <p>더 많은 파트너를 만나보세요!</p>
-              <span>More</span>
-            </router-link>
-          </div>
-        </article>
+            <div class="last-content-card last-content-card-partner">
+              <router-link to="/partner">
+                <p>더 많은 파트너를 만나보세요!</p>
+                <span>More</span>
+              </router-link>
+            </div>
+          </article>
+        </template>
+
+        <template v-else>
+          파트너 정보가 없습니다
+        </template>
+
+
       </section>
 
       <section class="recommend-crew">
         <div class="sub-title">어디있니</div>
         <div class="content-title">이번주 추천 크루</div>
 
-        <article>
+        <template v-if=" beforeLogin.crew.length > 0">
+          <article>
 
-          <template v-for="post in beforeLogin.crew">
-            <crew-card class="crew-card" v-bind:item="post"></crew-card>
-          </template>
+            <template v-for="post in beforeLogin.crew">
+              <crew-card class="crew-card" v-bind:item="post"></crew-card>
+            </template>
 
-          <div class="last-content-card last-content-card-crew">
-            <router-link to="/crew">
-              <p>더 많은 크루를 만나보세요!</p>
-              <span>More</span>
-            </router-link>
-          </div>
-        </article>
+            <div class="last-content-card last-content-card-crew">
+              <router-link to="/crew">
+                <p>더 많은 크루를 만나보세요!</p>
+                <span>More</span>
+              </router-link>
+            </div>
+          </article>
+        </template>
+
+        <template v-else>
+          크루 정보가 없습니다
+        </template>
+
+
       </section>
 
     </section>
@@ -90,78 +106,81 @@
     <section class="content-area">
 
       <section class="recommend-partner">
-        <div class="sub-title">어디있니</div>
-        <div class="content-title">이번주 추천 파트너</div>
+        <div class="content-title">맞춤 파트너</div>
 
-        <article>
+        <template v-if="afterLogin.partner.length>0">
+          <article>
 
-<!--          <template v-for="post in afterLogin.partner">-->
-<!--            <partner-card class="partner-card" v-bind:item="post"></partner-card>-->
-<!--          </template>-->
+            <template v-for="post in afterLogin.partner.slice(0,4)">
+              <partner-card class="partner-card" v-bind:item="post"></partner-card>
+            </template>
+          </article>
+          <article>
 
-          <template v-for="post in afterLogin.partner.slice(0,4)">
-            <partner-card class="partner-card" v-bind:item="post"></partner-card>
-          </template>
-        </article>
-        <article>
+            <template v-for="post in afterLogin.partner.slice(4)">
+              <partner-card class="partner-card" v-bind:item="post"></partner-card>
+            </template>
 
-          <template v-for="post in afterLogin.partner.slice(4)">
-            <partner-card class="partner-card" v-bind:item="post"></partner-card>
-          </template>
+            <div class="last-content-card last-content-card-partner">
+              <router-link to="/partner">
+                <p>더 많은 파트너를 만나보세요!</p>
+                <span>More</span>
+              </router-link>
+            </div>
+          </article>
+        </template>
 
-          <div class="last-content-card last-content-card-partner">
-            <router-link to="/partner">
-              <p>더 많은 파트너를 만나보세요!</p>
-              <span>More</span>
-            </router-link>
-          </div>
-        </article>
-
-
-
+        <template v-else>
+          파트너 정보가 없습니다
+        </template>
 
 
       </section>
 
       <section class="recommend-crew">
-        <div class="sub-title">어디있니</div>
-        <div class="content-title">이번주 추천 크루</div>
+<!--        <div class="sub-title">어디있니</div>-->
+        <div class="content-title">맞춤 크루</div>
 
-        <article>
-          <template v-for="post in afterLogin.crew.slice(0,3)">
-            <crew-card class="crew-card" v-bind:item="post"></crew-card>
-          </template>
-        </article>
+        <template v-if="afterLogin.crew.length>0">
+          <article>
+            <template v-for="post in afterLogin.crew.slice(0,3)">
+              <crew-card class="crew-card" v-bind:item="post"></crew-card>
+            </template>
+          </article>
 
-        <article>
+          <article>
 
-          <template v-for="post in afterLogin.crew.slice(3)">
-            <crew-card class="crew-card" v-bind:item="post"></crew-card>
-          </template>
+            <template v-for="post in afterLogin.crew.slice(3)">
+              <crew-card class="crew-card" v-bind:item="post"></crew-card>
+            </template>
 
-          <div class="last-content-card last-content-card-crew">
-            <router-link to="/crew">
-              <p>더 많은 크루를 만나보세요!</p>
-              <span>More</span>
-            </router-link>
-          </div>
-        </article>
+            <div class="last-content-card last-content-card-crew">
+              <router-link to="/crew">
+                <p>더 많은 크루를 만나보세요!</p>
+                <span>More</span>
+              </router-link>
+            </div>
+          </article>
+        </template>
+
+        <template v-else>
+          크루 정보가 없습니다
+        </template>
+
+
 
       </section>
 
       <section class="event">
         <div class="content-title">이벤트</div>
+
+        <template v-if="afterLogin.event.length>0">
           <article>
 
-                <template v-for="event in afterLogin.event.slice(0,2)">
-                  <event-card class="event-card" v-bind:item="event"></event-card>
-                </template>
+            <template v-for="event in afterLogin.event.slice(0,2)">
+              <event-card class="event-card" v-bind:item="event"></event-card>
+            </template>
 
-<!--    <template v-if="events.length>0">-->
-<!--    </template>-->
-<!--              <template v-else>-->
-<!--                이벤트 정보가 없습니다-->
-<!--              </template>-->
           </article>
           <article>
             <template v-for="event in afterLogin.event.slice(2)">
@@ -174,7 +193,14 @@
                 <span>More</span>
               </router-link>
             </div>
-        </article>
+          </article>
+        </template>
+
+        <template v-else>
+          이벤트 정보가 없습니다
+        </template>
+
+
       </section>
 
     </section>
