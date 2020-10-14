@@ -44,7 +44,9 @@ export default {
       response=data;
       commit("setContestView",response);
     }catch(error){
-      console.error(error);
+      response=error;
+    }finally{
+      return response;
     }
   },
   async crewView({commit},id){

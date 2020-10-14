@@ -33,8 +33,12 @@
 export default {
   // axios 통신
   async beforeCreate() {
-    await this.$store.dispatch('contestView');
-    this.contestData=this.$store.state.contest[this.$route.params.id-1];
+    const result = await this.$store.dispatch('contestView');
+    if(this.$route.params.id>this.$store.state.contest.length){
+      this.$router.push('/error');
+    }else{
+      this.contestData=this.$store.state.contest[this.$route.params.id-1];
+    }
   },
   filters:{
     timeFilter(value){
