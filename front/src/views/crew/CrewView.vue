@@ -1,6 +1,6 @@
 <template>
-  <div class='crew-view'>
-    <div class='view-from' v-if="crewData !=''">
+  <div class='crew-view' v-if="crewData !=''">
+    <div class='view-from'>
       <div class='form-img'>
         <img src="@/assets/img/profile.png" width="300" height="350"/>
       </div>
@@ -57,8 +57,13 @@ import AskModal from '@/components/CrewAskModal.vue';
 
 export default {
   async beforeCreate() {
-    await this.$store.dispatch('crewView',this.$route.params.id);
-    this.crewData=this.$store.state.crew;
+    const result = await this.$store.dispatch('crewView',this.$route.params.id);
+    if(result.response ===undefined){
+      this.crewData=this.$store.state.crew;
+    }
+    else{
+      this.$router.push('/error');
+    }
   },
   data() {
     return {

@@ -56,15 +56,19 @@ export default {
       response=data;
       commit("setCrewView",response);
     }catch(error){
-      console.error(error);
+      response=error;
+    }finally{
+      return response;
     }
   },
   async crewBoardWrite({},data){
+    let response="";
     try{
       const test=await crewW(data);
-      return test;
+      response=test;
     }catch(error){
-      console.error(error.response.data);
+      response=error;
     }
+    return response;
   },
 };

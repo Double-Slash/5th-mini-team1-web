@@ -106,11 +106,13 @@ export default {
         }
       ]
       const result=await this.$store.dispatch('crewBoardWrite',data);
-      if(result.status ===201){
+      if(result.response.status ===201){
         alert('성공적으로 입력되었습니다.');
         location.href='/crew';
+      }else if(result.response.status===400){
+        alert('빈 데이터를 채워주셔야 합니다.');
       }else{
-        alert('알수 없는 오류로 처리할 수 없습니다. 다시 시도해주세요');
+        alert('알수 없는 오류로 실패하였습니다. 다시 시도해 주세요.');
       }
       
     }

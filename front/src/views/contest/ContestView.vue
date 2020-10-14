@@ -33,7 +33,7 @@
 export default {
   // axios 통신
   async beforeCreate() {
-    const result = await this.$store.dispatch('contestView');
+    await this.$store.dispatch('contestView');
     if(this.$route.params.id>this.$store.state.contest.length){
       this.$router.push('/error');
     }else{
