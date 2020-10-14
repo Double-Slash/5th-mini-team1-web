@@ -11,4 +11,10 @@ export default {
   setLogInError(state, error) {
     state.logInError = error;
   },
+  setContestView(state,data){
+    state.contest=data;
+  },
+  setCrewView(state,data){
+    state.crew=data;
+  }
 };

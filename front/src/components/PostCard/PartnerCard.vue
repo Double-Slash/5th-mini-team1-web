@@ -49,11 +49,15 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 276px;
+  flex: 0 0 25%;
   height: 324px;
-  padding: 32px;
+  padding: 16px;
   background: #ffffff;
   box-sizing: border-box;
+}
+
+li:not(:nth-child(4)) {
+  margin-right: 16px;
 }
 
 /* 직업, 프로그램 희망 텍스트 */
@@ -68,8 +72,8 @@ h1 {
 }
 
 .post-header img {
-  width: 56px;
-  height: 56px;
+  width: 40px;
+  height: 40px;
   margin-right: 12px;
   border: 0;
   border-radius: 50%;

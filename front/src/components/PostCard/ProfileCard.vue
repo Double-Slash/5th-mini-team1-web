@@ -2,7 +2,7 @@
   <div class='profile-content'>
     <!--img dummy url -->
     <div class='content-img'>
-      <img src="../../assets/img/profile.png" width="50" height="50" />
+      <img :src="imgUrl" width="60" height="60" />
     </div>
     <div class='content-divide'>
       <div class='profile-name'>{{cardInfo.name}}<br></div>
@@ -20,6 +20,7 @@ export default {
   data() {
     return {
       cardInfo: this.info,
+      imgUrl:require('@/assets/img/profile/'+this.info.img)
     };
   },
 };
