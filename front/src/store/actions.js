@@ -1,40 +1,18 @@
-import { postRegister, postLocalLogIn, postGoogleLogIn } from "@/api";
+import { postLogIn } from "@/api";
 
 // cookie
-import { setToken } from "@/utils/jwtToken";
+import { setTokenCookie } from "@/utils/cookies";
 
 export default {
-  // 회원가입
-  async submitRegister({ commit }, registerData) {
-    let response = "";
+  // log in data 전달
+  async submitLogIn({ commit }, data) {
     try {
-      const { data } = await postRegister(registerData);
-      // to do...회원가입 결과 값 받고 난 후
-      response = data;
-      return data;
+      commit("setErrorMessage", "");
+      const { token } = await postLogIn(data);
+      commit("setToken", token);
+      setTokenCookie(token);
     } catch (error) {
-      commit("setRegisterError", "존재하지 않은 사용자입니다.");
-      response = "";
+      commit("setErrorMessage", error.response.data);
     }
-    return response;
   },
-  // local login, google login
-  async submitLogIn({ commit }, logInData) {
-    let response = "";
-    try {
-      if (logInData.username) {
-        const { data } = await postLocalLogIn(logInData);
-        response = data;
-      } else {
-        const { data } = await postGoogleLogIn(logInData);
-        response = data;
-      }
-      commit("setToken", response.token);
-      setToken(response.token);
-    } catch (error) {
-      commit("setLogInError", "존재하지 않은 사용자입니다.");
-      response = "";
-    }
-    return response;
-  }
 };

@@ -36,6 +36,10 @@ export default {
 
 };
 </script>
+<<<<<<< HEAD
+=======
+
+>>>>>>> dbd92e7eb08142ac7d6f50d486b61836d9e419ef
 <style>
 
 .partnermain{

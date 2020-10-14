@@ -9,7 +9,7 @@
     </div>
     <div class="post-content">
       <h1>프로그램 희망</h1>
-      <p>{{ item.description }}</p>
+      <p>{{ item.team_description }}</p>
     </div>
     <div class="post-footer">
       <HashTag v-for="item in hashTagList" :key="item" :item="item" />
@@ -35,7 +35,8 @@ export default {
   },
   computed: {
     hashTagList() {
-      const copyHashTag = [...this.item.hashTag];
+      const copyHashTag = [...this.item.hashtags];
+      // const copyHashTag = [...this.item.hashTag];
       return copyHashTag.slice(0, 2);
     },
   },

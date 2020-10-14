@@ -7,10 +7,10 @@
       <div class="post-info">
         <div class="info-header">
           <h1>{{ item.title }}</h1>
-          <span>{{ item.job }}</span>
+          <span>{{ item.guide_text }}</span>
         </div>
         <div class="info-content">
-          <p>{{ item.description }}</p>
+          <p>{{ item.project_description }}</p>
         </div>
         <div class="info-location">
           <img src="@/assets/svg/peek.svg" />
@@ -44,7 +44,8 @@ export default {
   },
   computed: {
     hashTagList() {
-      const copyHashTag = [...this.item.hashTag];
+      const copyHashTag = [...this.item.hashtags];
+      // const copyHashTag = [...this.item.hashTag];
       return copyHashTag.slice(0, 3);
     },
   },
