@@ -11,10 +11,9 @@ export default {
       const { data } = await postRegister(registerData);
       // to do...회원가입 결과 값 받고 난 후
       response = data;
-      commit("setRegisterMessage", "회원가입에 성공하였습니다.");
       return data;
     } catch (error) {
-      commit("setRegisterMessage", "존재하지 않은 사용자입니다.");
+      commit("setRegisterError", "존재하지 않은 사용자입니다.");
       response = "";
     }
     return response;
@@ -37,5 +36,5 @@ export default {
       response = "";
     }
     return response;
-  }
+  },
 };

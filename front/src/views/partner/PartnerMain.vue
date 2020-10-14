@@ -63,17 +63,17 @@
     </div>
   <div class = "partnermain">
       <div><img src="@/assets/svg/partners.svg" width="267" height="180"/></div>
-      <div><img src="@/assets/svg/referencemain.svg" width="267" height="180"/></div>
-      <div><img src="@/assets/svg/referencemain.svg" width="267" height="180"/></div>
-      <div><img src="@/assets/svg/referencemain.svg" width="267" height="180"/></div>
-      <div><img src="@/assets/svg/referencemain.svg" width="267" height="180"/></div>
-      <div><img src="@/assets/svg/referencemain.svg" width="267" height="180"/></div>
-      <div><img src="@/assets/svg/referencemain.svg" width="267" height="180"/></div>
-      <div><img src="@/assets/svg/referencemain.svg" width="267" height="180"/></div>
-      <div><img src="@/assets/svg/referencemain.svg" width="267" height="180"/></div>
-      <div><img src="@/assets/svg/referencemain.svg" width="267" height="180"/></div>
-      <div><img src="@/assets/svg/referencemain.svg" width="267" height="180"/></div>
-      <div><img src="@/assets/svg/referencemain.svg" width="267" height="180"/></div>
+      <div><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
+      <div><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
+      <div><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
+      <div><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
+      <div><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
+      <div><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
+      <div><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
+      <div><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
+      <div><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
+      <div><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
+      <div><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
   </div>
 </div>
 </template>

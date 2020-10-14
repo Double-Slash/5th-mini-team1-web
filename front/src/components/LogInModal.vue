@@ -49,7 +49,7 @@
           </div>
         </form>
       </article>
-      <button @click="closeModal" class="cancel-button">x</button>
+      <button @click="clickCancelBtn" class="cancel-button">x</button>
     </section>
   </div>
 </template>
@@ -99,18 +99,22 @@ export default {
       const response = await this.submitLogIn(data);
       if (response) this.closeModal();
     },
+    // 우측 상단 닫기 버튼 클릭
+    closeModal() {
+      this.$parent.$data.logInModalActive = false;
+    },
     // 회원가입, 로그인 텍스트 클릭 시 상태 전환
     clickLogInOrRegisterText() {
       this.isNowLogin = !this.isNowLogin;
     },
     // 우측 상단 닫기 버튼 클릭
-    closeModal() {
+    clickCancelBtn() {
       this.$parent.$data.logInModalActive = false;
     },
-    // 로컬 에러, 서버 에러 메시지 초기화
-    resetErrorMessage() {
-      this.setLogInError("");
-      this.errorMessage = "";
+    // id, 비밀번호 input 초기화
+    initInput() {
+      this.id = "";
+      this.password = "";
     },
     // 구글 로그인 버튼 클릭
     submitGoogle(googleUser) {
@@ -124,7 +128,8 @@ export default {
     // 로그인, 회원가입 버튼 클릭
     async submitLogInOrRegister() {
       try {
-        this.resetErrorMessage();
+        this.errorMessage = "";
+        // id, password 중에 하나라도 비어있는 경우
         if (this.id.trim() === "" || this.password.trim() === "") {
           throw new Error("아이디 혹은 비밀번호를 입력하지 않았습니다.");
         }
@@ -149,8 +154,7 @@ export default {
       } catch (error) {
         this.errorMessage = error.message;
       } finally {
-        this.id = "";
-        this.password = "";
+        this.initInput();
       }
     },
   },
@@ -187,12 +191,6 @@ article {
   height: 100%;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
 /* modal 제목 */
 h1 {
   margin-bottom: 16px;
@@ -204,8 +202,8 @@ h1 {
 /* id, 비밀번호 input */
 input {
   width: 100%;
-  padding: 0.5vw 0;
-  margin-bottom: 12px;
+  padding: 8px 0;
+  margin-bottom: 8px;
   border-bottom: 1px solid #393939;
 }
 
@@ -226,10 +224,10 @@ input {
 
 /* 우측 article */
 .right-article {
+  padding-left: 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-left: 40px;
 }
 
 /* 회원가입, 로그인 텍스트 */
@@ -268,7 +266,8 @@ input {
 
 /* 로그인, 구글 버튼 */
 .login-btn {
-  height: 3vw;
+  /* height: 3vw; */
+  height: 40px;
   border-radius: 200px;
   background-color: #2e88db;
   color: white;

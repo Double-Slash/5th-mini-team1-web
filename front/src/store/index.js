@@ -12,9 +12,9 @@ export default new Vuex.Store({
   state: {
     token: getToken() || "", // jwt token
     registerMessage: "", // 회원가입 결과 메시지
-    logInError: "" // log in 서버 에러
+    logInError: "", // log in 서버 에러
   },
   getters,
   mutations,
-  actions
+  actions,
 });

@@ -118,126 +118,109 @@ export default {
 </script>
 
 <style scoped>
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1;
-  background: #ffffff;
-  box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.05);
-}
-
-.header-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 1820px;
-  padding: 32px 0;
-  margin: 0 auto;
-}
-
-.logo-wrapper {
-  display: flex;
-  align-items: center;
-}
-
-.logo-image {
-  width: 30px;
-  height: 30px;
-  margin-right: 8px;
-  opacity: 0.36;
-  border-radius: 20px;
-  background-color: #2e88db;
-}
-
-/* 라우터 활성화시 */
-.router-link-exact-active {
-  color: #2e88db;
-}
-
-h1 {
-  font-size: 32px;
-  font-weight: 800;
-  line-height: 1.33;
-  color: #2e88db;
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  width: 50%;
-  height: 100%;
-}
-
-nav > a:hover {
-  color: #2e88db;
-}
-
-a {
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: bold;
-  color: black;
-}
-
-button {
-  width: 90px;
-  height: 36px;
-  border-radius: 16px;
-  border: solid 3px #2e88db;
-  color: #2e88db;
-  font-weight: bold;
-  line-height: 1.33;
-  background: none;
-  outline: none;
-}
-
-button:hover {
-  background-color: #2e88db;
-  color: white;
-}
-
-.user-login-after {
-  display: flex;
-}
-
-.image-wrapper {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 32px;
-  height: 32px;
-  margin-left: 24px;
-  cursor: pointer;
-}
-
-.user-image {
-  border-radius: 50%;
-}
-
-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border: none;
-}
-
-@media (max-width: 1919px) {
-  .header-wrapper {
-    width: 1450px;
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    background: #ffffff;
+    box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.05);
   }
-}
-
-@media (max-width: 1440px) {
   .header-wrapper {
-    width: 1300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1820px;
+    padding: 32px 0;
+    margin: 0 auto;
   }
-}
-
-@media (max-width: 1312px) {
-  .header-wrapper {
-    width: 1100px;
+  .logo-wrapper {
+    display: flex;
+    align-items: center;
   }
-}
+  .logo-image {
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+    opacity: 0.36;
+    border-radius: 20px;
+    background-color: #2e88db;
+  }
+  /* 라우터 활성화시 */
+  .router-link-exact-active {
+    color: #2e88db;
+  }
+  h1 {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.33;
+    color: #2e88db;
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    height: 100%;
+  }
+  nav > a:hover {
+    color: #2e88db;
+  }
+  a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+  }
+  button {
+    width: 90px;
+    height: 36px;
+    border-radius: 16px;
+    border: solid 3px #2e88db;
+    color: #2e88db;
+    font-weight: bold;
+    line-height: 1.33;
+    background: none;
+    outline: none;
+  }
+  button:hover {
+    background-color: #2e88db;
+    color: white;
+  }
+  .user-login-after {
+    display: flex;
+  }
+  .image-wrapper {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    margin-left: 24px;
+    cursor: pointer;
+  }
+  .user-image {
+    border-radius: 50%;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border: none;
+  }
+  @media (max-width: 1919px) {
+    .header-wrapper {
+      width: 1450px;
+    }
+  }
+  @media (max-width: 1440px) {
+    .header-wrapper {
+      width: 1300px;
+    }
+  }
+  @media (max-width: 1312px) {
+    .header-wrapper {
+      width: 1100px;
+    }
+  }
 </style>

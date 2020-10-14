@@ -3,7 +3,7 @@ import axios from "axios";
 
 const instance = axios.create({});
 
-instance.interceptors.request.use(config => {
+instance.interceptors.request.use((config) => {
   config.headers.Authorization = this.$store.state.token;
   return config;
 });
@@ -12,14 +12,14 @@ const baseurl = "http://52.141.62.35:8080"; // OR axios baseurl settings
 
 const api = {
   info: `${baseurl}`,
-  accounts: `${baseurl}/accounts`
+  accounts: `${baseurl}/accounts`,
 };
 
 function examplefunc(id) {
   return axios.get(`${api.info}/${id}`);
 }
 function examplefunc2(userInfo) {
-  return axios.get(`${api.accounts}/${userInfo}`);
+  return axios.get(`${api.login}/${userInfo}`);
 }
 
 // 회원가입
@@ -36,8 +36,8 @@ function postLocalLogIn(data) {
 function postGoogleLogIn(toekn) {
   return axios.post(`${api.accounts}/login`, "_", {
     headers: {
-      Authorization: toekn
-    }
+      Authorization: toekn,
+    },
   });
 }
 

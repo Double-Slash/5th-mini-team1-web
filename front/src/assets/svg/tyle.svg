@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="297" height="180" viewBox="0 0 297 180">
+  <defs>
+    <pattern id="pattern" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 225 225">
+      <image width="225" height="225" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAYFBMVEVaUKL///9PRJ1IPJpYTaFSR5+opMpWS6BsY6pUSZ+BerXDv9xsYquXksHe3euRir/t7PSuqs/LyOGel8fq6PO2stXRz+W5ttSHgbikn8h8dbP5+Pxyaa5hV6Z3b7HY1ugzren6AAAB+ElEQVR4nO3c7W6CMBhA4VLKsDLFCfi1ud3/XQ6WbRY6Fyeywut5/kka0hNIrGhVCgAAAAAAAAAAAAAAAAAAAAAAAAAAAIAwJh6CCZ11YmbREB7Hk0ghhRSGRyGFFIZ3X4Xbh172y9EXHnTSR5yNvnCe9jqVpjAMCv+AwkAGLTT6200me5UhC818s/60sbeZ7hUuKUy06+z95xXaxelAuIt4QaGtMtfLucTpFupV5Dp7L1MYCIWKQmcchWFQqKQXptbauFOobcN/359koV6vyrJsBUbNkbJc5f7gSRY6D5c6Ft5amsJAKKTQHUxhGBRS6A6eYmGaF0Wxbac9FR/8xzWTLGzWpTpvF8palzbSbqGszxaKQgeFgVBIoYPCQCj0C3fiC6v4zKkmW2g7hVGh65VpKmlduusURmVV5LuDkM8WnRGOpTfnyRYq236qL7DQnbnMQvMqvVDFb9ILzeOz8EKVzKUX1oneVRRWqOxxI7xQGT1vN4orrFdv2uw3z5IL67GJTma74qHKsm0l5Hv8H8anNml+b5r4Y4UU/oLCQG5YmOZPX6pjc0BcoUpPe6A+Xssr7KLwf9xXYc/9h/6GxNEV9txD6m8qzcZWOCQKKaSQQgoppJDCYRMH+b82T7hAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEN4B8TKPZMgBA4NAAAAAElFTkSuQmCC"/>
+    </pattern>
+  </defs>
+  <rect id="NoPath_-_복사본_9_" data-name="NoPath - 복사본 (9)" width="297" height="180" fill="url(#pattern)"/>
+</svg>
