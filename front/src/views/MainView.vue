@@ -5,17 +5,17 @@
 <!--    로그인 전 -->
 
 <!--<template v-if="true" >-->
-<template v-if="true" >
+<template v-if="false" >
   <div class="before-login">
     <!--    메인 사진 영역-->
-    <section class="img-area">
-      <p class="title">
-        프로젝트 함께 할 사람 <br>
-        도대체 <strong>어디있니?</strong>
-      </p>
-      <p class="find-crew">파트너 크루 어디있니?</p>
-    </section>
-
+<!--    <section class="img-area">-->
+<!--      <p class="title">-->
+<!--        {{JSON.stringify(token)}}-->
+<!--        프로젝트 함께 할 사람 <br>-->
+<!--        도대체 <strong>어디있니?</strong>-->
+<!--      </p>-->
+<!--      <p class="find-crew">파트너 크루 어디있니?</p>-->
+<!--    </section>-->
 
     <section class="content-area">
 
@@ -108,6 +108,12 @@
               <span>More</span>
             </router-link>
           </div>
+          <div class="last-content-card last-content-card-partner">
+            <router-link to="/partner">
+              <p>더 많은 파트너를 만나보세요!</p>
+              <span>More</span>
+            </router-link>
+          </div>
         </article>
       </section>
 
@@ -137,22 +143,38 @@
       <section class="event">
         <div class="content-title">이벤트</div>
           <article>
-            <template v-if="events.length>0">
-                <template v-for="event in events">
-                  <event-card v-bind:item="event"></event-card>
-                </template>
-            </template>
 
-            <template v-else>
-                이벤트 정보가 없습니다
-            </template>
-
-          <div class="last-content-card  last-content-card-event " v-if="events.length>0">
-            <router-link to="/contest">
-              <p>더 많은 이벤트를 만나보세요!</p>
+            <div style="width: 480px;height: 256px;" class="last-content-card last-content-card-crew">
+<!--            <div style="width: 583px;height: 256px;" class="last-content-card last-content-card-crew">-->
+            <router-link to="/crew">
+              <p>더 많은 크루를 만나보세요!</p>
               <span>More</span>
             </router-link>
-          </div>
+              </div>
+            <div style="width: 480px;height: 256px;" class="last-content-card last-content-card-crew">
+<!--            <div style="width: 583px;height: 256px;" class="last-content-card last-content-card-crew">-->
+              <router-link to="/crew">
+                <p>더 많은 크루를 만나보세요!</p>
+                <span>More</span>
+              </router-link>
+            </div>
+
+<!--            <template v-if="events.length>0">-->
+<!--                <template v-for="event in events">-->
+<!--                  <event-card v-bind:item="event"></event-card>-->
+<!--                </template>-->
+<!--            </template>-->
+
+<!--            <template v-else>-->
+<!--                이벤트 정보가 없습니다-->
+<!--            </template>-->
+
+<!--          <div class="last-content-card  last-content-card-event " v-if="events.length>0">-->
+<!--            <router-link to="/contest">-->
+<!--              <p>더 많은 이벤트를 만나보세요!</p>-->
+<!--              <span>More</span>-->
+<!--            </router-link>-->
+<!--          </div>-->
         </article>
       </section>
 
@@ -201,6 +223,10 @@ export default {
   created() {
     this.getData()
   },
+  computed: mapState({
+    // 화살표 함수는 코드를 매우 간결하게 만들어 줍니다!
+    token: state => state.token,
+  }),
 
   methods:{
     async getData(){
@@ -262,7 +288,6 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import '@/assets/scss/mainView.scss';
-
 </style>
