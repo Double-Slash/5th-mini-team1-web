@@ -47,7 +47,7 @@
         </div>
   </div>
   <div class="button">
-    <button>지원하기</button>
+    <button v-on:click="apply()">지원하기</button>
     <button @click="sendMessage()">문의하기</button>
     <AskModal v-if="onModal" @close="closeModal"></AskModal>
   </div>
@@ -82,6 +82,9 @@ export default {
     closeModal() {
       this.onModal = false;
     },
+    apply: function (event){
+         this.$router.push('/partner')
+     },
   },
 };
 </script>
@@ -186,5 +189,6 @@ table{
 }
 .button{
   text-align: center;
+  
 }
 </style>

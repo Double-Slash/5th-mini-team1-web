@@ -116,7 +116,7 @@
         </div>
         <div></div>
         <div class="formsubmit">
-          <button>작성하기</button>
+          <button v-on:click="write">작성하기</button>
         </div>
          </div>
   </div>
@@ -126,6 +126,12 @@
 <script>
 
 export default {
+  name = "write-content",
+  method:{
+    write: function (event){
+         this.$router.push('/partner/:id')
+     }
+  }
 };
 </script>
 
