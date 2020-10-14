@@ -6,7 +6,7 @@
     <div class="post-info">
       <div class="info-header">
         <h1>{{ item.title }}</h1>
-        <p>{{ item.hots_info }}</p>
+        <p>{{ item.host_info }}</p>
       </div>
       <div class="info-content">
         <p>{{ item.detail }}</p>

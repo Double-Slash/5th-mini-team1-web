@@ -5,17 +5,17 @@
 <!--    로그인 전 -->
 
 <!--<template v-if="true" >-->
-<template v-if="false" >
+<template v-if="true" >
   <div class="before-login">
-    <!--    메인 사진 영역-->
-<!--    <section class="img-area">-->
-<!--      <p class="title">-->
+        메인 사진 영역
+    <section class="img-area">
+      <p class="title">
 <!--        {{JSON.stringify(token)}}-->
-<!--        프로젝트 함께 할 사람 <br>-->
-<!--        도대체 <strong>어디있니?</strong>-->
-<!--      </p>-->
-<!--      <p class="find-crew">파트너 크루 어디있니?</p>-->
-<!--    </section>-->
+        프로젝트 함께 할 사람 <br>
+        도대체 <strong>어디있니?</strong>
+      </p>
+      <p class="find-crew">파트너 크루 어디있니?</p>
+    </section>
 
     <section class="content-area">
 
@@ -144,14 +144,14 @@
         <div class="content-title">이벤트</div>
           <article>
 
-            <div style="width: 480px;height: 256px;" class="last-content-card last-content-card-crew">
+            <div  class="last-content-card last-content-card-crew">
 <!--            <div style="width: 583px;height: 256px;" class="last-content-card last-content-card-crew">-->
             <router-link to="/crew">
               <p>더 많은 크루를 만나보세요!</p>
               <span>More</span>
             </router-link>
               </div>
-            <div style="width: 480px;height: 256px;" class="last-content-card last-content-card-crew">
+            <div  class="last-content-card last-content-card-crew">
 <!--            <div style="width: 583px;height: 256px;" class="last-content-card last-content-card-crew">-->
               <router-link to="/crew">
                 <p>더 많은 크루를 만나보세요!</p>
