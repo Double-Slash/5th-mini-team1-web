@@ -11,7 +11,7 @@ export default new Vuex.Store({
   strict: process.env.NODE_ENV !== "production",
   state: {
     token: getToken() || "", // jwt token
-    registerError: "", // 회원가입 서버 에러
+    registerMessage: "", // 회원가입 결과 메시지
     logInError: "" // log in 서버 에러
   },
   getters,

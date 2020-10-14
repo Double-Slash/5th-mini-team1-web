@@ -29,7 +29,7 @@ function postRegister(data) {
 
 // 로그인 post
 function postLocalLogIn(data) {
-  return axios.post(`${api.accounts}/login`, data);
+  return axios.post(`${api.accounts}/login/`, data);
 }
 
 // 구글 로그인 post
