@@ -14,28 +14,28 @@
         <button>검색</button>
     </div>
   <div class = "partnermain">
-      <div><img src="@/assets/svg/partners.svg"/></div>
-      <div><img src="@/assets/svg/main.svg" /></div>
-      <div><img src="@/assets/svg/main.svg" /></div>
-      <div><img src="@/assets/svg/main.svg" /></div>
-      <div><img src="@/assets/svg/main.svg" /></div>
-      <div><img src="@/assets/svg/main.svg" /></div>
-      <div><img src="@/assets/svg/main.svg" /></div>
-      <div><img src="@/assets/svg/main.svg" /></div>
-      <div><img src="@/assets/svg/main.svg" /></div>
-      <div><img src="@/assets/svg/main.svg" /></div>
-      <div><img src="@/assets/svg/main.svg" /></div>
-      <div><img src="@/assets/svg/main.svg" /></div>
+      <div><router-link to = '/partner/:id'><img src="@/assets/svg/partners.svg"/></router-link></div>
+      <div><router-link to = '/partner/:id'><img src="@/assets/svg/main.svg"/></router-link></div>
+      <div><router-link to = '/partner/:id'><img src="@/assets/svg/main.svg"/></router-link></div> 
+      <div><router-link to = '/partner/:id'><img src="@/assets/svg/main.svg"/></router-link></div>
+      <div><router-link to = '/partner/:id'><img src="@/assets/svg/main.svg"/></router-link></div>
+      <div><router-link to = '/partner/:id'><img src="@/assets/svg/main.svg"/></router-link></div>
+      <div><router-link to = '/partner/:id'><img src="@/assets/svg/main.svg"/></router-link></div>
+      <div><router-link to = '/partner/:id'><img src="@/assets/svg/main.svg"/></router-link></div>
+      <div><router-link to = '/partner/:id'><img src="@/assets/svg/main.svg"/></router-link></div>
+      <div><router-link to = '/partner/:id'><img src="@/assets/svg/main.svg"/></router-link></div>
+      <div><router-link to = '/partner/:id'><img src="@/assets/svg/main.svg"/></router-link></div>
+      <div><router-link to = '/partner/:id'><img src="@/assets/svg/main.svg"/></router-link></div>
   </div>
 </div>
 </template>
 
 <script>
+import partner from "@/views/partner/PartnerView.vue"
 export default {
 
 };
 </script>
-
 <style>
 
 .partnermain{
