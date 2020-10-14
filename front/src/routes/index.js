@@ -54,10 +54,6 @@ export default new VueRouter({
       component: () => import('@/views/contest/ContestMain.vue'),
     },
     {
-      path: '/contest/write',
-      component: () => import('@/views/contest/ContestWrite.vue'),
-    },
-    {
       path: '/contest/:id',
       component: () => import('@/views/contest/ContestView.vue'),
     },
