@@ -55,10 +55,14 @@ export default {
 <style scoped>
 /* 게시글 카드 레이아웃 */
 li {
-  width: 378px;
+  flex: 0 0 33.333333%;
   height: 300px;
   background-color: #ffffff;
   padding: 24px;
+}
+
+li:not(:nth-child(3)) {
+  margin-right: 16px;
 }
 
 h1 {

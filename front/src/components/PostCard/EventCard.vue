@@ -39,9 +39,13 @@ export default {
 /* 이벤트 카드 레이아웃 */
 li {
   display: flex;
-  width: 480px;
+  flex: 0 0 50%;
   height: 256px;
   background-color: #ffffff;
+}
+
+li:not(:nth-child(2)) {
+  margin-right: 16px;
 }
 
 h1 {
