@@ -1,5 +1,5 @@
 <template>
-<div v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="10">
+<div>
     <div class="reference_main">
          <div class="ads_pictures">
            <img src="@/assets/svg/openads.svg" width="267" height="180"/>
@@ -39,15 +39,39 @@
         </div>
         <div class="ads_picture">
            <img src="@/assets/svg/webactually.svg" width="267" height="180"/>
+           <div class = "open_ads">
+            webactually
+            </div>
+            <div class=" explain">
+            웹사이트 관련 디자인, 개별 인사이트 제공
+            </div>
         </div>
         <div class="ads_picture">
            <img src="@/assets/svg/behance.svg" width="267" height="180"/>
+           <div class = "open_ads">
+            Behance
+            </div>
+            <div class=" explain">
+            다양한 디자인 레퍼런스 제공
+            </div>
         </div>
         <div class="ads_picture">
            <img src="@/assets/svg/freequration.svg" width="267" height="180"/>
+           <div class = "open_ads">
+            FreeQuration
+            </div>
+            <div class=" explain">
+            무료로 사용가능한 사진 제공
+            </div>
         </div>
         <div class="ads_picture">
            <img src="@/assets/svg/tyle.svg" width="267" height="180"/>
+           <div class = "open_ads">
+            tyle
+            </div>
+            <div class=" explain">
+            동영상,이미지 자동제작 틀 제공
+            </div>
         </div>
         <div class="ads_picture">
            <img src="@/assets/svg/pixabay.svg" width="267" height="180"/>
@@ -66,14 +90,32 @@
         </div>
         <div class="ads_picture">
            <img src="@/assets/svg/freequration.svg" width="267" height="180"/>
+           <div class = "open_ads">
+            FreeQuration
+            </div>
+            <div class=" explain">
+            무료로 사용가능한 사진 제공
+            </div>
         </div>
         <div class="ads_picture">
            <img src="@/assets/svg/stackshare.svg" width="267" height="180"/>
+           <div class = "open_ads">
+            Stackshare
+            </div>
+            <div class=" explain">
+             트랜드와 스타트업 stack정보 제공
+            </div>
         </div>
         <div class="ads_picture">
            <img src="@/assets/svg/tyle.svg" width="267" height="180"/>
-        </div>
+           <div class = "open_ads">
+            tyle
+            </div>
+            <div class=" explain">
+            동영상,이미지 자동제작 틀 제공
+            </div>
     </div>
+</div>
 </div>
 </template>
 
@@ -83,7 +125,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .open_ads{
     font-size:18px;
     font-weight: bold;
