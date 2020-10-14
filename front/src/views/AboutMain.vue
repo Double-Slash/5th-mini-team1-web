@@ -32,43 +32,43 @@ export default {
     return {
       develInfo: [
         {
-          img: 'profile.svg',
+          img: 'profile.png',
           name: '이승희',
           group: 'DoubleSlash 5th 기획팀',
           content: '안녕하세요 더블슬레시 5기 1팀 기획자 이승희입니다.',
         },
         {
-          img: 'profile2.svg',
+          img: 'profile2.png',
           name: '강세정',
           group: 'DoubleSlash 5th 디자인팀',
           content: '안녕하세요 더블슬레시 5기 1팀 디자이너 강세정입니다.',
         },
         {
-          img: 'profile3.svg',
+          img: 'profile3.png',
           name: '김민정',
           group: 'DoubleSlash 5th 개발팀',
           content: '안녕하세요 더블슬레시 5기 1팀 개발자 김민정입니다.',
         },
         {
-          img: 'profile4.svg',
+          img: 'profile4.png',
           name: '차민철',
           group: 'DoubleSlash 5th 개발팀',
           content: '안녕하세요 더블슬레시 5기 1팀 개발자 차민철입니다.',
         },
         {
-          img: 'profile5.svg',
+          img: 'profile5.png',
           name: '이은혜',
           group: 'DoubleSlash 5th 개발팀',
           content: '안녕하세요 더블슬레시 5기 1팀 개발자 이은혜입니다.',
         },
         {
-          img: 'profile6.svg',
+          img: 'profile6.png',
           name: '조찬민',
           group: 'DoubleSlash 5th 개발팀',
           content: '안녕하세요 더블슬레시 5기 1팀 개발자 조찬민입니다.',
         },
         {
-          img: 'profile7.svg',
+          img: 'profile7.png',
           name: '이동주',
           group: 'DoubleSlash 5th 개발팀',
           content: '안녕하세요 더블슬레시 5기 1팀 개발자 이동주입니다.',
