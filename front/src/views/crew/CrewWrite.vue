@@ -71,7 +71,7 @@
       <PartnerCard :item="item"></PartnerCard>
    </div>
    <div class="content-btn">
-   <button>확인</button>
+   <button v-on="submit">확인</button>
    </div>
   </div>
   </div>
