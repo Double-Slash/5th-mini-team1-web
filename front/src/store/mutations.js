@@ -13,5 +13,8 @@ export default {
   },
   setContestView(state,data){
     state.contest=data;
+  },
+  setCrewView(state,data){
+    state.crew=data;
   }
 };

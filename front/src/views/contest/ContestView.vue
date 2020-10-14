@@ -30,11 +30,10 @@
 </template>
 
 <script>
-
 export default {
   // axios 통신
   async beforeCreate() {
-    await this.$store.dispatch('contestView',this.$route.params.id);
+    await this.$store.dispatch('contestView');
     this.contestData=this.$store.state.contest[this.$route.params.id-1];
   },
   filters:{

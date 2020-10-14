@@ -1,27 +1,31 @@
 <template>
   <div class='crew-view'>
-    <div class='view-from'>
+    <div class='view-from' v-if="crewData !=''">
       <div class='form-img'>
         <img src="@/assets/img/profile.png" width="300" height="350"/>
       </div>
-      <div class="form-day">D-30</div>
+      <div class="form-day">{{crewData.deadline !== null ? crewData.deadline : 'NULL'}}</div>
       <div class='form-icon'>
-        <img src="@/assets/svg/share.svg" width="25" height="25"/>
+        <img src="@/assets/svg/share.svg" @click="shareClick" width="25" height="25"/>
         <img src="@/assets/svg/bookmark_black.svg" width="25" height="25" />
       </div>
-      <div class='form-title'>금융핀테크공모전</div>
+      <div class='form-title'>{{crewData.title !== null ? crewData.title : 'NULL'}}</div>
       <div class="form-info">
-        한국투자증권<br>
-        아이디어구상단계<br>
-        현 구성 2인
+        {{crewData.content !== null ? crewData.content : 'NULL'}}
       </div>
-      <div class="form-region"><img src="@/assets/svg/peek.svg"/>서울</div>
+      <div class="form-region"><img src="@/assets/svg/peek.svg"/>{{crewData.location !== null ? crewData.location : 'NULL'}}</div>
       <div class="form-hashtag">
-          <CHashTag v-for="hashTag in hashTags" :item="hashTag" :key="hashTag.id"></CHashTag>
+          <CHashTag v-for="hashTag in crewData.hashtags" :item="hashTag" :key="hashTag.id"></CHashTag>
       </div>
     </div>
-    <IntroCard v-for="item in items" :key="item.id" class='view-info'
-    :title="item.title" :content="item.content"></IntroCard>
+    <!-- <IntroCard v-for="item in items" :key="item.id" class='view-info'
+    :title="item.title" :content="item.content"></IntroCard> -->
+    <IntroCard class='view-info'
+    title="프로젝트 소개" :content="crewData.project_description !==null ?crewData.project_description:'NULL'"></IntroCard>
+    <IntroCard class='view-info'
+    title="모집 안내" :content="crewData.team_description !==null ?crewData.team_description:'NULL'"></IntroCard>
+    <IntroCard class='view-info'
+    title="자격요건 및 우대사항" :content="crewData.qualifications !==null ?crewData.qualifications:'NULL'"></IntroCard>
     <div class="view-card">
       <div class="card-info">담당자 정보</div>
       <div class="card-grid">
@@ -41,7 +45,6 @@
         </div>
       </div>
     </div>
-    <button>지원하기</button>
     <button @click="sendMessage()">문의하기</button>
     <AskModal v-if="onModal" @close="closeModal"></AskModal>
   </div>
@@ -53,24 +56,15 @@ import IntroCard from '@/components/PostCard/IntroCard.vue';
 import AskModal from '@/components/CrewAskModal.vue';
 
 export default {
+  async beforeCreate() {
+    await this.$store.dispatch('crewView',this.$route.params.id);
+    this.crewData=this.$store.state.crew;
+  },
   data() {
     return {
+      crewData: '',
       onModal: false,
       hashTags: ['수도권', 'UI/UX', '웹디자인'],
-      items: [
-        {
-          title: '프로젝트 소개',
-          content: '안녕하세요 저는 성신여자대학교 강세정입니다.',
-        },
-        {
-          title: '모집안내',
-          content: '안녕하세요 저는 성신여자대학교 강세정입니다.',
-        },
-        {
-          title: '자격요건 및 우대사항',
-          content: '안녕하세요 저는 성신여자대학교 강세정입니다.',
-        },
-      ],
     };
   },
   components: {
@@ -85,11 +79,23 @@ export default {
     closeModal() {
       this.onModal = false;
     },
+    shareClick(){
+      var t = document.createElement("textarea");
+      document.body.appendChild(t);
+      t.value=window.document.location.href;
+      t.select();
+      document.execCommand('copy');
+      document.body.removeChild(t);
+      alert('클립보드로 복사가 완료되었습니다.');
+    }
   },
 };
 </script>
 
 <style scoped>
+img{
+  cursor:pointer;
+}
 .crew-view{
   margin:0 auto;
   padding-top:70px;

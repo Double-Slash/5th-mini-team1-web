@@ -1,4 +1,4 @@
-import { postRegister, postLocalLogIn, postGoogleLogIn ,contestId} from "@/api";
+import { postRegister, postLocalLogIn, postGoogleLogIn ,contestId,crewId,crewW} from "@/api";
 
 // cookie
 import { setToken } from "@/utils/jwtToken";
@@ -46,5 +46,23 @@ export default {
     }catch(error){
       console.error(error);
     }
-  }
+  },
+  async crewView({commit},id){
+    let response="";
+    try{
+      const {data}=await crewId(id);
+      response=data;
+      commit("setCrewView",response);
+    }catch(error){
+      console.error(error);
+    }
+  },
+  async crewBoardWrite({},data){
+    try{
+      const test=await crewW(data);
+      return test;
+    }catch(error){
+      console.error(error.response.data);
+    }
+  },
 };
