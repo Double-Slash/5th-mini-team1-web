@@ -16,5 +16,9 @@ export default {
   },
   setCrewView(state,data){
     state.crew=data;
-  }
+  },
+  logout(state,){
+    state.token = '';
+    sessionStorage.removeItem('token')
+  },
 };

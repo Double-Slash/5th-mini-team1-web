@@ -16,12 +16,12 @@
         <img :src="null" />
       </div>
       <ul class="message-list">
-        <SpeechBubble position="left" />
-        <SpeechBubble position="right" />
+        <SpeechBubble position="left" v-for="message in receivedMessages" :message="message"/>
+        <SpeechBubble position="right" :message="{content: '이거 안나와요..'}"/>
       </ul>
       <div class="input-wrapper">
-        <input type="text" placeholder="메세지를 입력하세요" />
-        <img src="@/assets/svg/messageSend.svg" alt="메세지 전달 아이콘" />
+        <input type="text" placeholder="메세지를 입력하세요" v-model="sendMessage"/>
+        <img @click="sendChat" src="@/assets/svg/messageSend.svg" alt="메세지 전달 아이콘" />
       </div>
     </article>
   </section>
@@ -30,12 +30,48 @@
 <script>
 import UserListItem from "@/components/Message/UserListItem.vue";
 import SpeechBubble from "@/components/Message/SpeechBubble.vue";
-
+import axios from 'axios';
+import { mapState } from "vuex";
 export default {
   components: {
     UserListItem,
     SpeechBubble,
   },
+  computed: mapState({
+    // 화살표 함수는 코드를 매우 간결하게 만들어 줍니다!
+    token: state => state.token,
+  }),
+  created() {
+    this.getChats()
+  },
+  data(){
+    return {
+      dataURL: 'http://52.141.62.35:8080',
+      receivedMessages: [],
+      sendMessage: '',
+      // headers: {Authorization: 'Token 9bcda8509d29b774ad943768d5b567438139ed68'},
+    }
+  },
+  methods: {
+    async getChats(){
+      const header_config = {headers: {Authorization: `Token ${this.token}`}};
+      const res = await axios.get(this.dataURL.concat('/chats/'), header_config);
+      // const res = await axios.get(this.dataURL.concat('/chats/'), { headers: this.headers });
+      console.log(res.data);
+      this.receivedMessages = res.data;
+    },
+    async sendChat(){
+      const header = {headers: {Authorization: `Token ${this.token}`}};
+
+      const res = await axios.post(this.dataURL.concat('/chats/'),
+        {content: this.sendMessage, recipient: 3, sender: 2},
+        header
+        // { headers: this.headers }
+        );
+      console.log(res.data);
+      this.sendMessage = '';
+    }
+  }
 };
 </script>
 

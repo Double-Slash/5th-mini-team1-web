@@ -1,7 +1,7 @@
 <template>
   <li class="message-item" :class="position">
     <div class="message-content" :class="position">
-      sdfsdfsfsdfsfssdfsdfsfsdfsfsdsdfsdfsfsdfsfsdd
+      {{message.content || 'no message'}}
     </div>
   </li>
 </template>
@@ -12,6 +12,7 @@ export default {
     position: {
       type: String,
     },
+    message: Object,
   },
 };
 </script>
