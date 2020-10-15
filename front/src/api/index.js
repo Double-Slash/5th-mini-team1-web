@@ -1,14 +1,13 @@
 /* eslint no-param-reassign: "error" */
 import axios from "axios";
-
-const instance = axios.create({});
-
-instance.interceptors.request.use((config) => {
-  config.headers.Authorization = this.$store.state.token;
-  return config;
-});
+import store from "@/store";
 
 const baseurl = "http://52.141.62.35:8080"; // OR axios baseurl settings
+
+axios.interceptors.request.use((config) => {
+  config.headers.Authorization = store.state.token;
+  return config;
+});
 
 const api = {
   info: `${baseurl}`,
@@ -43,6 +42,11 @@ function postGoogleLogIn(toekn) {
   });
 }
 
+// 유저 정보 불러오기
+function getLoadUserInfo(id) {
+  return axios.get(`${api.accounts}/${id}/`);
+}
+
 //contest/id 
 function contestId(){
   return axios.get(`${api.contest}`);
@@ -62,7 +66,7 @@ function crewW(data){
   })
 }
 
-export { examplefunc, examplefunc2, postLocalLogIn, postGoogleLogIn, postRegister,contestId,crewId ,crewW};
+export { examplefunc, examplefunc2, postLocalLogIn, postGoogleLogIn, postRegister,contestId,crewId ,crewW, getLoadUserInfo};
 
 /*
 스토어에서 다음과 같이 불러오면 좋을 것 같습니다.

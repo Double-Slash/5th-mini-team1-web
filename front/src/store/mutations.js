@@ -11,6 +11,10 @@ export default {
   setLogInError(state, error) {
     state.logInError = error;
   },
+  // 유저 정보
+  setUserInfo(state, userInfo) {
+    state.userInfo = userInfo;
+  },
   setContestView(state,data){
     state.contest=data;
   },

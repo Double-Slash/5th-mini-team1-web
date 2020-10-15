@@ -13,6 +13,7 @@ export default new Vuex.Store({
     token: getToken() || "", // jwt token
     registerMessage: "", // 회원가입 결과 메시지
     logInError: "", // log in 서버 에러
+    userInfo: {}, // 유저 정보
     contest:"", // contest data
     crew:"", //crew data
     crewAll:"",
