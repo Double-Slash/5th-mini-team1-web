@@ -57,11 +57,10 @@ import AskModal from '@/components/CrewAskModal.vue';
 
 export default {
   async beforeCreate() {
-    const result = await this.$store.dispatch('crewView',this.$route.params.id);
-    if(result.response ===undefined){
-      this.crewData=this.$store.state.crew;
-    }
-    else{
+    const result = await this.$store.dispatch('crewView', this.$route.params.id);
+    if (result.response === undefined) {
+      this.crewData = this.$store.state.crew;
+    } else {
       this.$router.push('/error');
     }
   },
@@ -84,15 +83,15 @@ export default {
     closeModal() {
       this.onModal = false;
     },
-    shareClick(){
-      var t = document.createElement("textarea");
+    shareClick() {
+      const t = document.createElement("textarea");
       document.body.appendChild(t);
-      t.value=window.document.location.href;
+      t.value = window.document.location.href;
       t.select();
       document.execCommand('copy');
       document.body.removeChild(t);
       alert('클립보드로 복사가 완료되었습니다.');
-    }
+    },
   },
 };
 </script>

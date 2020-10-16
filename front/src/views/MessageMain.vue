@@ -32,6 +32,7 @@ import UserListItem from "@/components/Message/UserListItem.vue";
 import SpeechBubble from "@/components/Message/SpeechBubble.vue";
 import axios from 'axios';
 import { mapState } from "vuex";
+
 export default {
   components: {
     UserListItem,
@@ -39,39 +40,39 @@ export default {
   },
   computed: mapState({
     // 화살표 함수는 코드를 매우 간결하게 만들어 줍니다!
-    token: state => state.token,
+    token: (state) => state.token,
   }),
   created() {
-    this.getChats()
+    this.getChats();
   },
-  data(){
+  data() {
     return {
       dataURL: 'http://52.141.62.35:8080',
       receivedMessages: [],
       sendMessage: '',
       // headers: {Authorization: 'Token 9bcda8509d29b774ad943768d5b567438139ed68'},
-    }
+    };
   },
   methods: {
-    async getChats(){
-      const header_config = {headers: {Authorization: `Token ${this.token}`}};
+    async getChats() {
+      const header_config = { headers: { Authorization: `Token ${this.token}` } };
       const res = await axios.get(this.dataURL.concat('/chats/'), header_config);
       // const res = await axios.get(this.dataURL.concat('/chats/'), { headers: this.headers });
       console.log(res.data);
       this.receivedMessages = res.data;
     },
-    async sendChat(){
-      const header = {headers: {Authorization: `Token ${this.token}`}};
+    async sendChat() {
+      const header = { headers: { Authorization: `Token ${this.token}` } };
 
       const res = await axios.post(this.dataURL.concat('/chats/'),
-        {content: this.sendMessage, recipient: 3, sender: 2},
-        header
+        { content: this.sendMessage, recipient: 3, sender: 2 },
+        header,
         // { headers: this.headers }
-        );
+      );
       console.log(res.data);
       this.sendMessage = '';
-    }
-  }
+    },
+  },
 };
 </script>
 

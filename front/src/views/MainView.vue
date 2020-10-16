@@ -42,7 +42,6 @@
           파트너 정보가 없습니다
         </template>
 
-
       </section>
 
       <section class="recommend-crew">
@@ -68,7 +67,6 @@
         <template v-else>
           크루 정보가 없습니다
         </template>
-
 
       </section>
 
@@ -135,7 +133,6 @@
           파트너 정보가 없습니다
         </template>
 
-
       </section>
 
       <section class="recommend-crew">
@@ -168,8 +165,6 @@
           크루 정보가 없습니다
         </template>
 
-
-
       </section>
 
       <section class="event">
@@ -200,7 +195,6 @@
         <template v-else>
           이벤트 정보가 없습니다
         </template>
-
 
       </section>
 
@@ -238,7 +232,7 @@ export default {
       dataURL: 'http://52.141.62.35:8080',
       events: [],
       postings: [],
-      beforeLogin:{ partner: [], crew: [], event: [] },
+      beforeLogin: { partner: [], crew: [], event: [] },
       afterLogin: { partner: [], crew: [], event: [] },
       bannerList: [],
       hasBanner: true,
@@ -250,21 +244,19 @@ export default {
   },
   computed: mapState({
     // 화살표 함수는 코드를 매우 간결하게 만들어 줍니다!
-    token: state => state.token,
+    token: (state) => state.token,
   }),
 
   methods: {
-    async logout(){
+    async logout() {
       // this.$store.commit('logout');
       // console.log(this.token);
-      const res = await axios.get (this.dataURL.concat('/accounts/logout/'),
-        {headers: {Authorization: `Token ${this.token}`}}
-        );
-      console.log(JSON.stringify(res))
-      if(res.status === 200){
+      const res = await axios.get(this.dataURL.concat('/accounts/logout/'),
+        { headers: { Authorization: `Token ${this.token}` } });
+      console.log(JSON.stringify(res));
+      if (res.status === 200) {
         this.$store.commit('logout');
       }
-
     },
     async getData() {
       // const token_header = this.token;
@@ -286,8 +278,7 @@ export default {
         // console.log('events_result.data', eventsResult.data);
         // this.beforeLogin['event'] = events_result.data.slice(0,2);
         this.afterLogin.event = eventsResult.data.slice(-2);
-        console.log('this',this.afterLogin.event)
-
+        console.log('this', this.afterLogin.event);
 
         // 공모전 있으면 배너 모음에 담기
 
@@ -310,20 +301,18 @@ export default {
         }
 
         // 2. 파트너 글 불러오기 & 크루 글 불러오기
-        //(맨위에거)
+        // (맨위에거)
         const partnerResult = await axios.get(`${this.dataURL}/accounts/`);
 
         this.beforeLogin.partner = partnerResult.data.slice(-3);
         this.afterLogin.partner = partnerResult.data.slice(-7);
         // console.log('this.beforeLogin.partnerthis.beforeLogin.partner',this.afterLogin.partner)
 
-
-        //(두번째거)
+        // (두번째거)
         const crewResult = await axios.get(`${this.dataURL}/postings/all`);
 
         this.beforeLogin.crew = crewResult.data.slice(-2);
         this.afterLogin.crew = crewResult.data.slice(-5);
-
 
         // this.postings = postings_result.data;
         // console.log('this.postingsthis.postings', this.postings);
