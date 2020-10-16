@@ -41,6 +41,11 @@ $color-background:#F6F6F6;
 
   //로그인 전후 공통 영역
 
+  a:link { color: white; text-decoration: none;font-weight: lighter;@include font-bundle(18px,24px,black);}
+  a:visited { color: white; text-decoration: none;font-weight: lighter;@include font-bundle(18px,24px,black);}
+  a:hover { color: white; text-decoration: none;font-weight: lighter;@include font-bundle(18px,24px,black);}
+
+
 
   .content-area{ background-color:$color-background ;width: inherit; height: auto;
     padding: 90px 0;
@@ -61,22 +66,13 @@ $color-background:#F6F6F6;
       flex-flow: row wrap;
       margin-bottom: 20px;
       //justify-content: space-between;
-      &>li{margin-right: 8px; margin-left: 8px; margin-bottom: 16px}
+      &>a{margin-right: 8px; margin-left: 8px; margin-bottom: 16px}
+      //li{margin-right: 0}
+      //&>li{margin-right: 8px; margin-left: 8px; margin-bottom: 16px}
       //&>li{margin-right: 16px; margin-bottom: 16px}
     }
 
-    .last-content-card{
-      width:250px;
-      height: 300px;position: relative; background-color: $color-default;
-      @include font-bundle(18px,24px,white);font-weight: lighter;
-      p{position: absolute; left: 20px; bottom: 145px}
-      span{display: inline-block; position: absolute; right: 28px; bottom: 28px}
 
-      a:link { color: white; text-decoration: none;font-weight: lighter;@include font-bundle(18px,24px,white);}
-      a:visited { color: white; text-decoration: none;font-weight: lighter;@include font-bundle(18px,24px,white);}
-      a:hover { color: white; text-decoration: none;font-weight: lighter;@include font-bundle(18px,24px,white);}
-
-    }
 
     .partner-card{
 
@@ -89,18 +85,6 @@ $color-background:#F6F6F6;
       //max-width: 332px;
     }
 
-    .last-content-card-partner{
-      max-width: 308px;
-      //max-width: 332px;
-      flex: 1;
-      padding: 16px;
-      box-sizing: border-box;
-      //width:276px;
-      height: 324px;
-      //@include font-bundle(18px,24px,white);font-weight: lighter;
-      p{left: 20px; bottom: 145px}
-      span{right: 28px; bottom: 28px}
-    }
 
     .crew-card{
 
@@ -112,16 +96,7 @@ $color-background:#F6F6F6;
       //max-width: 448px;
       box-sizing: border-box;
     }
-    .last-content-card-crew{
-      max-width: 416px;
-      //max-width: 448px;
-      flex: 1;
-      padding: 24px;
-      box-sizing: border-box;
-      //width:378px;
-      height: 300px;
-      &>p{position: absolute; left: 60px; bottom: 135px}
-    }
+
 
     .event-card{
 
@@ -133,44 +108,6 @@ $color-background:#F6F6F6;
       //max-width: 448px;
       box-sizing: border-box;
     }
-    .last-content-card-event{
-      flex: 1;
-      padding: 24px;
-      max-width: 600px;
-      //width:378px;
-      height: 300px;
-      &>p{position: absolute; left: 60px; bottom: 135px}
-    }
-
-
-  }
-
-
-
-  // 로그인 전
-  //.before-login{
-  //  position: relative;
-  //
-  //  .img-area{
-  //    //왼쪽 여백남는거 계산!!
-  //    margin-left: calc(((100vw - 100%) / 2) * (-1));
-  //    width: 100vw;
-  //    height: 1000px; margin-top: -138px;
-  //    padding: 0 140px;
-  //    display: flex; flex-flow: row;justify-content: flex-start; align-items: center;
-  //
-  //    background-repeat: no-repeat;
-  //    //background-size: 100vw 1080px;
-  //    .title{font-size: 50px; color:white; }
-  //    .find-crew{color:white; margin-top: auto}
-  //  }
-  //
-  //
-  //}
-
-
-  #bookmark-main{
-    background-color:$color-background ;
 
     .event{
 
@@ -204,7 +141,10 @@ $color-background:#F6F6F6;
     }
 
 
-
   }
+
+
+
+
 
 }

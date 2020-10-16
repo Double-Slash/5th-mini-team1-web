@@ -10,8 +10,7 @@
             <article>
 
               <template v-for="post in bookmarkedPartner">
-<!--              <template v-for="post in bookmarkedPartner.slice(0,4)">-->
-                <partner-card class="partner-card" v-bind:item="post"></partner-card>
+                  <partner-card class="partner-card" v-bind:item="post"></partner-card>
               </template>
             </article>
           </template>
