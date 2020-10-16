@@ -34,18 +34,19 @@
 
 <script>
 import { mapActions, mapState } from "vuex";
-import {setToken} from '@/utils/jwtToken';
+import { setToken } from '@/utils/jwtToken';
+
 export default {
   computed: {
     ...mapState(["userInfo"]),
   },
-  methods:{
-    logout(){
+  methods: {
+    logout() {
       setToken("");
       this.$store.commit("setUserClear");
-      window.location.href='/';
-    }
-  }
+      window.location.href = '/';
+    },
+  },
 };
 </script>
 

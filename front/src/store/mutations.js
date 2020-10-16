@@ -15,14 +15,18 @@ export default {
   setUserInfo(state, userInfo) {
     state.userInfo = userInfo;
   },
-  setUserClear(state){
-    state.userInfo={};
-    state.token="";
+  setUserClear(state) {
+    state.userInfo = {};
+    state.token = "";
   },
   setContestView(state, data) {
     state.contest = data;
   },
   setCrewView(state, data) {
     state.crew = data;
+  },
+  logout(state) {
+    state.token = null;
+    sessionStorage.removeItem('token');
   },
 };

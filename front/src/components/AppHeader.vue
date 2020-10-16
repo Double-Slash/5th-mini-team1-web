@@ -82,7 +82,7 @@ export default {
           boxShadow: "0 10px 20px 0 rgba(0, 0, 0, 0.15) }",
         };
       }
-      if(this.token !=='') return { background: "transparent", boxShadow: "0 10px 20px 0 rgba(0, 0, 0, 0.15)" };
+      if (this.token !== '') return { background: "transparent", boxShadow: "0 10px 20px 0 rgba(0, 0, 0, 0.15)" };
       return { background: "transparent", boxShadow: "0 0 black" };
     },
     // 로그인 버튼 스타일 변경
@@ -101,15 +101,15 @@ export default {
     },
     // 제목 스타일 변경
     changeTitle() {
-      if (this.$route.path === "/" && this.token !=='') return { color: "#2e88db" };
-      else if(this.$route.path !== "/") return null;
+      if (this.$route.path === "/" && this.token !== '') return { color: "#2e88db" };
+      if (this.$route.path !== "/") return null;
       if (this.headerStyle === true) return { color: "#2e88db" };
       return { color: "white" };
     },
     // 메뉴 텍스트 스타일 변경
     changeText() {
-      if (this.$route.path === "/" && this.token !=='') return { color: "black" };
-      else if (this.$route.path !== "/") return null;
+      if (this.$route.path === "/" && this.token !== '') return { color: "black" };
+      if (this.$route.path !== "/") return null;
       if (this.headerStyle === true) return { color: "black" };
       return { color: "white" };
     },

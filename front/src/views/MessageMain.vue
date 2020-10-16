@@ -15,9 +15,12 @@
       <div class="selected-user-thumbnail">
         <img :src="null" />
       </div>
+<!--      {{userInfo}}-->
       <ul class="message-list">
-        <SpeechBubble position="left" v-for="message in receivedMessages" :message="message"/>
-        <SpeechBubble position="right" :message="{content: '이거 안나와요..'}"/>
+        <template v-for="message in receivedMessages">
+        <SpeechBubble v-if="message.sender !== userInfo.id" position="left"  :message="message"/>
+        <SpeechBubble v-else position="right" :message="message"/>
+        </template>
       </ul>
       <div class="input-wrapper">
         <input type="text" placeholder="메세지를 입력하세요" v-model="sendMessage"/>
@@ -41,6 +44,7 @@ export default {
   computed: mapState({
     // 화살표 함수는 코드를 매우 간결하게 만들어 줍니다!
     token: (state) => state.token,
+    userInfo: (state) => state.userInfo,
   }),
   created() {
     this.getChats();
@@ -56,20 +60,22 @@ export default {
   methods: {
     async getChats() {
       const header_config = { headers: { Authorization: `Token ${this.token}` } };
-      const res = await axios.get(this.dataURL.concat('/chats/'), header_config);
+      // const header_config = { headers: { Authorization: `Token ac7fd857196f86ad35837db3f8962ce7450f6e22` } };
+      const res = await axios.get(this.dataURL.concat('/chats/from?sender=3'), header_config);
       // const res = await axios.get(this.dataURL.concat('/chats/'), { headers: this.headers });
       console.log(res.data);
       this.receivedMessages = res.data;
     },
     async sendChat() {
-      const header = { headers: { Authorization: `Token ${this.token}` } };
+      // const header = { headers: { Authorization: `Token ${this.token}` } };
 
       const res = await axios.post(this.dataURL.concat('/chats/'),
-        { content: this.sendMessage, recipient: 3, sender: 2 },
-        header,
+        { content: this.sendMessage, recipient: 3, sender: this.userInfo.id },
+        // header,
         // { headers: this.headers }
       );
       console.log(res.data);
+      this.receivedMessages.push(res.data);
       this.sendMessage = '';
     },
   },

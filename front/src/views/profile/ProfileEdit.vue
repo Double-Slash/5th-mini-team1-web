@@ -119,18 +119,16 @@ export default {
     resizeImage(image) {
       const canvas = document.createElement("canvas");
       const maxSize = 1280;
-      let width = image.width;
-      let height = image.height;
+      let { width } = image;
+      let { height } = image;
       if (width > height) {
         if (width > maxSize) {
           height *= maxSize / width;
           width = maxSize;
         }
-      } else {
-        if (height > maxSize) {
-          width *= maxSize / height;
-          height = maxSize;
-        }
+      } else if (height > maxSize) {
+        width *= maxSize / height;
+        height = maxSize;
       }
       canvas.width = width;
       canvas.height = height;

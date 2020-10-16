@@ -46,7 +46,6 @@ export default {
   computed: {
     hashTagList() {
       const copyHashTag = [...this.item.hashtags];
-      // const copyHashTag = [...this.item.hashTag];
       return copyHashTag.slice(0, 3);
     },
   },

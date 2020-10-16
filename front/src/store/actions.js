@@ -1,15 +1,16 @@
-import { 
-  postRegister, 
-  postLocalLogIn, 
-  postGoogleLogIn, 
-  getLoadUserInfo, 
-  contestId, 
-  crewId, 
-  crewW, 
-  patchUserInfo 
+import {
+  postRegister,
+  postLocalLogIn,
+  postGoogleLogIn,
+  getLoadUserInfo,
+  contestId,
+  crewId,
+  crewW,
+  patchUserInfo,
 } from "@/api";
 import { setToken } from "@/utils/jwtToken";
 import { getUserId, setUserId } from "@/utils/userId";
+import axios from "axios";
 
 export default {
   // 회원가입
@@ -37,6 +38,11 @@ export default {
         const { data } = await postGoogleLogIn(logInData);
         response = data;
       }
+      axios.interceptors.request.use((config) => {
+        config.headers.Authorization = `Token ${response.token}`;
+        return config;
+      });
+
       commit("setToken", response.token);
       setToken(response.token);
       setUserId(response.pk);
@@ -98,12 +104,12 @@ export default {
     let response = "";
     try {
       const pk = getUserId();
-    const { data } = await patchUserInfo(pk, userInfo);
-    commit("setUserInfo", data);
-    response = data;
-    } catch(error) {
+      const { data } = await patchUserInfo(pk, userInfo);
+      commit("setUserInfo", data);
+      response = data;
+    } catch (error) {
       response = error;
     }
     return response;
-  }
+  },
 };

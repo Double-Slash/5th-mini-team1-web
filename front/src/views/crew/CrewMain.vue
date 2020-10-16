@@ -50,7 +50,7 @@
          <option>강동구</option>
        </select>
        <input type = "text" placeholder="해시태그">
-       
+
         <button>검색</button>
         <router-link to="/crew/write" style='color:white;'><button>글쓰기</button></router-link>
     </div>

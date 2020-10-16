@@ -235,6 +235,7 @@ export default {
       afterLogin: { partner: [], crew: [], event: [] },
       bannerList: [],
       hasBanner: true,
+      isLogin: false,
     };
   },
 
@@ -247,6 +248,16 @@ export default {
   }),
 
   methods: {
+    async logout() {
+      // this.$store.commit('logout');
+      // console.log(this.token);
+      const res = await axios.get(this.dataURL.concat('/accounts/logout/'),
+        { headers: { Authorization: `Token ${this.token}` } });
+      console.log(JSON.stringify(res));
+      if (res.status === 200) {
+        this.$store.commit('logout');
+      }
+    },
     async getData() {
       // const token_header = this.token;
       // // const token = this.$cookies.get("doubleslash");
@@ -310,6 +321,12 @@ export default {
       }
     },
 
+  },
+
+  watch: {
+    token() {
+      this.getData();
+    },
   },
 };
 </script>

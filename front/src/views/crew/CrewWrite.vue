@@ -69,7 +69,7 @@ import { getToken } from "@/utils/jwtToken";
 export default {
   data() {
     return {
-      filePath:'',
+      filePath: '',
       fileData: '',
       period: '',
       project: '',
@@ -114,11 +114,11 @@ export default {
       }
     },
     handleFileUpload(e) {
-      this.filePath=e.target.value;
-      let img = e.target.files[0];
-      let fd= new FormData();
+      this.filePath = e.target.value;
+      const img = e.target.files[0];
+      const fd = new FormData();
       fd.append('image', img);
-      this.fileData=fd;
+      this.fileData = fd;
     },
   },
 };

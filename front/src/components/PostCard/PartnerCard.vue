@@ -1,5 +1,6 @@
 <template>
-  <li>
+  <router-link to="/partner/:id" >
+<!--  <li>-->
     <div class="post-header">
       <img src="@/assets/img/profile.png" />
       <div class="user-info">
@@ -15,7 +16,8 @@
       <HashTag v-for="item in hashTagList" :key="item" :item="item" />
       <BookMark />
     </div>
-  </li>
+<!--  </li>-->
+  </router-link>
 </template>
 
 <script>
@@ -45,7 +47,7 @@ export default {
 
 <style scoped>
 /* 게시글 카드 레이아웃 */
-li {
+a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -56,7 +58,7 @@ li {
   box-sizing: border-box;
 }
 
-li:not(:nth-child(4)) {
+a:not(:nth-child(4)) {
   margin-right: 16px;
 }
 
