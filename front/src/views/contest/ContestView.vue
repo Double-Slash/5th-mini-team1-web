@@ -34,33 +34,33 @@ export default {
   // axios 통신
   async beforeCreate() {
     await this.$store.dispatch('contestView');
-    if(this.$route.params.id>this.$store.state.contest.length){
+    if (this.$route.params.id > this.$store.state.contest.length) {
       this.$router.push('/error');
-    }else{
-      this.contestData=this.$store.state.contest[this.$route.params.id-1];
+    } else {
+      this.contestData = this.$store.state.contest[this.$route.params.id - 1];
     }
   },
-  filters:{
-    timeFilter(value){
-      return value.slice(0,10);
-    }
+  filters: {
+    timeFilter(value) {
+      return value.slice(0, 10);
+    },
   },
-  data(){
-    return{
-      contestData:'',
-    }
+  data() {
+    return {
+      contestData: '',
+    };
   },
-  methods:{
-    shareClick(){
-      var t = document.createElement("textarea");
+  methods: {
+    shareClick() {
+      const t = document.createElement("textarea");
       document.body.appendChild(t);
-      t.value=window.document.location.href;
+      t.value = window.document.location.href;
       t.select();
       document.execCommand('copy');
       document.body.removeChild(t);
       alert('클립보드로 복사가 완료되었습니다.');
-    }
-  }
+    },
+  },
 
 };
 </script>

@@ -39,14 +39,14 @@ export default new VueRouter({
     {
       path: '/crew/write',
       component: () => import('@/views/crew/CrewWrite.vue'),
-      beforeEnter(to,from,next){
-        const token=getToken();
-        if(token!==null){
+      beforeEnter(to, from, next) {
+        const token = getToken();
+        if (token !== null) {
           next();
-        }else{
-         next('/crew');
+        } else {
+          next('/crew');
         }
-      }
+      },
     },
     {
       path: '/crew/:id',

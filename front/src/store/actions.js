@@ -1,4 +1,4 @@
-import { postRegister, postLocalLogIn, postGoogleLogIn ,contestId,crewId,crewW} from "@/api";
+import { postRegister, postLocalLogIn, postGoogleLogIn, contestId, crewId, crewW } from "@/api";
 
 // cookie
 import { setToken } from "@/utils/jwtToken";
@@ -37,37 +37,37 @@ export default {
     }
     return response;
   },
-  async contestView({commit}){
-    let response="";
-    try{
-      const {data}=await contestId();
-      response=data;
-      commit("setContestView",response);
-    }catch(error){
-      response=error;
-    }finally{
+  async contestView({ commit }) {
+    let response = "";
+    try {
+      const { data } = await contestId();
+      response = data;
+      commit("setContestView", response);
+    } catch (error) {
+      response = error;
+    } finally {
       return response;
     }
   },
-  async crewView({commit},id){
-    let response="";
-    try{
-      const {data}=await crewId(id);
-      response=data;
-      commit("setCrewView",response);
-    }catch(error){
-      response=error;
-    }finally{
+  async crewView({ commit }, id) {
+    let response = "";
+    try {
+      const { data } = await crewId(id);
+      response = data;
+      commit("setCrewView", response);
+    } catch (error) {
+      response = error;
+    } finally {
       return response;
     }
   },
-  async crewBoardWrite({},data){
-    let response="";
-    try{
-      const test=await crewW(data);
-      response=test;
-    }catch(error){
-      response=error;
+  async crewBoardWrite({}, data) {
+    let response = "";
+    try {
+      const test = await crewW(data);
+      response = test;
+    } catch (error) {
+      response = error;
     }
     return response;
   },

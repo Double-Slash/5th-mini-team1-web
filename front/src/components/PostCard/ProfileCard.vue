@@ -20,7 +20,7 @@ export default {
   data() {
     return {
       cardInfo: this.info,
-      imgUrl:require('@/assets/img/profile/'+this.info.img)
+      imgUrl: require(`@/assets/img/profile/${this.info.img}`),
     };
   },
 };

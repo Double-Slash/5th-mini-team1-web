@@ -14,7 +14,7 @@ const api = {
   info: `${baseurl}`,
   accounts: `${baseurl}/accounts`,
   contest: `${baseurl}/postings/contests`,
-  crew: `${baseurl}/postings/`
+  crew: `${baseurl}/postings/`,
 };
 
 function examplefunc(id) {
@@ -43,26 +43,26 @@ function postGoogleLogIn(toekn) {
   });
 }
 
-//contest/id 
-function contestId(){
+// contest/id
+function contestId() {
   return axios.get(`${api.contest}`);
 }
-//crew/id
-function crewId(id){
-  return axios.get(`${api.crew}${id}`)
+// crew/id
+function crewId(id) {
+  return axios.get(`${api.crew}${id}`);
 }
-//crew/write
-function crewW(data){
-  const input=data[1];
-  const input2=data[0];
-  return axios.post(`${api.crew}`,input,{
+// crew/write
+function crewW(data) {
+  const input = data[1];
+  const input2 = data[0];
+  return axios.post(`${api.crew}`, input, {
     headers: {
-      'Authorization': input2,
+      Authorization: input2,
     },
-  })
+  });
 }
 
-export { examplefunc, examplefunc2, postLocalLogIn, postGoogleLogIn, postRegister,contestId,crewId ,crewW};
+export { examplefunc, examplefunc2, postLocalLogIn, postGoogleLogIn, postRegister, contestId, crewId, crewW };
 
 /*
 스토어에서 다음과 같이 불러오면 좋을 것 같습니다.

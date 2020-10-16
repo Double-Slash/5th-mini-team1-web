@@ -58,6 +58,7 @@
 import CHashTag from '@/components/Button/HashTag.vue';
 import IntroCard from '@/components/PostCard/IntroCard.vue';
 import AskModal from '@/components/PartnerAskModal.vue';
+
 export default {
   data() {
     return {
@@ -82,9 +83,9 @@ export default {
     closeModal() {
       this.onModal = false;
     },
-    apply: function (event){
-         this.$router.push('/partner')
-     },
+    apply() {
+      this.$router.push('/partner');
+    },
   },
 };
 </script>
@@ -189,6 +190,6 @@ table{
 }
 .button{
   text-align: center;
-  
+
 }
 </style>
