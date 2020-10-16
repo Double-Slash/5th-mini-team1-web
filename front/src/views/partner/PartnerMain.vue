@@ -4,43 +4,44 @@
     <div class = "searchbar">
        <input type = "text" placeholder="검색어를 입력하세요">
         <button>검색</button>
+        <a href="/partner/write"><button>글쓰기</button></a>
     </div>
   <div class = "partnermain">
       <div>
-      <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg" /></router-link>
+      <router-link to="/partner/1"><img src="@/assets/svg/partners.svg" /></router-link>
       </div>
       <div>
-      <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      <router-link to="/partner/1"><img src="@/assets/svg/partners.svg"/></router-link>
       </div>
      <div>
-      <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      <router-link to="/partner/1"><img src="@/assets/svg/partners.svg"/></router-link>
      </div>
       <div>
-      <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      <router-link to="/partner/1"><img src="@/assets/svg/partners.svg"/></router-link>
       </div>
       <div>
-      <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      <router-link to="/partner/1"><img src="@/assets/svg/partners.svg"/></router-link>
       </div>
       <div>
-      <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      <router-link to="/partner/1"><img src="@/assets/svg/partners.svg"/></router-link>
       </div>
       <div>
-      <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      <router-link to="/partner/1"><img src="@/assets/svg/partners.svg"/></router-link>
       </div>
      <div>
-      <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      <router-link to="/partner/1"><img src="@/assets/svg/partners.svg"/></router-link>
       </div>
      <div>
-      <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      <router-link to="/partner/1"><img src="@/assets/svg/partners.svg"/></router-link>
       </div>
       <div>
-      <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      <router-link to="/partner/1"><img src="@/assets/svg/partners.svg"/></router-link>
       </div>
       <div>
-      <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      <router-link to="/partner/1"><img src="@/assets/svg/partners.svg"/></router-link>
       </div>
       <div>
-      <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      <router-link to="/partner/1"><img src="@/assets/svg/partners.svg"/></router-link>
       </div>
   </div>
 </div>
@@ -92,7 +93,7 @@ input{
    font-size:18px;
    padding:10px;
    max-width: 1000px;
-   width:80%;
+   width:50%;
    height:66px;
    border:3px solid #2E88DB;
    background-color: #ffffff;
@@ -105,6 +106,7 @@ button{
     background-color:#2E88DB;
     color:#ffffff;
     outline: none;
+    margin-right:20px;
     float:right;
 }
 img{

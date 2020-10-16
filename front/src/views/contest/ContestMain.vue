@@ -8,28 +8,28 @@
     </div>
   <div class="longcontest">
     <div>
-      <router-link to="/reference/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+      <router-link to="/contest/1"><img src="@/assets/svg/longfintech.svg"/></router-link>
     </div>
     <div>
-      <router-link to="/reference/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+      <router-link to="/contest/1"><img src="@/assets/svg/longfintech.svg"/></router-link>
     </div>
     <div>
-      <router-link to="/reference/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+      <router-link to="/contest/1"><img src="@/assets/svg/longfintech.svg"/></router-link>
     </div>
     <div>
-      <router-link to="/reference/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+      <router-link to="/contest/1"><img src="@/assets/svg/longfintech.svg"/></router-link>
     </div>
     <div>
-      <router-link to="/reference/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+      <router-link to="/contest/1"><img src="@/assets/svg/longfintech.svg"/></router-link>
     </div>
     <div>
-      <router-link to="/reference/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+      <router-link to="/contest/1"><img src="@/assets/svg/longfintech.svg"/></router-link>
     </div>
     <div>
-      <router-link to="/reference/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+      <router-link to="/contest/1"><img src="@/assets/svg/longfintech.svg"/></router-link>
     </div>
     <div>
-      <router-link to="/reference/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+      <router-link to="/contest/1"><img src="@/assets/svg/longfintech.svg"/></router-link>
     </div>
 </div>
 </div>
@@ -48,13 +48,11 @@ export default {
 }
 .longcontest{
     display:grid;
-    grid-template-rows: repeat(2, 240px);
+    grid-template-rows: repeat(4, 220px);
+    row-gap: 5px;
     grid-template-columns: repeat(2,1fr);
-    row-gap:30px;
-    column-gap:30px;;
-    width:900px;
-    height:900px;
-    gap:30px;
+    row-gap:3.0em;
+    column-gap:1.5em;
 }
 .popularcontest{
     display:grid;
@@ -93,7 +91,7 @@ input{
    font-size:18px;
    padding:10px;
    max-width: 1000px;
-   width:80%;
+   width:50%;
    height:66px;
    margin-right:10px;
    border:3px solid #2E88DB;
