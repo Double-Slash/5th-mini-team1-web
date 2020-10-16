@@ -1,7 +1,7 @@
 <template>
   <li>
     <div class="post-header">
-      <img :src="item.image || null" />
+      <img src="@/assets/img/profile.png" />
       <div class="user-info">
         <h1>{{ item.interest }}</h1>
         <span>{{ item.username }}</span>
@@ -77,8 +77,6 @@ h1 {
   margin-right: 12px;
   border: 0;
   border-radius: 50%;
-  object-fit: contain;
-  background: black;
 }
 
 .post-header .user-info {

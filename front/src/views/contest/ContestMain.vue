@@ -1,14 +1,5 @@
 <template>
 <div class="conm">
-    <nav>
-        <router-link to="/">기획/아이디어</router-link>
-        <router-link to="/">광고/마케팅</router-link>
-        <router-link to="/">소프트웨어/게임</router-link>
-        <router-link to="/">웹/모바일/플래시</router-link>
-        <router-link to="/">문학/글/시나리오</router-link>
-        <router-link to="/">건축/건설/도시</router-link>
-         <router-link to="/">과학/공학</router-link>
-    </nav>
     <div class = "searchbar">
         <input type = "text" placeholder="검색어를 입력하세요"><button>검색</button>
     </div>
@@ -19,7 +10,6 @@
       <div class = "contest"><img src="@/assets/svg/fintech.svg"/></div>
       <div class = "contest"><img src="@/assets/svg/contestmain.svg" /></div>
   </div>
-  <div class="apply"><img src="@/assets/svg/applygongmo.svg"/></div>
   <div class="longcontest">
     <div>
       <router-link to="/reference/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
@@ -56,11 +46,13 @@ export default {
 
 <style scoped>
 .conm{
+  margin-top:70px;
   max-width: 1500px;
+  margin-bottom:100px;
 }
 .longcontest{
     display:grid;
-    grid-template-rows: repeat(2, 180px);
+    grid-template-rows: repeat(2, 240px);
     grid-template-columns: repeat(2,1fr);
     row-gap:30px;
     column-gap:30px;;

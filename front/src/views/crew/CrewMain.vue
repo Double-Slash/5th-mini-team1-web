@@ -1,14 +1,6 @@
 <template>
 <div class="cm">
-    <nav>
-        <router-link to="/">기획/아이디어</router-link>
-        <router-link to="/">광고/마케팅</router-link>
-        <router-link to="/">소프트웨어/게임</router-link>
-        <router-link to="/">웹/모바일/플래시</router-link>
-        <router-link to="/">문학/글/시나리오</router-link>
-        <router-link to="/">건축/건설/도시</router-link>
-        <router-link to="/">과학/공학</router-link>
-    </nav>
+
     <div class = "searchbar">
        <select>
         <option value="">시/도</option>
@@ -110,12 +102,15 @@ export default {
 
 <style scoped>
 .cm{
+  margin-top:70px;
+  margin-bottom:100px;
   max-width: 1500px;
 }
 .crewmain{
     display:grid;
-    grid-template-rows: repeat(4, 180px);
-    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(4, 220px);
+    row-gap: 5px;
+    grid-template-columns: repeat(2,1fr);
     row-gap:3.0em;
     column-gap:1.5em;
 }

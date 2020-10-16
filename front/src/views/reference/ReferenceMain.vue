@@ -85,6 +85,7 @@ export default {
 
 <style scoped>
 .rm{
+  margin-top:70px;
   max-width: 1500px;
 }
 .open_ads{
