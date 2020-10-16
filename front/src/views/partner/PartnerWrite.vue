@@ -126,7 +126,7 @@
 <script>
 
 export default {
-  name = "write-content",
+  
   method:{
     write: function (event){
          this.$router.push('/partner/:id')
