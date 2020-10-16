@@ -235,12 +235,14 @@ export default {
       afterLogin: { partner: [], crew: [], event: [] },
       bannerList: [],
       hasBanner: true,
+      isLogin: false,
     };
   },
 
   created() {
     this.getData();
   },
+
   computed: mapState({
     // 화살표 함수는 코드를 매우 간결하게 만들어 줍니다!
     token: (state) => state.token,
@@ -266,13 +268,6 @@ export default {
       // const token_header = this.token;
       // // const token = this.$cookies.get("doubleslash");
       // console.log('111111',token_header)
-
-      const token_header = {
-        headers: {
-          Authorization: 'Token d9ac1142d7bd04479bbc3c454cb49017ec5c476a',
-          // token : this.$cookies.get("token")
-        },
-      };
 
       try {
         // 1. 이벤트 글 불러오기
@@ -325,6 +320,12 @@ export default {
       }
     },
 
+  },
+
+  watch: {
+    token: function() {
+      this.getData();
+    },
   },
 };
 </script>
