@@ -75,7 +75,7 @@ export default {
     CHashTag,
     IntroCard,
     AskModal,
-  }, // axios 통신
+  }, 
   methods: {
     sendMessage() {
       this.onModal = true;
