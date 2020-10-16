@@ -2,7 +2,10 @@
   <div class='crew-write'>
     <div class='write-form'>
       <div class='form-img'>
-        <img src="@/assets/img/profile.png" width="300" height="350"/>
+        <label for="ex_file" class='file-label'></label>
+        <input type="file" id="ex_file" accept="image/*" class='file-data' ref="file"
+         @change="handleFileUpload" required multiple>
+         {{filePath}}
       </div>
       <div class="form-type"><label for="term">활동기간</label></div>
       <div class="form-input"><textarea id="term" v-model="period"></textarea></div>
@@ -16,22 +19,22 @@
     <div class="write-content">
       <div class="content-type">분야선택</div>
       <div class="content-input gap">
-        <input type="radio" id="option1" name="test" value="option1" checked="checked">
+        <input type="radio" id="option1" name="test" value="1" checked="checked">
         <label for="option1">기획/아이디어</label>
-        <input type="radio" id="option2" name="test" value="option2">
+        <input type="radio" id="option2" name="test" value="2">
         <label for="option2" >광고/마케팅</label>
-        <input type="radio" id="option3" name="test" value="option3">
+        <input type="radio" id="option3" name="test" value="3">
         <label for="option3">디자인/캐릭터</label>
-        <input type="radio" id="option4" name="test" value="option4">
+        <input type="radio" id="option4" name="test" value="4">
         <label for="option4">소프트웨어/게임</label>
         <br>
-        <input type="radio" id="option5" name="test" value="option5">
+        <input type="radio" id="option5" name="test" value="5">
         <label for="option5">웹/모바일/플래시</label>
-        <input type="radio" id="option6" name="test" value="option6">
+        <input type="radio" id="option6" name="test" value="6">
         <label for="option6">문학/글/시나리오</label>
-        <input type="radio" id="option7" name="test" value="option7">
+        <input type="radio" id="option7" name="test" value="7">
         <label for="option7">건축/건설/도시</label>
-        <input type="radio" id="option8" name="test" value="option8">
+        <input type="radio" id="option8" name="test" value="8">
         <label for="option8">과학/공학</label>
       </div>
 
@@ -53,14 +56,6 @@
     <div class='content-text gap'><textarea v-model="team_description" id="teaminfo"></textarea></div>
     <div class="content-type"><label for="requirement">자격요건 및<br> 우대사항</label></div>
     <div class='content-text gap'><textarea v-model="team_requirement" id="requirement"></textarea></div>
-   <div class="content-type">해시태그</div>
-   <div class='content-hashtag'>
-     <div class="hashtag"><label for="hash1"># </label><input id="hash1" type='text'></div>
-     <div class="hashtag"><label for="hash2"># </label><input id="hash2" type='text'></div>
-     <div class="hashtag"><label for="hash3"># </label><input id="hash3" type='text'></div>
-     <div class="hashtag"><label for="hash4"># </label><input id="hash4" type='text'></div>
-     <div class="hashtag"><label for="hash5"># </label><input id="hash5" type='text'></div>
-   </div>
    <div class="content-btn">
    <button style='margin-top:20px;' @click="crewPost()">확인</button>
    </div>
@@ -74,6 +69,8 @@ import { getToken } from "@/utils/jwtToken";
 export default {
   data() {
     return {
+      filePath:'',
+      fileData: '',
       period: '',
       project: '',
       description: '',
@@ -103,18 +100,25 @@ export default {
           team_description: this.team_description,
           project_description: this.team_intro,
           qualifications: this.team_requirement,
-          author: 1,
+          author: this.$store.state.userInfo.id,
         },
       ];
       const result = await this.$store.dispatch('crewBoardWrite', data);
-      if (result.response.status === 201) {
+      if (result.status === 201) {
         alert('성공적으로 입력되었습니다.');
         location.href = '/crew';
-      } else if (result.response.status === 400) {
+      } else if (result.status === 400) {
         alert('빈 데이터를 채워주셔야 합니다.');
       } else {
         alert('알수 없는 오류로 실패하였습니다. 다시 시도해 주세요.');
       }
+    },
+    handleFileUpload(e) {
+      this.filePath=e.target.value;
+      let img = e.target.files[0];
+      let fd= new FormData();
+      fd.append('image', img);
+      this.fileData=fd;
     },
   },
 };
@@ -140,6 +144,25 @@ export default {
 .form-img{
   grid-row:1/4;
 }
+.file-label{
+  background-image: url("../../assets/img/profile.png");
+  width:300px;
+  height:350px;
+  display:inline-block;
+  min-width:8vw;
+  text-align: left;
+  font-weight: bold;
+}
+.file-data{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
 .form-type{
   justify-self: center;
   font-weight: bold;
@@ -164,31 +187,7 @@ export default {
   width:100%;
   height: 200px;
 }
-.content-hashtag{
-  display:grid;
-  gap:10px;
-  grid-template-columns: repeat(5,1fr);
-}
-.hashtag:nth-child(3n){
-  grid-column: 3/6;
-}
-.hashtag{
-  width:150px;
-  height: 50px;
-  padding:10px 20px;
-  border:1px solid  rgba(46,136,219,1);
-  border-radius: 30px;
-  text-align: left;
-}
-.hashtag input{
-  width:90px;
-}
-.manager{
-  grid-column: 1/3;
-}
-.content-manager{
-  grid-column: 1/3;
-}
+
 .content-btn{
   grid-column: 1/3;
   justify-self: center;

@@ -2,7 +2,8 @@
   <li class="post-layout">
     <div class="post">
       <div class="post-thumbnail">
-        <img :src="item.image || null" />
+        <img src="@/assets/img/test-post_img.png" />
+        <!-- <img :src="item.image || '@/assets/img/test-post_img.png'" /> -->
       </div>
       <div class="post-info">
         <div class="info-header">

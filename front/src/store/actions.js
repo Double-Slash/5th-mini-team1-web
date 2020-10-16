@@ -1,6 +1,15 @@
-import { postRegister, postLocalLogIn, postGoogleLogIn, getLoadUserInfo, contestId, crewId, crewW } from "@/api";
+import { 
+  postRegister, 
+  postLocalLogIn, 
+  postGoogleLogIn, 
+  getLoadUserInfo, 
+  contestId, 
+  crewId, 
+  crewW, 
+  patchUserInfo 
+} from "@/api";
 import { setToken } from "@/utils/jwtToken";
-import { setUserId } from "@/utils/userId";
+import { getUserId, setUserId } from "@/utils/userId";
 
 export default {
   // 회원가입
@@ -84,4 +93,17 @@ export default {
     }
     return response;
   },
+  // 유저 정보 수정
+  async submitUserInfo({ commit }, userInfo) {
+    let response = "";
+    try {
+      const pk = getUserId();
+    const { data } = await patchUserInfo(pk, userInfo);
+    commit("setUserInfo", data);
+    response = data;
+    } catch(error) {
+      response = error;
+    }
+    return response;
+  }
 };
