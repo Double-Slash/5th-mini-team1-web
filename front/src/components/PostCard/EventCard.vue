@@ -1,7 +1,7 @@
 <template>
   <li>
     <div class="post-thumbnail">
-      <img src="@/assets/img/test-post_img.png" />
+      <img src="@/assets/img/profile.png" />
       <!-- <img :src="item.thumbnail || null" /> -->
     </div>
     <div class="post-info">

@@ -105,7 +105,6 @@
 
       <section class="recommend-partner">
         <div class="content-title">맞춤 파트너</div>
-        <div @click="logout">로그아웃</div>
 
         <template v-if="afterLogin.partner.length>0">
           <article>
