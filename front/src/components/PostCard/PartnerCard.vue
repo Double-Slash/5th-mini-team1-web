@@ -78,7 +78,7 @@ h1 {
   border: 0;
   border-radius: 50%;
   object-fit: contain;
-  background: blue;
+  background: black;
 }
 
 .post-header .user-info {

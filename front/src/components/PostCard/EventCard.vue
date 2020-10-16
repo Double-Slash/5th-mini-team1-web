@@ -1,7 +1,8 @@
 <template>
   <li>
     <div class="post-thumbnail">
-      <img :src="item.thumbnail || null" />
+      <img src="@/assets/img/test-post_img.png" />
+      <!-- <img :src="item.thumbnail || null" /> -->
     </div>
     <div class="post-info">
       <div class="info-header">
@@ -12,7 +13,7 @@
         <p>{{ item.detail }}</p>
       </div>
       <div class="info-footer">
-        <span>{{ item.deadline }}</span>
+        <span>D-8</span>
         <BookMark />
       </div>
     </div>

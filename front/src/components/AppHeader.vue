@@ -26,7 +26,10 @@
           </router-link>
           <router-link to="/profile">
             <li>
-              <img :src="null" class="image-wrapper user-image" />
+              <img
+                src="@/assets/img/profile/profile4.png"
+                class="image-wrapper user-image"
+              />
             </li>
           </router-link>
         </ul>
@@ -36,7 +39,6 @@
         <LogInModal v-if="logInModalActive" />
       </aside>
     </div>
-
   </header>
 </template>
 
