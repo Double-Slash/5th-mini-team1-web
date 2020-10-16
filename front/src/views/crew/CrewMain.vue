@@ -62,18 +62,42 @@
         <button>검색</button>
     </div>
   <div class = "crewmain">
-      <div class = "crew"><img src="@/assets/svg/contest.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
+      <div class="crew">
+      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+    </div>
+      <div class="crew">
+      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+    </div>
+      <div class="crew">
+      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+    </div>
+      <div class="crew">
+      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+    </div>
+     <div class="crew">
+      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+    </div>
+     <div class="crew">
+      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+    </div>
+      <div class="crew">
+      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+    </div>
+      <div class="crew">
+      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+    </div>
+      <div class="crew">
+      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+    </div>
+      <div class="crew">
+      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+    </div>
+      <div class="crew">
+      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+    </div>
+     <div class="crew">
+      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+    </div>
   </div>
 </div>
 </template>
