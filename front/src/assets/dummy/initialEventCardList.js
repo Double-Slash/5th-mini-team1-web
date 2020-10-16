@@ -50,16 +50,9 @@ export const initialEventCardList = [
   },
   {
     thumbnail: null,
-    title: '건설공모전',
-    host_info: '대한건설',
-    detail: '건설디자인아이디어',
-    deadline: '2020-12-10',
-  },
-  {
-    thumbnail: null,
-    title: '창업공모전',
-    host_info: '창업스타트업',
-    detail: '창업합시다',
-    deadline: '2020-11-05',
+    title: null,
+    host_info: null,
+    detail: null,
+    deadline: null,
   },
 ];

@@ -57,40 +57,40 @@
     <div style='clear:both;'></div>
   <div class = "crewmain">
       <div class="crew">
-      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+      <router-link to="/crew/1"><img src="@/assets/svg/longfintech.svg"/></router-link>
     </div>
       <div class="crew">
-      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+      <router-link to="/crew/1"><img src="@/assets/svg/longfintech.svg"/></router-link>
     </div>
       <div class="crew">
-      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+      <router-link to="/crew/1"><img src="@/assets/svg/longfintech.svg"/></router-link>
     </div>
       <div class="crew">
-      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+      <router-link to="/crew/1"><img src="@/assets/svg/longfintech.svg"/></router-link>
     </div>
      <div class="crew">
-      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+      <router-link to="/crew/1"><img src="@/assets/svg/longfintech.svg"/></router-link>
     </div>
      <div class="crew">
-      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+      <router-link to="/crew/1"><img src="@/assets/svg/longfintech.svg"/></router-link>
     </div>
       <div class="crew">
-      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+      <router-link to="/crew/1"><img src="@/assets/svg/longfintech.svg"/></router-link>
     </div>
       <div class="crew">
-      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+      <router-link to="/crew/1"><img src="@/assets/svg/longfintech.svg"/></router-link>
     </div>
       <div class="crew">
-      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+      <router-link to="/crew/1"><img src="@/assets/svg/longfintech.svg"/></router-link>
     </div>
       <div class="crew">
-      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+      <router-link to="/crew/1"><img src="@/assets/svg/longfintech.svg"/></router-link>
     </div>
       <div class="crew">
-      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+      <router-link to="/crew/1"><img src="@/assets/svg/longfintech.svg"/></router-link>
     </div>
      <div class="crew">
-      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+      <router-link to="/crew/1"><img src="@/assets/svg/longfintech.svg"/></router-link>
     </div>
   </div>
 </div>
@@ -145,7 +145,7 @@ input{
    border:0px;
    font-size:18px;
    padding:10px;
-   width: 400px;
+   min-width:28%;
    height:66px;
    border:3px solid #2E88DB;
    background-color: #ffffff;

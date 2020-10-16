@@ -50,16 +50,9 @@ export const initialPartnerCardList = [
   },
   {
     image: null,
-    interest: '개발',
-    username: '뷰뷰뷰',
-    description: '뷰로짜자',
-    hashtags: ['개발합시다'],
-  },
-  {
-    image: null,
-    interest: '기획',
-    username: '플래닝',
-    description: '기획은어려워요',
-    hashtags: ['plan'],
+    interest: null,
+    username: null,
+    description: null,
+    hashtags: null,
   },
 ];
