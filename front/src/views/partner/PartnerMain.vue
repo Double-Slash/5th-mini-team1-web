@@ -1,17 +1,17 @@
 <template>
 <div>
     <nav>
-        <router-link to="/" >기획/아이디어</router-link>
-        <router-link to="/" >광고/마케팅</router-link>
-        <router-link to="/" >소프트웨어/게임</router-link>
-        <router-link to="/" >웹/모바일/플래시</router-link>
-        <router-link to="/" >문학/글/시나리오</router-link>
-        <router-link to="/" >건축/건설/도시</router-link>
-        <router-link to="/" >과학/공학</router-link>
+        <router-link to="/">기획/아이디어</router-link>
+        <router-link to="/">광고/마케팅</router-link>
+        <router-link to="/">소프트웨어/게임</router-link>
+        <router-link to="/">웹/모바일/플래시</router-link>
+        <router-link to="/">문학/글/시나리오</router-link>
+        <router-link to="/">건축/건설/도시</router-link>
+        <router-link to="/">과학/공학</router-link>
     </nav>
     <div class = "searchbar">
-       <input type = "text" placeholder="검색어를 입력하세요" >
-        <button @click="render()">검색</button>
+       <input type = "text" placeholder="검색어를 입력하세요">
+        <button>검색</button>
     </div>
   <div class = "partnermain">
       <div>
@@ -55,20 +55,12 @@
 </template>
 
 <script>
-
 export default {
 
-  method: {
-    render() {
-      this.$router.push('/');
-    },
-  },
 };
-
 </script>
 
-<style scoped>
-
+<style>
 .partnermain{
     display:grid;
     grid-template-rows: repeat(4, 180px);
@@ -87,7 +79,6 @@ nav {
 nav > a:hover {
   color: #2e88db;
 }
-
 a {
   text-decoration: none;
   font-size: 16px;
@@ -118,15 +109,5 @@ button{
     outline: none;
     float:right;
 }
-select{
-   border:0px;
-   font-size:18px;
-   padding:10px;
-   width: 150px;
-   height:66px;
-   margin-right:10px;
-   border:3px solid #2E88DB;
-   background-color: #ffffff;
-   float:left;
-}
+
 </style>
