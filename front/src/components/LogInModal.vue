@@ -17,7 +17,7 @@
         <form @submit.prevent="submitLogInOrRegister">
           <div>
             <input type="text" placeholder="ID" v-model="id" />
-            <input type="text" placeholder="PASSWORD" v-model="password" />
+            <input type="password" placeholder="PASSWORD" v-model="password" />
           </div>
           <div class="is-now-login-wrapper">
             <p>{{ errorMessage || registerMessage || logInError || "" }}</p>
