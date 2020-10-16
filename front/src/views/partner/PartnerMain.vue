@@ -1,6 +1,6 @@
 <template>
 <div>
-    <nav>
+    <nav @click="dataFetch()">
         <router-link to="/" name="major">기획/아이디어</router-link>
         <router-link to="/" name="major">광고/마케팅</router-link>
         <router-link to="/" name="major">소프트웨어/게임</router-link>
@@ -40,7 +40,7 @@ export default {
     render() {
       this.$router.push('/');
     },
-    Fetch() {
+    dataFetch() {
       this.major = null;
       this.loading = true;
     },
