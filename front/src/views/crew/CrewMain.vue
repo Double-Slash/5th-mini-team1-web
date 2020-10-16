@@ -1,14 +1,5 @@
 <template>
 <div class="cm">
-    <nav>
-        <router-link to="/">기획/아이디어</router-link>
-        <router-link to="/">광고/마케팅</router-link>
-        <router-link to="/">소프트웨어/게임</router-link>
-        <router-link to="/">웹/모바일/플래시</router-link>
-        <router-link to="/">문학/글/시나리오</router-link>
-        <router-link to="/">건축/건설/도시</router-link>
-        <router-link to="/">과학/공학</router-link>
-    </nav>
     <div class = "searchbar">
        <select>
         <option value="">시/도</option>
@@ -59,8 +50,11 @@
          <option>강동구</option>
        </select>
        <input type = "text" placeholder="해시태그">
+       
         <button>검색</button>
+        <router-link to="/crew/write" style='color:white;'><button>글쓰기</button></router-link>
     </div>
+    <div style='clear:both;'></div>
   <div class = "crewmain">
       <div class="crew">
       <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
@@ -110,12 +104,15 @@ export default {
 
 <style scoped>
 .cm{
+  margin-top:70px;
+  margin-bottom:100px;
   max-width: 1500px;
 }
 .crewmain{
     display:grid;
-    grid-template-rows: repeat(4, 180px);
-    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(4, 220px);
+    row-gap: 5px;
+    grid-template-columns: repeat(2,1fr);
     row-gap:3.0em;
     column-gap:1.5em;
 }
@@ -138,9 +135,11 @@ a {
   color: black;
 }
 .searchbar{
-    width: 1100px;
-    height: 100px;
+    max-width: 1300px;
+    min-width:1000px;
+    height: 80px;
     justify-content:space-between;
+    margin-bottom:40px;
 }
 input{
    border:0px;
@@ -160,6 +159,7 @@ button{
     color:#ffffff;
     outline: none;
     float:right;
+    margin-right:20px;
 }
 select{
    border:0px;

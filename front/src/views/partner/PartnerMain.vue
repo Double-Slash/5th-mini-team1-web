@@ -1,21 +1,13 @@
 <template>
 <div class="pm">
-    <nav>
-        <router-link to="/">기획/아이디어</router-link>
-        <router-link to="/">광고/마케팅</router-link>
-        <router-link to="/">소프트웨어/게임</router-link>
-        <router-link to="/">웹/모바일/플래시</router-link>
-        <router-link to="/">문학/글/시나리오</router-link>
-        <router-link to="/">건축/건설/도시</router-link>
-        <router-link to="/">과학/공학</router-link>
-    </nav>
+
     <div class = "searchbar">
        <input type = "text" placeholder="검색어를 입력하세요">
         <button>검색</button>
     </div>
   <div class = "partnermain">
       <div>
-      <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg" /></router-link>
       </div>
       <div>
       <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
@@ -60,16 +52,17 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .pm{
   max-width: 1500px;
+  margin-top:70px;
+  margin-bottom:100px;
 }
 .partnermain{
     display:grid;
     grid-template-rows: repeat(4, 180px);
-    grid-template-columns: repeat(3,1fr);
-    row-gap:3.0em;
-    column-gap:1.5em;
+    grid-template-columns: repeat(4,1fr);
+    row-gap:100px;
 }
 nav {
   display: flex;
@@ -89,7 +82,8 @@ a {
   color: black;
 }
 .searchbar{
-    width: 1100px;
+    max-width: 1300px;
+    min-width:1000px;
     height: 100px;
     justify-content:space-between;
 }
@@ -97,7 +91,8 @@ input{
    border:0px;
    font-size:18px;
    padding:10px;
-   width: 400px;
+   max-width: 1000px;
+   width:80%;
    height:66px;
    border:3px solid #2E88DB;
    background-color: #ffffff;
@@ -112,5 +107,7 @@ button{
     outline: none;
     float:right;
 }
-
+img{
+  height:250px;
+}
 </style>

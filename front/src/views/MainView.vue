@@ -242,7 +242,6 @@ export default {
   created() {
     this.getData();
   },
-
   computed: mapState({
     // 화살표 함수는 코드를 매우 간결하게 만들어 줍니다!
     token: (state) => state.token,
@@ -251,23 +250,25 @@ export default {
   methods: {
     async logout() {
       // this.$store.commit('logout');
-      try{
-        const res = await axios.get(this.dataURL.concat('/accounts/logout/'),
-          // { headers: { Authorization: `Token ${this.token}` } }
-          // { headers: { Authorization: 'Token 66f9a7e71fbe80dd7522dc99ceaf4fdc6759f8bf' } }
-        );
-        console.log(JSON.stringify(res));
-        if (res.status === 200) {
-          this.$store.commit('logout');
-        }
-      } catch (e) {
-        console.log(JSON.stringify(e));
+      // console.log(this.token);
+      const res = await axios.get(this.dataURL.concat('/accounts/logout/'),
+        { headers: { Authorization: `Token ${this.token}` } });
+      console.log(JSON.stringify(res));
+      if (res.status === 200) {
+        this.$store.commit('logout');
       }
     },
     async getData() {
       // const token_header = this.token;
       // // const token = this.$cookies.get("doubleslash");
       // console.log('111111',token_header)
+
+      const token_header = {
+        headers: {
+          Authorization: 'Token d9ac1142d7bd04479bbc3c454cb49017ec5c476a',
+          // token : this.$cookies.get("token")
+        },
+      };
 
       try {
         // 1. 이벤트 글 불러오기
