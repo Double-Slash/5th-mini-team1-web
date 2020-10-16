@@ -1,7 +1,6 @@
-import { postRegister, postLocalLogIn, postGoogleLogIn,getLoadUserInfo ,contestId,crewId,crewW} from "@/api";
-
-// cookie
+import { postRegister, postLocalLogIn, postGoogleLogIn, getLoadUserInfo, contestId, crewId, crewW } from "@/api";
 import { setToken } from "@/utils/jwtToken";
+import { setUserId } from "@/utils/userId";
 
 export default {
   // 회원가입
@@ -31,6 +30,7 @@ export default {
       }
       commit("setToken", response.token);
       setToken(response.token);
+      setUserId(response.pk);
       await dispatch("loadUserInfo", response.pk);
     } catch (error) {
       commit("setLogInError", "존재하지 않은 사용자입니다.");
@@ -39,48 +39,48 @@ export default {
     return response;
   },
   // 유저 정보 불러오기
-  async loadUserInfo ({ commit }, id) {
+  async loadUserInfo({ commit }, id) {
     let response = "";
     try {
       const { data } = await getLoadUserInfo(id);
       commit("setUserInfo", data);
       response = data;
-    } catch(error) {
+    } catch (error) {
       response = error;
     }
     return response;
   },
-  async contestView({commit}){
-    let response="";
-    try{
-      const {data}=await contestId();
-      response=data;
-      commit("setContestView",response);
-    }catch(error){
-      response=error;
-    }finally{
+  async contestView({ commit }) {
+    let response = "";
+    try {
+      const { data } = await contestId();
+      response = data;
+      commit("setContestView", response);
+    } catch (error) {
+      response = error;
+    } finally {
       return response;
     }
   },
-  async crewView({commit},id){
-    let response="";
-    try{
-      const {data}=await crewId(id);
-      response=data;
-      commit("setCrewView",response);
-    }catch(error){
-      response=error;
-    }finally{
+  async crewView({ commit }, id) {
+    let response = "";
+    try {
+      const { data } = await crewId(id);
+      response = data;
+      commit("setCrewView", response);
+    } catch (error) {
+      response = error;
+    } finally {
       return response;
     }
   },
-  async crewBoardWrite({},data){
-    let response="";
-    try{
-      const test=await crewW(data);
-      response=test;
-    }catch(error){
-      response=error;
+  async crewBoardWrite({}, data) {
+    let response = "";
+    try {
+      const test = await crewW(data);
+      response = test;
+    } catch (error) {
+      response = error;
     }
     return response;
   },
