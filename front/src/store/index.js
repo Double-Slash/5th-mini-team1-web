@@ -14,9 +14,9 @@ export default new Vuex.Store({
     registerMessage: "", // 회원가입 결과 메시지
     logInError: "", // log in 서버 에러
     userInfo: {}, // 유저 정보
-    contest:"", // contest data
-    crew:"", //crew data
-    crewAll:"",
+    contest: "", // contest data
+    crew: "", // crew data
+    crewAll: "",
   },
   getters,
   mutations,

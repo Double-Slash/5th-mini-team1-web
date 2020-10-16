@@ -70,17 +70,18 @@
 
 <script>
 import { getToken } from "@/utils/jwtToken";
+
 export default {
   data() {
     return {
-      period:'',
-      project:'',
-      description:'',
-      location:'',
-      team_name:'',
-      team_intro:'',
-      team_description:'',
-      team_requirement:'',
+      period: '',
+      project: '',
+      description: '',
+      location: '',
+      team_name: '',
+      team_intro: '',
+      team_description: '',
+      team_requirement: '',
       hashTags: ['수도권', 'UI/UX', '웹디자인'],
       item: {
         job: "웹 디자이너",
@@ -90,33 +91,32 @@ export default {
       },
     };
   },
-  methods:{
-    async crewPost(){
-      let data=[
+  methods: {
+    async crewPost() {
+      const data = [
         getToken(),
         {
-          "title":this.project,
-          "content":this.description,
-          "location":this.location,
-          "team_name":this.team_name,
-          "team_description":this.team_description,
-          "project_description":this.team_intro,
-          "qualifications":this.team_requirement,
-          "author":1,
-        }
-      ]
-      const result=await this.$store.dispatch('crewBoardWrite',data);
-      if(result.response.status ===201){
+          title: this.project,
+          content: this.description,
+          location: this.location,
+          team_name: this.team_name,
+          team_description: this.team_description,
+          project_description: this.team_intro,
+          qualifications: this.team_requirement,
+          author: 1,
+        },
+      ];
+      const result = await this.$store.dispatch('crewBoardWrite', data);
+      if (result.response.status === 201) {
         alert('성공적으로 입력되었습니다.');
-        location.href='/crew';
-      }else if(result.response.status===400){
+        location.href = '/crew';
+      } else if (result.response.status === 400) {
         alert('빈 데이터를 채워주셔야 합니다.');
-      }else{
+      } else {
         alert('알수 없는 오류로 실패하였습니다. 다시 시도해 주세요.');
       }
-      
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>

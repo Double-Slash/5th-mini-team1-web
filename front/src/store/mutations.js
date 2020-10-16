@@ -15,10 +15,10 @@ export default {
   setUserInfo(state, userInfo) {
     state.userInfo = userInfo;
   },
-  setContestView(state,data){
-    state.contest=data;
+  setContestView(state, data) {
+    state.contest = data;
   },
-  setCrewView(state,data){
-    state.crew=data;
-  }
+  setCrewView(state, data) {
+    state.crew = data;
+  },
 };

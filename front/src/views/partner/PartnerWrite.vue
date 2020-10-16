@@ -126,12 +126,12 @@
 <script>
 
 export default {
-  
-  method:{
-    write: function (event){
-         this.$router.push('/partner/:id')
-     }
-  }
+
+  method: {
+    write(event) {
+      this.$router.push('/partner/:id');
+    },
+  },
 };
 </script>
 
@@ -287,4 +287,3 @@ table{
   float: center;
 }
 </style>
-
