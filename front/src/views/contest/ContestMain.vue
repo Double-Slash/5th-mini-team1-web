@@ -46,6 +46,7 @@
       <router-link to="/reference/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
     </div>
 </div>
+</div>
 </template>
 
 <script>
