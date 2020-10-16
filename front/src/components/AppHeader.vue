@@ -44,6 +44,7 @@
 
 <script>
 import { mapState } from "vuex";
+import { getToken } from "@/utils/jwtToken";
 import LogInModal from "./LogInModal.vue";
 
 export default {
@@ -55,6 +56,11 @@ export default {
   },
   mounted() {
     this.detectWindowScrollY();
+  },
+  updated() {
+    if (getToken()) {
+      this.headerStyle = true;
+    }
   },
   destroyed() {
     window.removeEventListener("scroll", this.detectWindowScrollY);
