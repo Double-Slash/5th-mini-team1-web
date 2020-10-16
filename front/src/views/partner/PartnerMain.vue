@@ -32,6 +32,9 @@
 
 <script>
 export default {
+  created(){
+    dataFetch()
+  },
   data() {
     major : "";
   },
@@ -39,6 +42,10 @@ export default {
     render() {
       this.$router.push('/');
     },
+    dataFetch(){
+       this.major = null
+       this.loading = true
+    }
   },
 };
 
