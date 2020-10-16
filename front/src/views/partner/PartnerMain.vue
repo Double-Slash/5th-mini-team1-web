@@ -10,7 +10,7 @@
         <router-link to="/" >과학/공학</router-link>
     </nav>
     <div class = "searchbar">
-       <input type = "text" placeholder="검색어를 입력하세요"  @input="inputHandler">
+       <input type = "text" placeholder="검색어를 입력하세요"  @click="inputHandler()">
         <button @click="render()">검색</button>
     </div>
   <div class = "partnermain">
@@ -62,27 +62,12 @@ export default {
     render() {
       this.$router.push('/');
     },
-    dataFetch() {
 
-    },
     inputHandler(e) {
-      this.search = e.target.value;
+       e.target.value;
       // 빈칸으로 넘어가는 거 방지
 
-      //     if(this.search.length !== 0){
-      //       clearTimeout(this.debounce);
-      //       this.debounce = setTimeout(() =>
-      //       {
-      //       const filteredList = this.stageInfoList.filter(item =>
-      //        item.title.includes(this.search));
-      //       this.searchList = filteredList;
-      //       }, 500);
-      //       }
-      //       else{
-      //         clearTimeout(this.debounce);
-      //         this.debounce = setTimeout(() => {
-      //           this.searchList = [];
-      //           }, 500);
+
     },
   },
 };
