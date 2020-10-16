@@ -26,8 +26,10 @@ export default {
     ...mapActions(["loadUserInfo"]),
   },
   async mounted() {
-    const userId = getUserId();
-    await this.loadUserInfo(userId);
+    if (getUserId() !== null) {
+      const userId = getUserId();
+      await this.loadUserInfo(userId);
+    }
   },
 };
 </script>
