@@ -1,9 +1,9 @@
-let partnerCardList=[
+const partnerCardList = [
   {
-    image:null,
-    interest:null,
-    username:null,
-    description:null,
-    hashtags:null,
+    image: null,
+    interest: null,
+    username: null,
+    description: null,
+    hashtags: null,
   },
 ];

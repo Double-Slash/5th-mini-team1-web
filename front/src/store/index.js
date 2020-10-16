@@ -4,9 +4,9 @@ import { getToken } from "@/utils/jwtToken";
 import getters from "./getters";
 import mutations from "./mutations";
 import actions from "./actions";
-import initialCrewCardList from "./../assets/dummy/initialCrewCardList";
-import initialPartnerCardList from "./../assets/dummy/initialPartnerCardList";
-import initialEventCardList from "./../assets/dummy/initialEventCardList";
+import initialCrewCardList from "../assets/dummy/initialCrewCardList";
+import initialPartnerCardList from "../assets/dummy/initialPartnerCardList";
+import initialEventCardList from "../assets/dummy/initialEventCardList";
 
 Vue.use(Vuex);
 
