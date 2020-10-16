@@ -10,7 +10,7 @@
         <router-link to="/" >과학/공학</router-link>
     </nav>
     <div class = "searchbar">
-       <input type = "text" placeholder="검색어를 입력하세요"  v-on="inputHandler()">
+       <input type = "text" placeholder="검색어를 입력하세요" v-on="inputHandler()">
         <button @click="render()">검색</button>
     </div>
   <div class = "partnermain">
@@ -65,7 +65,6 @@ export default {
 
     inputHandler(e) {
        e.target.value;
-      // 빈칸으로 넘어가는 거 방지
     },
   },
 };
