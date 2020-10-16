@@ -35,7 +35,7 @@
 export default {
 
   data() {
-    "";
+
     search:"";
   },
   method: {
@@ -50,23 +50,23 @@ export default {
       this.search = e.target.value; 
       // 빈칸으로 넘어가는 거 방지
 
-      if(this.search.length !== 0){ 
-        clearTimeout(this.debounce); 
-        this.debounce = setTimeout(() => 
-        { 
-        const filteredList = this.stageInfoList.filter(item => item.title.includes(this.search)); 
-        this.searchList = filteredList; 
-        }, 500); 
-        }
-        else{ 
-          clearTimeout(this.debounce); 
-          this.debounce = setTimeout(() => { 
-            this.searchList = []; 
-            }, 500); 
+  //     if(this.search.length !== 0){ 
+  //       clearTimeout(this.debounce); 
+  //       this.debounce = setTimeout(() => 
+  //       { 
+  //       const filteredList = this.stageInfoList.filter(item => item.title.includes(this.search)); 
+  //       this.searchList = filteredList; 
+  //       }, 500); 
+  //       }
+  //       else{ 
+  //         clearTimeout(this.debounce); 
+  //         this.debounce = setTimeout(() => { 
+  //           this.searchList = []; 
+  //           }, 500); 
             } 
             },
-  },
-};
+  }
+
 
 </script>
 

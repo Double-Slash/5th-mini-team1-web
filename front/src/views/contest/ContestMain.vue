@@ -21,15 +21,30 @@
   </div>
   <div class="apply"><img src="@/assets/svg/applygongmo.svg"/></div>
   <div class="longcontest">
-    <div><router-link to="/reference/:id"><img src="@/assets/svg/longfintech.svg"/></router-link></div>
-    <div><router-link to="/reference/:id"><img src="@/assets/svg/longcontest.svg"/></router-link></div>
-    <div><router-link to="/reference/:id"><img src="@/assets/svg/longcontest.svg"/></router-link></div>
-    <div><router-link to="/reference/:id"><img src="@/assets/svg/longcontest.svg"/></router-link></div>
-    <div><router-link to="/reference/:id"><img src="@/assets/svg/longcontest.svg"/></router-link></div>
-    <div><router-link to="/reference/:id"><img src="@/assets/svg/longcontest.svg"/></router-link></div>
-    <div><router-link to="/reference/:id"><img src="@/assets/svg/longcontest.svg"/></router-link></div>
-    <div><router-link to="/reference/:id"><img src="@/assets/svg/longcontest.svg"/></router-link></div>
-  </div>
+    <div>
+      <router-link to="/reference/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+    </div>
+    <div>
+      <router-link to="/reference/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+    </div>
+    <div>
+      <router-link to="/reference/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+    </div>
+    <div>
+      <router-link to="/reference/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+    </div>
+    <div>
+      <router-link to="/reference/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+    </div>
+    <div>
+      <router-link to="/reference/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+    </div>
+    <div>
+      <router-link to="/reference/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+    </div>
+    <div>
+      <router-link to="/reference/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+    </div>
 </div>
 </template>
 
