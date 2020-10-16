@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="cm">
     <nav>
         <router-link to="/">기획/아이디어</router-link>
         <router-link to="/">광고/마케팅</router-link>
@@ -85,7 +85,9 @@ export default {
 </script>
 
 <style scoped>
-
+.cm{
+  max-width: 1500px;
+}
 .crewmain{
     display:grid;
     grid-template-rows: repeat(4, 180px);
