@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+import { getUserId } from "@/utils/userId";
 import AppHeader from "./components/AppHeader.vue";
 import AppFooter from "./components/AppFooter.vue";
 
@@ -29,6 +31,15 @@ export default {
   components: {
     AppHeader,
     AppFooter,
+  },
+  methods: {
+    ...mapActions(["loadUserInfo"]),
+  },
+  async mounted() {
+    if (getUserId() !== null) {
+      const userId = getUserId();
+      await this.loadUserInfo(userId);
+    }
   },
 };
 </script>
