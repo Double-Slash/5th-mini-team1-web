@@ -54,7 +54,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
 .longcontest{
     display:grid;
     grid-template-rows: repeat(2, 180px);
