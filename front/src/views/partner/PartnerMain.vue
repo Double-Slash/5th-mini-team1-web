@@ -10,8 +10,8 @@
         <router-link to="/" name="major">과학/공학</router-link>
     </nav>
     <div class = "searchbar">
-       <input type = "text" placeholder="해시태그">
-        <button>검색</button>
+       <input type = "text" placeholder="검색어를 입력하세요" v-model="search"  @input="inputHandler">
+        <button @click="search">검색</button>
     </div>
   <div class = "partnermain">
       <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
@@ -31,10 +31,12 @@
 </template>
 
 <script>
+
 export default {
 
   data() {
     "";
+    search:"";
   },
   method: {
     render() {
@@ -44,6 +46,25 @@ export default {
       this.major = null;
       this.loading = true;
     },
+    inputHandler(e) { 
+      this.search = e.target.value; 
+      // 빈칸으로 넘어가는 거 방지
+
+      if(this.search.length !== 0){ 
+        clearTimeout(this.debounce); 
+        this.debounce = setTimeout(() => 
+        { 
+        const filteredList = this.stageInfoList.filter(item => item.title.includes(this.search)); 
+        this.searchList = filteredList; 
+        }, 500); 
+        }
+        else{ 
+          clearTimeout(this.debounce); 
+          this.debounce = setTimeout(() => { 
+            this.searchList = []; 
+            }, 500); 
+            } 
+            },
   },
 };
 
