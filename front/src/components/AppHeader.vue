@@ -73,10 +73,10 @@ export default {
       if (this.headerStyle === true) {
         return {
           background: "white",
-          boxShadow: "0 3px 20px 0 rgba(0, 0, 0, 0.05) }",
+          boxShadow: "0 10px 20px 0 rgba(0, 0, 0, 0.15) }",
         };
       }
-      return { background: "transparent", boxShadow: "0 0 black" };
+      return { background: "transparent", boxShadow: "0 10px 20px 0 rgba(0, 0, 0, 0.15)" };
     },
     // 로그인 버튼 스타일 변경
     changeButton() {
