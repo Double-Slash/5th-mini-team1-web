@@ -3,13 +3,9 @@
     <div class = "searchbar">
         <input type = "text" placeholder="검색어를 입력하세요"><button>검색</button>
     </div>
-    <div class="popular">
+    <div class="popular" style='margin-bottom:20px;'>
       인기 공모전/행사
     </div>
-  <div class = "popularcontest">
-      <div class = "contest"><img src="@/assets/svg/fintech.svg"/></div>
-      <div class = "contest"><img src="@/assets/svg/contestmain.svg" /></div>
-  </div>
   <div class="longcontest">
     <div>
       <router-link to="/reference/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
@@ -48,7 +44,7 @@ export default {
 .conm{
   margin-top:70px;
   max-width: 1500px;
-  margin-bottom:100px;
+  margin-bottom:200px;
 }
 .longcontest{
     display:grid;
@@ -87,7 +83,8 @@ a {
   color: black;
 }
 .searchbar{
-    width: 900px;
+    max-width: 1300px;
+    min-width:1000px;
     height: 100px;
     justify-content:space-between;
 }
@@ -95,7 +92,8 @@ input{
    border:0px;
    font-size:18px;
    padding:10px;
-   width: 580.64px;
+   max-width: 1000px;
+   width:80%;
    height:66px;
    margin-right:10px;
    border:3px solid #2E88DB;

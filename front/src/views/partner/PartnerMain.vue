@@ -52,7 +52,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .pm{
   max-width: 1500px;
   margin-top:70px;
@@ -61,8 +61,8 @@ export default {
 .partnermain{
     display:grid;
     grid-template-rows: repeat(4, 180px);
-    grid-template-columns: repeat(3,1fr);
-    row-gap:150px;
+    grid-template-columns: repeat(4,1fr);
+    row-gap:100px;
 }
 nav {
   display: flex;
@@ -82,8 +82,8 @@ a {
   color: black;
 }
 .searchbar{
-  margin-left:70px;
-    width: 1100px;
+    max-width: 1300px;
+    min-width:1000px;
     height: 100px;
     justify-content:space-between;
 }
@@ -91,7 +91,8 @@ input{
    border:0px;
    font-size:18px;
    padding:10px;
-   width: 400px;
+   max-width: 1000px;
+   width:80%;
    height:66px;
    border:3px solid #2E88DB;
    background-color: #ffffff;

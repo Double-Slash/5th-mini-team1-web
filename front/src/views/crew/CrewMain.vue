@@ -1,6 +1,5 @@
 <template>
 <div class="cm">
-
     <div class = "searchbar">
        <select>
         <option value="">시/도</option>
@@ -51,8 +50,11 @@
          <option>강동구</option>
        </select>
        <input type = "text" placeholder="해시태그">
+       
         <button>검색</button>
+        <router-link to="/crew/write" style='color:white;'><button>글쓰기</button></router-link>
     </div>
+    <div style='clear:both;'></div>
   <div class = "crewmain">
       <div class="crew">
       <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
@@ -133,9 +135,11 @@ a {
   color: black;
 }
 .searchbar{
-    width: 1100px;
-    height: 100px;
+    max-width: 1300px;
+    min-width:1000px;
+    height: 80px;
     justify-content:space-between;
+    margin-bottom:40px;
 }
 input{
    border:0px;
@@ -155,6 +159,7 @@ button{
     color:#ffffff;
     outline: none;
     float:right;
+    margin-right:20px;
 }
 select{
    border:0px;
