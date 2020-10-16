@@ -14,38 +14,36 @@
         <button>검색</button>
     </div>
   <div class = "partnermain">
-      <div><img src="@/assets/svg/partners.svg" width="267" height="180"/></div>
-      <div><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
-      <div><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
-      <div><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
-      <div><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
-      <div><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
-      <div><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
-      <div><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
-      <div><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
-      <div><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
-      <div><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
-      <div><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
+      <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
   </div>
 </div>
 </template>
 
 <script>
 export default {
-  created(){
-    dataFetch()
-  },
+
   data() {
-    major : "";
+    "";
   },
-   method: {
+  method: {
     render() {
       this.$router.push('/');
     },
-    dataFetch(){
-       this.major = null
-       this.loading = true
-    }
+    Fetch() {
+      this.major = null;
+      this.loading = true;
+    },
   },
 };
 
