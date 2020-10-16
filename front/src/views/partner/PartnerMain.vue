@@ -35,8 +35,13 @@ export default {
   data() {
     major : "";
   },
-
+   method: {
+    render() {
+      this.$router.push('/');
+    },
+  },
 };
+
 </script>
 
 <style>
