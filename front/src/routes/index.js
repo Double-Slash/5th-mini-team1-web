@@ -110,10 +110,26 @@ export default new VueRouter({
     // profile
     {
       path: '/profile',
+      beforeEnter(to, from, next) {
+        const token = getToken();
+        if (token !== null) {
+          next();
+        } else {
+          next('/');
+        }
+      },
       component: () => import('@/views/profile/ProfileMain.vue'),
     },
     {
       path: '/profile/edit',
+      beforeEnter(to, from, next) {
+        const token = getToken();
+        if (token !== null) {
+          next();
+        } else {
+          next('/');
+        }
+      },
       component: () => import('@/views/profile/ProfileEdit.vue'),
     },
 
