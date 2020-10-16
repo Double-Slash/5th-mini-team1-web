@@ -56,7 +56,8 @@ export default {
   methods: {
     async getChats() {
       const header_config = { headers: { Authorization: `Token ${this.token}` } };
-      const res = await axios.get(this.dataURL.concat('/chats/'), header_config);
+      // const header_config = { headers: { Authorization: `Token ac7fd857196f86ad35837db3f8962ce7450f6e22` } };
+      const res = await axios.get(this.dataURL.concat('/chats'), header_config);
       // const res = await axios.get(this.dataURL.concat('/chats/'), { headers: this.headers });
       console.log(res.data);
       this.receivedMessages = res.data;

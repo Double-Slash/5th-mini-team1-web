@@ -21,4 +21,8 @@ export default {
   setCrewView(state, data) {
     state.crew = data;
   },
+  logout(state){
+    state.token = null;
+    sessionStorage.removeItem('token');
+  }
 };

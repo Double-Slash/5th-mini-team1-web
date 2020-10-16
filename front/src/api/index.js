@@ -5,7 +5,7 @@ import { getToken } from "@/utils/jwtToken";
 const baseurl = "http://52.141.62.35:8080"; // OR axios baseurl settings
 
 axios.interceptors.request.use((config) => {
-  config.headers.Authorization = getToken();
+  config.headers.Authorization = `Token ${getToken()}`;
   return config;
 });
 
@@ -30,14 +30,15 @@ function postRegister(data) {
 
 // 로그인 post
 function postLocalLogIn(data) {
-  return axios.post(`${api.accounts}/login/`, data);
+  const instance = axios.create();
+  return instance.post(`${api.accounts}/login/`, data);
 }
 
 // 구글 로그인 post
-function postGoogleLogIn(toekn) {
+function postGoogleLogIn(token) {
   return axios.post(`${api.accounts}/login`, "_", {
     headers: {
-      Authorization: toekn,
+      Authorization: token,
     },
   });
 }

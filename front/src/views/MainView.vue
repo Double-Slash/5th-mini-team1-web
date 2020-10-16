@@ -105,7 +105,7 @@
 
       <section class="recommend-partner">
         <div class="content-title">맞춤 파트너</div>
-        <div @click="logout">로그아웃</div>
+<!--        <div @click="logout">로그아웃</div>-->
 
         <template v-if="afterLogin.partner.length>0">
           <article>
@@ -250,13 +250,19 @@ export default {
   methods: {
     async logout() {
       // this.$store.commit('logout');
-      // console.log(this.token);
-      const res = await axios.get(this.dataURL.concat('/accounts/logout/'),
-        { headers: { Authorization: `Token ${this.token}` } });
-      console.log(JSON.stringify(res));
-      if (res.status === 200) {
-        this.$store.commit('logout');
+      try{
+        const res = await axios.get(this.dataURL.concat('/accounts/logout/'),
+          // { headers: { Authorization: `Token ${this.token}` } }
+          // { headers: { Authorization: 'Token 66f9a7e71fbe80dd7522dc99ceaf4fdc6759f8bf' } }
+        );
+        console.log(JSON.stringify(res));
+        if (res.status === 200) {
+          this.$store.commit('logout');
+        }
+      } catch (e) {
+        console.log(JSON.stringify(e));
       }
+
     },
     async getData() {
       // const token_header = this.token;
