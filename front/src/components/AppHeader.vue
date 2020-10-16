@@ -94,13 +94,15 @@ export default {
     },
     // 제목 스타일 변경
     changeTitle() {
-      if (this.$route.path !== "/") return null;
+      if (this.$route.path === "/" && this.$store.state.userInfo !=='') return { color: "#2e88db" };
+      else if(this.$route.path !== "/") return null;
       if (this.headerStyle === true) return { color: "#2e88db" };
       return { color: "white" };
     },
     // 메뉴 텍스트 스타일 변경
     changeText() {
-      if (this.$route.path !== "/") return null;
+      if (this.$route.path === "/" && this.$store.state.userInfo !=='') return { color: "black" };
+      else if (this.$route.path !== "/") return null;
       if (this.headerStyle === true) return { color: "black" };
       return { color: "white" };
     },
