@@ -1,14 +1,13 @@
 <template>
 <div>
     <nav>
-        <router-link to="/" name="기획/아이디어">기획/아이디어</router-link>
-        <router-link to="/" name="광고/마케팅">광고/마케팅</router-link>
-        <router-link to="/" name="소프트웨어/게임">소프트웨어/게임</router-link>
-        <router-link to="/" name="웹/모바일/플래시">웹/모바일/플래시</router-link>
-        <router-link to="/" name="문학/글/시나리오">문학/글/시나리오</router-link>
-        <router-link to="/" name="건축/건설/도시">건축/건설/도시</router-link>
-        <router-link to="/" name="과학/공학">과학/공학</router-link>
-        <router-view></router-view>
+        <router-link to="/" name="major">기획/아이디어</router-link>
+        <router-link to="/" name="major">광고/마케팅</router-link>
+        <router-link to="/" name="major">소프트웨어/게임</router-link>
+        <router-link to="/" name="major">웹/모바일/플래시</router-link>
+        <router-link to="/" name="major">문학/글/시나리오</router-link>
+        <router-link to="/" name="major">건축/건설/도시</router-link>
+        <router-link to="/" name="major">과학/공학</router-link>
     </nav>
     <div class = "searchbar">
        <input type = "text" placeholder="해시태그">
@@ -33,9 +32,9 @@
 
 <script>
 export default {
-  data(){
-
-  }
+  data() {
+    major : "";
+  },
 
 };
 </script>

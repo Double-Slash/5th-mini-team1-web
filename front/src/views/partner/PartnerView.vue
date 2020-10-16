@@ -75,7 +75,7 @@ export default {
     CHashTag,
     IntroCard,
     AskModal,
-  }, 
+  },
   methods: {
     sendMessage() {
       this.onModal = true;
