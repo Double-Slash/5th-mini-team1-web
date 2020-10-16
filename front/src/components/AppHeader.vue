@@ -26,7 +26,10 @@
           </router-link>
           <router-link to="/profile">
             <li>
-              <img :src="null" class="image-wrapper user-image" />
+              <img
+                src="@/assets/img/profile/profile4.png"
+                class="image-wrapper user-image"
+              />
             </li>
           </router-link>
         </ul>
@@ -36,12 +39,12 @@
         <LogInModal v-if="logInModalActive" />
       </aside>
     </div>
-
   </header>
 </template>
 
 <script>
 import { mapState } from "vuex";
+import { getToken } from "@/utils/jwtToken";
 import LogInModal from "./LogInModal.vue";
 
 export default {
@@ -53,6 +56,11 @@ export default {
   },
   mounted() {
     this.detectWindowScrollY();
+  },
+  updated() {
+    if (getToken()) {
+      this.headerStyle = true;
+    }
   },
   destroyed() {
     window.removeEventListener("scroll", this.detectWindowScrollY);
@@ -71,9 +79,10 @@ export default {
       if (this.headerStyle === true) {
         return {
           background: "white",
-          boxShadow: "0 3px 20px 0 rgba(0, 0, 0, 0.05) }",
+          boxShadow: "0 10px 20px 0 rgba(0, 0, 0, 0.15) }",
         };
       }
+      if(this.token !=='') return { background: "transparent", boxShadow: "0 10px 20px 0 rgba(0, 0, 0, 0.15)" };
       return { background: "transparent", boxShadow: "0 0 black" };
     },
     // 로그인 버튼 스타일 변경
@@ -92,13 +101,15 @@ export default {
     },
     // 제목 스타일 변경
     changeTitle() {
-      if (this.$route.path !== "/") return null;
+      if (this.$route.path === "/" && this.token !=='') return { color: "#2e88db" };
+      else if(this.$route.path !== "/") return null;
       if (this.headerStyle === true) return { color: "#2e88db" };
       return { color: "white" };
     },
     // 메뉴 텍스트 스타일 변경
     changeText() {
-      if (this.$route.path !== "/") return null;
+      if (this.$route.path === "/" && this.token !=='') return { color: "black" };
+      else if (this.$route.path !== "/") return null;
       if (this.headerStyle === true) return { color: "black" };
       return { color: "white" };
     },

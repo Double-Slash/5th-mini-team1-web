@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="cm">
     <nav>
         <router-link to="/">기획/아이디어</router-link>
         <router-link to="/">광고/마케팅</router-link>
@@ -62,18 +62,42 @@
         <button>검색</button>
     </div>
   <div class = "crewmain">
-      <div class = "crew"><img src="@/assets/svg/contest.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
-      <div class = "crew"><img src="@/assets/svg/main.svg" width="267" height="180"/></div>
+      <div class="crew">
+      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+    </div>
+      <div class="crew">
+      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+    </div>
+      <div class="crew">
+      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+    </div>
+      <div class="crew">
+      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+    </div>
+     <div class="crew">
+      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+    </div>
+     <div class="crew">
+      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+    </div>
+      <div class="crew">
+      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+    </div>
+      <div class="crew">
+      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+    </div>
+      <div class="crew">
+      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+    </div>
+      <div class="crew">
+      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+    </div>
+      <div class="crew">
+      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+    </div>
+     <div class="crew">
+      <router-link to="/crew/:id"><img src="@/assets/svg/longfintech.svg"/></router-link>
+    </div>
   </div>
 </div>
 </template>
@@ -84,8 +108,10 @@ export default {
 };
 </script>
 
-<style>
-
+<style scoped>
+.cm{
+  max-width: 1500px;
+}
 .crewmain{
     display:grid;
     grid-template-rows: repeat(4, 180px);

@@ -1,5 +1,5 @@
 <template>
-<div v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="10">
+<div class="rm">
     <div class="reference_main">
          <div class="ads_pictures">
            <img src="@/assets/svg/openads.svg" width="267" height="180"/>
@@ -83,7 +83,10 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.rm{
+  max-width: 1500px;
+}
 .open_ads{
     font-size:18px;
     font-weight: bold;

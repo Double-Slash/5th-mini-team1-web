@@ -15,6 +15,10 @@ export default {
   setUserInfo(state, userInfo) {
     state.userInfo = userInfo;
   },
+  setUserClear(state){
+    state.userInfo={};
+    state.token="";
+  },
   setContestView(state, data) {
     state.contest = data;
   },

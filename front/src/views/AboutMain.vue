@@ -2,7 +2,7 @@
   <div id="about">
     <div class='about-header'>
       <div class='header-img'>
-        <img src="../assets/img/profile.png" width="250" height="250"/>
+        <img src="../assets/svg/about.svg" width="250" height="250" class='logo'/>
       </div>
       <div class="header-title">
         <div class='title'>사람을 찾습니다!<br>

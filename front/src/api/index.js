@@ -67,7 +67,23 @@ function crewW(data) {
   });
 }
 
-export { examplefunc, examplefunc2, postLocalLogIn, postGoogleLogIn, postRegister, contestId, crewId, crewW, getLoadUserInfo };
+// 유저 정보 수정
+function patchUserInfo(id, data) {
+  return axios.patch(`${api.accounts}/${id}/`, data);
+}
+
+export { 
+  examplefunc, 
+  examplefunc2, 
+  postLocalLogIn, 
+  postGoogleLogIn, 
+  postRegister, 
+  contestId, 
+  crewId, 
+  crewW, 
+  getLoadUserInfo, 
+  patchUserInfo 
+};
 
 /*
 스토어에서 다음과 같이 불러오면 좋을 것 같습니다.
