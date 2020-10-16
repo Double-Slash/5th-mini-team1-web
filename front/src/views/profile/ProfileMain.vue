@@ -9,7 +9,7 @@
         <span>{{ userInfo.email }}</span>
       </div>
       <div class="buttons">
-        <button class="logout-btn">로그아웃</button>
+        <button class="logout-btn" @click="logout">로그아웃</button>
         <router-link to="/profile/edit">
           <img src="@/assets/svg/gear.svg" alt="설정 버튼" />
         </router-link>
@@ -34,11 +34,18 @@
 
 <script>
 import { mapActions, mapState } from "vuex";
-
+import {setToken} from '@/utils/jwtToken';
 export default {
   computed: {
     ...mapState(["userInfo"]),
   },
+  methods:{
+    logout(){
+      setToken("");
+      this.$store.commit("setUserClear");
+      window.location.href='/';
+    }
+  }
 };
 </script>
 
@@ -95,5 +102,8 @@ article {
   justify-content: center;
   align-items: center;
   height: 200px;
+}
+button{
+  outline:none;
 }
 </style>
