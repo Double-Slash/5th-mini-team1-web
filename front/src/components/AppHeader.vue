@@ -36,6 +36,7 @@
         <LogInModal v-if="logInModalActive" />
       </aside>
     </div>
+
   </header>
 </template>
 

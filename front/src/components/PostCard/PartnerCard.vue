@@ -3,13 +3,13 @@
     <div class="post-header">
       <img :src="item.image || null" />
       <div class="user-info">
-        <h1>{{ item.job }}</h1>
-        <span>{{ item.name }}</span>
+        <h1>{{ item.interest }}</h1>
+        <span>{{ item.username }}</span>
       </div>
     </div>
     <div class="post-content">
       <h1>프로그램 희망</h1>
-      <p>{{ item.team_description }}</p>
+      <p>{{ item.description }}</p>
     </div>
     <div class="post-footer">
       <HashTag v-for="item in hashTagList" :key="item" :item="item" />

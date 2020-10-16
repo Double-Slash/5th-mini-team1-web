@@ -11,6 +11,7 @@ body {
 	vertical-align: baseline;
 	font-family: 'Spoqa Han Sans', 'Sans-serif';
 	background-color: #f6f6f6;
+	/*overflow-x: hidden;*/
 }
 
 h1,
