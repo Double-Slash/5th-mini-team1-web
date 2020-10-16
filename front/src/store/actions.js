@@ -6,7 +6,7 @@ import {
   contestId,
   crewId,
   crewW,
-  patchUserInfo
+  patchUserInfo,
 } from "@/api";
 import { setToken } from "@/utils/jwtToken";
 import { getUserId, setUserId } from "@/utils/userId";
@@ -104,12 +104,12 @@ export default {
     let response = "";
     try {
       const pk = getUserId();
-    const { data } = await patchUserInfo(pk, userInfo);
-    commit("setUserInfo", data);
-    response = data;
-    } catch(error) {
+      const { data } = await patchUserInfo(pk, userInfo);
+      commit("setUserInfo", data);
+      response = data;
+    } catch (error) {
       response = error;
     }
     return response;
-  }
+  },
 };

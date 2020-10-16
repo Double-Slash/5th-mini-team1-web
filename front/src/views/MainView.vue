@@ -324,7 +324,7 @@ export default {
   },
 
   watch: {
-    token: function() {
+    token() {
       this.getData();
     },
   },

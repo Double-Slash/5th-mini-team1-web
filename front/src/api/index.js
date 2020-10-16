@@ -72,17 +72,17 @@ function patchUserInfo(id, data) {
   return axios.patch(`${api.accounts}/${id}/`, data);
 }
 
-export { 
-  examplefunc, 
-  examplefunc2, 
-  postLocalLogIn, 
-  postGoogleLogIn, 
-  postRegister, 
-  contestId, 
-  crewId, 
-  crewW, 
-  getLoadUserInfo, 
-  patchUserInfo 
+export {
+  examplefunc,
+  examplefunc2,
+  postLocalLogIn,
+  postGoogleLogIn,
+  postRegister,
+  contestId,
+  crewId,
+  crewW,
+  getLoadUserInfo,
+  patchUserInfo,
 };
 
 /*

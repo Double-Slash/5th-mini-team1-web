@@ -30,7 +30,6 @@
           </template>
         </section>
 
-
         <section class="event">
           <div class="content-title">이벤트</div>
 
@@ -84,8 +83,6 @@ export default {
   }),
 
   methods: {
-
-
 
   },
 };

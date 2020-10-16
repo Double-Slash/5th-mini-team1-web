@@ -53,7 +53,7 @@ export const initialCrewCardList = [
     project_description: '설계공모전',
     team_description: '4명 구함',
     location: '서울',
-    hashtags: ['기계','기계기기'],
+    hashtags: ['기계', '기계기기'],
   },
   {
     image: null,
@@ -69,6 +69,6 @@ export const initialCrewCardList = [
     project_description: '금융공모전',
     team_description: '2명 남음',
     location: '부산',
-    hashtags: ['금융','금융금융'],
+    hashtags: ['금융', '금융금융'],
   },
 ];

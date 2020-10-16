@@ -15,9 +15,9 @@ export default {
   setUserInfo(state, userInfo) {
     state.userInfo = userInfo;
   },
-  setUserClear(state){
-    state.userInfo={};
-    state.token="";
+  setUserClear(state) {
+    state.userInfo = {};
+    state.token = "";
   },
   setContestView(state, data) {
     state.contest = data;
@@ -25,8 +25,8 @@ export default {
   setCrewView(state, data) {
     state.crew = data;
   },
-  logout(state){
+  logout(state) {
     state.token = null;
     sessionStorage.removeItem('token');
-  }
+  },
 };
