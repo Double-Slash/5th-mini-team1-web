@@ -1,31 +1,55 @@
 <template>
 <div>
-    <nav @click="dataFetch()">
-        <router-link to="/" name="major">기획/아이디어</router-link>
-        <router-link to="/" name="major">광고/마케팅</router-link>
-        <router-link to="/" name="major">소프트웨어/게임</router-link>
-        <router-link to="/" name="major">웹/모바일/플래시</router-link>
-        <router-link to="/" name="major">문학/글/시나리오</router-link>
-        <router-link to="/" name="major">건축/건설/도시</router-link>
-        <router-link to="/" name="major">과학/공학</router-link>
+    <nav>
+        <router-link to="/" >기획/아이디어</router-link>
+        <router-link to="/" >광고/마케팅</router-link>
+        <router-link to="/" >소프트웨어/게임</router-link>
+        <router-link to="/" >웹/모바일/플래시</router-link>
+        <router-link to="/" >문학/글/시나리오</router-link>
+        <router-link to="/" >건축/건설/도시</router-link>
+        <router-link to="/" >과학/공학</router-link>
     </nav>
     <div class = "searchbar">
-       <input type = "text" placeholder="검색어를 입력하세요" v-model="search"  @input="inputHandler">
-        <button @click="search">검색</button>
+       <input type = "text" placeholder="검색어를 입력하세요"  @input="inputHandler">
+        <button @click="render()">검색</button>
     </div>
   <div class = "partnermain">
+      <div>
       <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      </div>
+      <div>
       <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      </div>
+     <div>
       <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+     </div>
+      <div>
       <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      </div>
+      <div>
       <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      </div>
+      <div>
       <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      </div>
+      <div>
       <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      </div>
+     <div>
       <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      </div>
+     <div>
       <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      </div>
+      <div>
       <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      </div>
+      <div>
       <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      </div>
+      <div>
       <router-link to="/partner/:id"><img src="@/assets/svg/partners.svg"/></router-link>
+      </div>
   </div>
 </div>
 </template>
@@ -34,16 +58,12 @@
 
 export default {
 
-  data() {
-    "";
-  },
   method: {
     render() {
       this.$router.push('/');
     },
     dataFetch() {
-      this.major = null;
-      this.loading = true;
+
     },
     inputHandler(e) {
       this.search = e.target.value;
