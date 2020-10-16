@@ -83,7 +83,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .open_ads{
     font-size:18px;
     font-weight: bold;
