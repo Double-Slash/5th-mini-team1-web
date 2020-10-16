@@ -4,6 +4,9 @@ import { getToken } from "@/utils/jwtToken";
 import getters from "./getters";
 import mutations from "./mutations";
 import actions from "./actions";
+import initialCrewCardList from "./../assets/dummy/initialCrewCardList";
+import initialPartnerCardList from "./../assets/dummy/initialPartnerCardList";
+import initialEventCardList from "./../assets/dummy/initialEventCardList";
 
 Vue.use(Vuex);
 
@@ -17,6 +20,9 @@ export default new Vuex.Store({
     contest: "", // contest data
     crew: "", // crew data
     crewAll: "",
+    bookmarkedContest: initialEventCardList, // 공모전 북마크 정보
+    bookmarkedPost: initialCrewCardList, // 크루 북마크 정보
+    bookmarkedPartner: initialPartnerCardList, // 파트너 북마크 정보
   },
   getters,
   mutations,
