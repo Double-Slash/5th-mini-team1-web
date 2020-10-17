@@ -1,25 +1,25 @@
 <template>
-<router-link to="contest/1">
-  <li>    
-    <div class="post-thumbnail">
-      <img src="@/assets/img/profile.png" />
-      <!-- <img :src="item.thumbnail || null" /> -->
-    </div>
-    <div class="post-info">
-      <div class="info-header">
-        <h1>{{ item.title }}</h1>
-        <p>{{ item.host_info }}</p>
+  <router-link to="contest/1">
+    <li>
+      <div class="post-thumbnail">
+        <img src="@/assets/img/test-post_img.png" />
+        <!-- <img :src="item.thumbnail || null" /> -->
       </div>
-      <div class="info-content">
-        <p>{{ item.detail }}</p>
+      <div class="post-info">
+        <div class="info-header">
+          <h1>{{ item.title }}</h1>
+          <p>{{ item.host_info }}</p>
+        </div>
+        <div class="info-content">
+          <p>{{ item.detail }}</p>
+        </div>
+        <div class="info-footer">
+          <span>D-8</span>
+          <BookMark />
+        </div>
       </div>
-      <div class="info-footer">
-        <span>D-8</span>
-        <BookMark />
-      </div>
-    </div>
-  </li>
-      </router-link>
+    </li>
+  </router-link>
 </template>
 
 <script>

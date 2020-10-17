@@ -3,7 +3,7 @@
     <router-link to="/crew/1">
       <div class="post">
         <div class="post-thumbnail">
-          <img src="@/assets/img/profile.png" />
+          <img src="@/assets/img/test-post_img.png" />
         </div>
         <div class="post-info">
           <div class="info-header">
