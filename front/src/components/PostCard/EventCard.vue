@@ -1,5 +1,6 @@
 <template>
-  <li>
+<router-link to="contest/1">
+  <li>    
     <div class="post-thumbnail">
       <img src="@/assets/img/profile.png" />
       <!-- <img :src="item.thumbnail || null" /> -->
@@ -18,6 +19,7 @@
       </div>
     </div>
   </li>
+      </router-link>
 </template>
 
 <script>

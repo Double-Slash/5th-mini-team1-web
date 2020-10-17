@@ -1,6 +1,6 @@
 <template>
   <li>
-    <router-link to="/partner/:id">
+    <router-link to="/partner/1">
       <div class="post-header">
         <img src="@/assets/img/profile.png" />
         <div class="user-info">

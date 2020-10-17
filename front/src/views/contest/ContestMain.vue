@@ -35,6 +35,10 @@ export default {
 </script>
 
 <style scoped>
+a{
+  display:inline-block;
+  text-decoration: none;
+}
 .conm {
   margin-top: 70px;
   max-width: 1500px;

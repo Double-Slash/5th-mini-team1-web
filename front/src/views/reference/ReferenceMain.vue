@@ -92,6 +92,7 @@ export default {};
 <style scoped>
 .rm {
   margin-top: 70px;
+  margin-bottom:50px;
 }
 .open_ads {
   font-size: 18px;
