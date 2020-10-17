@@ -2,30 +2,30 @@
   <div class='crew-view' v-if="crewData !=''">
     <div class='view-from'>
       <div class='form-img'>
-        <img src="@/assets/img/profile.png" width="300" height="350"/>
+        <img src="@/assets/svg/about.svg" width="300" height="350"/>
       </div>
-      <div class="form-day">{{crewData.deadline !== null ? crewData.deadline : 'NULL'}}</div>
+      <div class="form-day">D-30</div>
       <div class='form-icon'>
         <img src="@/assets/svg/share.svg" @click="shareClick" width="25" height="25"/>
         <img src="@/assets/svg/bookmark_black.svg" width="25" height="25" />
       </div>
-      <div class='form-title'>{{crewData.title !== null ? crewData.title : 'NULL'}}</div>
+      <div class='form-title'>"어디있니 팀을 모집합니다."</div>
       <div class="form-info">
-        {{crewData.content !== null ? crewData.content : 'NULL'}}
+        안녕하세요 어디있니입니다. <br>저희가 현재 진행중인 프로젝트에서 
+        구인/구직을 하려고 합니다.<br>
+        자세한 정보는 아래에 있습니다.
       </div>
-      <div class="form-region"><img src="@/assets/svg/peek.svg"/>{{crewData.location !== null ? crewData.location : 'NULL'}}</div>
-      <div class="form-hashtag">
-          <CHashTag v-for="hashTag in crewData.hashtags" :item="hashTag" :key="hashTag.id"></CHashTag>
-      </div>
+      <div class="form-region"><img src="@/assets/svg/peek.svg"/>서울</div>
+
     </div>
     <!-- <IntroCard v-for="item in items" :key="item.id" class='view-info'
     :title="item.title" :content="item.content"></IntroCard> -->
     <IntroCard class='view-info'
-    title="프로젝트 소개" :content="crewData.project_description !==null ?crewData.project_description:'NULL'"></IntroCard>
+    title="프로젝트 소개" content="안녕하세요 어디있니 입니다."></IntroCard>
     <IntroCard class='view-info'
-    title="모집 안내" :content="crewData.team_description !==null ?crewData.team_description:'NULL'"></IntroCard>
+    title="모집 안내" content="현재 FE/BE 모집을 하고 있습니다."></IntroCard>
     <IntroCard class='view-info'
-    title="자격요건 및 우대사항" :content="crewData.qualifications !==null ?crewData.qualifications:'NULL'"></IntroCard>
+    title="자격요건 및 우대사항" content="JS에 Framework에 대한 지식이 있는 분"></IntroCard>
     <div class="view-card">
       <div class="card-info">담당자 정보</div>
       <div class="card-grid">
@@ -107,6 +107,7 @@ img{
 }
 /* write-from start*/
 .view-from{
+  width:80%;
   display:grid;
   grid-template-rows:1fr 1fr 1fr 1fr 1fr;
   grid-template-columns: 3fr 1fr 2fr 1fr 1fr;
