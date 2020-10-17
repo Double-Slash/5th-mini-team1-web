@@ -5,7 +5,7 @@
         <div class="grid-img">
           <img src="@/assets/img/profile.png" width="100" height="100" />
         </div>
-        <div class="grid-name">강세정</div>
+        <h1 class="grid-name">강세정</h1>
         <div class="grid-email">
           <img src="@/assets/svg/email.svg" /> tpwjd708@naver.com
         </div>
@@ -113,23 +113,15 @@
         </table>
       </div>
       <div></div>
-      <div class="careerplus"><img src="@/assets/svg/careerplus.svg" /></div>
+      <div class="careerplus">
+        <img src="@/assets/svg/careerplus.svg" />
+      </div>
       <div class="content-type">하고싶은 말</div>
       <div class="introduce_area">
         <textarea placeholder="하고싶은 말을 입력하세요"></textarea>
       </div>
-      <div class="content-type">해시태그</div>
-      <div class="classification">
-        <div class="hashtag"><img src="@/assets/svg/hashtags.svg" /></div>
-        <div class="hashtag"><img src="@/assets/svg/hashtags.svg" /></div>
-        <div class="hashtag"><img src="@/assets/svg/hashtags.svg" /></div>
-        <div class="hashtag"><img src="@/assets/svg/hashtags.svg" /></div>
-        <div class="hashtag"><img src="@/assets/svg/hashtags.svg" /></div>
-      </div>
       <div></div>
-      <div class="formsubmit">
-        <button v-on:click="write">작성하기</button>
-      </div>
+      <button class="formsubmit" v-on:click="write">확인</button>
     </div>
   </div>
 </template>
@@ -144,7 +136,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .view-card {
   width: 90%;
   margin: 40px auto;
@@ -157,6 +149,7 @@ export default {
 }
 .grid-img {
   grid-row: 1/4;
+  margin-right: 16px;
 }
 .grid-img img {
   border-radius: 50px;
@@ -229,22 +222,18 @@ select {
   font-size: 18px;
   padding: 10px;
   width: 30%;
-  height: 66px;
-  margin-right: 10px;
-  margin-top: 10%;
-  margin-bottom: 10%;
-  border: 3px solid #2e88db;
+  margin: 16px 16px 16px 0;
+  border: 1px solid #2e88db;
   background-color: #ffffff;
   float: left;
 }
 input {
   border: 0px;
   font-size: 18px;
-  padding: 10px;
-  width: 580.64px;
-  height: 66px;
+  padding: 8px 10px;
+  width: 400px;
   margin-right: 10px;
-  border: 3px solid #2e88db;
+  border: 1px solid #2e88db;
   background-color: #ffffff;
   margin-top: 3.5%;
 }
@@ -252,13 +241,13 @@ textarea {
   border: 0px;
   font-size: 18px;
   padding: 10px;
-  width: 700px;
+  width: 100%;
   height: 300px;
   margin-right: 10px;
-  border: 3px solid #2e88db;
+  border: 1px solid #2e88db;
   background-color: #ffffff;
   margin-top: 3.5%;
-  margin-bottom: 5%;
+  margin-bottom: 16px;
 }
 .careerfrom {
   margin-top: 3em;
@@ -269,11 +258,12 @@ table,
 tr,
 td,
 th {
-  border: 1px solid #2e88db;
+  border: 1px solid rgba(46, 136, 219, 0.3);
   margin-top: 3em;
   border-collapse: collapse;
   border-right: none;
   border-left: none;
+  cursor: pointer;
 }
 table {
   width: 100%;
@@ -286,8 +276,9 @@ table {
   color: #ffffff;
 }
 .careerplus {
-  float: right;
-  text-align: right;
+  margin-top: 16px;
+  margin-left: auto;
+  cursor: pointer;
 }
 .classification {
   display: grid;
@@ -295,7 +286,6 @@ table {
   grid-template-columns: repeat(3, 1fr);
 }
 .formsubmit {
-  text-align: center;
-  float: center;
+  margin: 0 auto;
 }
 </style>

@@ -1,23 +1,23 @@
 <template>
-  <router-link to="/partner/:id" >
-<!--  <li>-->
-    <div class="post-header">
-      <img src="@/assets/img/profile.png" />
-      <div class="user-info">
-        <h1>{{ item.interest }}</h1>
-        <span>{{ item.username }}</span>
+  <li>
+    <router-link to="/partner/:id">
+      <div class="post-header">
+        <img src="@/assets/img/profile.png" />
+        <div class="user-info">
+          <h1>{{ item.interest }}</h1>
+          <span>{{ item.username }}</span>
+        </div>
       </div>
-    </div>
-    <div class="post-content">
-      <h1>프로그램 희망</h1>
-      <p>{{ item.description }}</p>
-    </div>
-    <div class="post-footer">
-      <HashTag v-for="item in hashTagList" :key="item" :item="item" />
-      <BookMark />
-    </div>
-<!--  </li>-->
-  </router-link>
+      <div class="post-content">
+        <h1>{{ item.title }}</h1>
+        <p>{{ item.description }}</p>
+      </div>
+      <div class="post-footer">
+        <HashTag v-for="item in hashTagList" :key="item" :item="item" />
+        <BookMark />
+      </div>
+    </router-link>
+  </li>
 </template>
 
 <script>
@@ -38,7 +38,6 @@ export default {
   computed: {
     hashTagList() {
       const copyHashTag = [...this.item.hashtags];
-      // const copyHashTag = [...this.item.hashTag];
       return copyHashTag.slice(0, 2);
     },
   },
@@ -46,20 +45,25 @@ export default {
 </script>
 
 <style scoped>
-/* 게시글 카드 레이아웃 */
-a {
+li {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   flex: 0 0 25%;
   height: 324px;
+  padding: 8px;
+}
+/* 게시글 카드 레이아웃 */
+a {
   padding: 16px;
+  height: 100%;
   background: #ffffff;
   box-sizing: border-box;
+  color: black;
+  text-decoration: none;
 }
 
-a:not(:nth-child(4)) {
-  margin-right: 16px;
+li:not(:nth-child(4)) {
+  padding: 8px;
 }
 
 /* 직업, 프로그램 희망 텍스트 */
@@ -70,7 +74,9 @@ h1 {
 /* 카드 헤더 부분 */
 .post-header {
   display: flex;
+  align-items: center;
   height: 20%;
+  margin-bottom: 16px;
 }
 
 .post-header img {
@@ -85,17 +91,24 @@ h1 {
   text-align: left;
 }
 
+.user-info span {
+  font-weight: 300;
+  font-size: 0.8rem;
+}
+
 /* 카드 본문 부분 */
 .post-content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  height: 40%;
+  height: 60%;
 }
 
 .post-content p {
-  text-align: left;
   height: 100%;
+  margin-top: 8px;
+  text-align: left;
+  font-weight: 300;
 }
 
 /* 카드 푸터 부분 */
@@ -103,11 +116,10 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  height: 20%;
 }
 
 .post-footer .save-button {
-  width: 48px;
-  height: 48px;
+  width: 32px;
+  height: 32px;
 }
 </style>

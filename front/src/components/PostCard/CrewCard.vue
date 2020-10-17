@@ -1,30 +1,31 @@
 <template>
   <li class="post-layout">
-    <div class="post">
-      <div class="post-thumbnail">
-        <img src="@/assets/img/profile.png" />
-        <!-- <img :src="item.image || '@/assets/img/test-post_img.png'" /> -->
+    <router-link to="/crew/:id">
+      <div class="post">
+        <div class="post-thumbnail">
+          <img src="@/assets/img/profile.png" />
+        </div>
+        <div class="post-info">
+          <div class="info-header">
+            <h1>{{ item.title }}</h1>
+            <span>{{ item.project_description }}</span>
+          </div>
+          <div class="info-content">
+            <p>{{ item.team_description }}</p>
+          </div>
+          <div class="info-location">
+            <img src="@/assets/svg/peek.svg" />
+            <span>{{ item.location }}</span>
+          </div>
+        </div>
       </div>
-      <div class="post-info">
-        <div class="info-header">
-          <h1>{{ item.title }}</h1>
-          <span>{{ item.project_description }}</span>
-        </div>
-        <div class="info-content">
-          <p>{{ item.team_description }}</p>
-        </div>
-        <div class="info-location">
-          <img src="@/assets/svg/peek.svg" />
-          <span>{{ item.location }}</span>
-        </div>
+      <div class="post-footer">
+        <ul class="hashtag-wrapper">
+          <HashTag v-for="item in hashTagList" :key="item" :item="item" />
+        </ul>
+        <BookMark />
       </div>
-    </div>
-    <div class="post-footer">
-      <ul class="hashtag-wrapper">
-        <HashTag v-for="item in hashTagList" :key="item" :item="item" />
-      </ul>
-      <BookMark />
-    </div>
+    </router-link>
   </li>
 </template>
 
@@ -55,14 +56,20 @@ export default {
 <style scoped>
 /* 게시글 카드 레이아웃 */
 li {
+  display: flex;
+  flex-direction: column;
   flex: 0 0 33.333333%;
   height: 300px;
-  background-color: #ffffff;
-  padding: 24px;
+  padding: 8px;
 }
 
-li:not(:nth-child(3)) {
-  margin-right: 16px;
+a {
+  padding: 16px;
+  height: 100%;
+  background: #ffffff;
+  box-sizing: border-box;
+  color: black;
+  text-decoration: none;
 }
 
 h1 {
@@ -78,12 +85,13 @@ p {
 
 .post {
   display: flex;
+  height: 80%;
 }
 
 .post .post-thumbnail {
   width: 50%;
-  height: 210px;
-  margin-right: 30px;
+  height: 100%;
+  margin-right: 16px;
   object-fit: contain;
 }
 
@@ -113,6 +121,7 @@ p {
   justify-content: space-between;
   align-items: flex-end;
   width: 100%;
+  height: 20%;
 }
 
 .hashtag-wrapper {

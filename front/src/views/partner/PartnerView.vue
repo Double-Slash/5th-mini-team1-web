@@ -131,8 +131,8 @@ export default {
 }
 .grid-name {
   align-self: center;
-  font-weight: bold;
   font-size: 18px;
+  font-weight: bold;
 }
 .grid-info {
   grid-column: 3/11;
@@ -156,7 +156,7 @@ export default {
 }
 /* view-card end */
 button {
-  padding: 10px;
+  padding: 10px 32px;
   background: rgba(46, 136, 219, 1);
   color: white;
   border-radius: 30px;
@@ -166,22 +166,18 @@ button {
 }
 .introduce {
   font-size: 15px;
-  font-weight: bold;
   margin-top: 2em;
   width: 500%;
   display: auto;
-  height: 800px;
 }
 .words {
   font-size: 15px;
-  font-weight: bold;
   margin-top: 2em;
   width: 100%;
   display: auto;
 }
 .career {
   font-size: 15px;
-  font-weight: bold;
   margin-top: 2em;
 }
 .careerfrom {

@@ -29,7 +29,7 @@ div {
   height: 24px;
   margin-right: 8px;
   border-radius: 8px;
-  font-size: 12px;
+  font-size: 0.7rem;
   color: #ffffff;
   background-color: #2e88db;
 }

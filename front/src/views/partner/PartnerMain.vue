@@ -1,69 +1,83 @@
 <template>
-<div class="pm">
-
-    <div class = "searchbar">
-       <input type = "text" placeholder="검색어를 입력하세요">
+  <div class="pm">
+    <div class="searchbar">
+      <input type="text" placeholder="검색어를 입력하세요" />
+      <div>
         <button>검색</button>
-        <a href="/partner/write"><button>글쓰기</button></a>
+        <router-link to="/partner/write">
+          <button>글쓰기</button>
+        </router-link>
+      </div>
     </div>
-  <div class = "partnermain">
-      <div>
-      <router-link to="/partner/1"><img src="@/assets/svg/partners.svg" /></router-link>
-      </div>
-      <div>
-      <router-link to="/partner/1"><img src="@/assets/svg/partners.svg"/></router-link>
-      </div>
-     <div>
-      <router-link to="/partner/1"><img src="@/assets/svg/partners.svg"/></router-link>
-     </div>
-      <div>
-      <router-link to="/partner/1"><img src="@/assets/svg/partners.svg"/></router-link>
-      </div>
-      <div>
-      <router-link to="/partner/1"><img src="@/assets/svg/partners.svg"/></router-link>
-      </div>
-      <div>
-      <router-link to="/partner/1"><img src="@/assets/svg/partners.svg"/></router-link>
-      </div>
-      <div>
-      <router-link to="/partner/1"><img src="@/assets/svg/partners.svg"/></router-link>
-      </div>
-     <div>
-      <router-link to="/partner/1"><img src="@/assets/svg/partners.svg"/></router-link>
-      </div>
-     <div>
-      <router-link to="/partner/1"><img src="@/assets/svg/partners.svg"/></router-link>
-      </div>
-      <div>
-      <router-link to="/partner/1"><img src="@/assets/svg/partners.svg"/></router-link>
-      </div>
-      <div>
-      <router-link to="/partner/1"><img src="@/assets/svg/partners.svg"/></router-link>
-      </div>
-      <div>
-      <router-link to="/partner/1"><img src="@/assets/svg/partners.svg"/></router-link>
-      </div>
+    <ul class="partnermain">
+      <PartnerCard
+        v-for="item in dummyList"
+        :item="item"
+        :key="item.username"
+      />
+    </ul>
   </div>
-</div>
 </template>
 
 <script>
-export default {
+import PartnerCard from "@/components/PostCard/PartnerCard";
 
+export default {
+  data() {
+    return {
+      dummyList: [
+        {
+          interest: "웹 디자이너",
+          username: "강세정",
+          title: "프로젝트 경험자와 함께",
+          description: "3년차/공모전/데이터분석",
+          hashtags: ["디자이너", "데이터분석"],
+        },
+        {
+          interest: "서버 개발자",
+          username: "이동주",
+          title: "초보자 환영",
+          description: "3년차/해커톤/서버",
+          hashtags: ["디자이너", "서버"],
+        },
+        {
+          interest: "프론트 개발자",
+          username: "조찬민",
+          title: "아무나 환영",
+          description: "3년차/해커톤/서버",
+          hashtags: ["해커톤", "프론트"],
+        },
+        {
+          interest: "기획자",
+          username: "이승희",
+          title: "초보자 환영",
+          description: "3년차/해커톤/서버",
+          hashtags: ["디자이너", "서버"],
+        },
+        {
+          interest: "프론트 개발자",
+          username: "이은혜",
+          title: "같이 하실 분",
+          description: "3년차/해커톤/서버/아무나/환영합니다",
+          hashtags: ["디자이너", "서버"],
+        },
+      ],
+    };
+  },
+  components: {
+    PartnerCard,
+  },
 };
 </script>
 
 <style scoped>
-.pm{
-  max-width: 1500px;
-  margin-top:70px;
-  margin-bottom:100px;
+.pm {
+  margin-top: 70px;
+  margin-bottom: 100px;
 }
-.partnermain{
-    display:grid;
-    grid-template-rows: repeat(4, 180px);
-    grid-template-columns: repeat(4,1fr);
-    row-gap:100px;
+.partnermain {
+  display: flex;
+  flex-wrap: wrap;
 }
 nav {
   display: flex;
@@ -82,34 +96,28 @@ a {
   font-weight: bold;
   color: black;
 }
-.searchbar{
-    max-width: 1300px;
-    min-width:1000px;
-    height: 100px;
-    justify-content:space-between;
+.searchbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
 }
-input{
-   border:0px;
-   font-size:18px;
-   padding:10px;
-   max-width: 1000px;
-   width:50%;
-   height:66px;
-   border:3px solid #2E88DB;
-   background-color: #ffffff;
-   float: left;
+input {
+  width: 50%;
+  max-width: 1000px;
+  padding: 8px 32px;
+  border: 0px;
+  border: 2px solid #2e88db;
+  background-color: #ffffff;
 }
-button{
-    width:174px;
-    height:66px;
-    border:0px;
-    background-color:#2E88DB;
-    color:#ffffff;
-    outline: none;
-    margin-right:20px;
-    float:right;
+button {
+  padding: 8px 32px;
+  border: 0px;
+  background-color: #2e88db;
+  color: #ffffff;
+  outline: none;
+  margin-left: 16px;
 }
-img{
-  height:250px;
+img {
+  height: 250px;
 }
 </style>

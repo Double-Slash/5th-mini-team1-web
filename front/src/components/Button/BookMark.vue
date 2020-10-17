@@ -16,8 +16,9 @@ div {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 48px;
-  height: 48px;
+  width: 32px;
+  height: 32px;
+  margin-left: auto;
   border: 0;
   box-sizing: border-box;
 }
