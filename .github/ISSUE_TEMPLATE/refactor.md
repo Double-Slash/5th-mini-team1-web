@@ -1,9 +1,10 @@
 ---
 name: Refactor
 about: 기존 코드를 새롭게 수정
-title: ""
-labels: ""
-assignees: ""
+title: ''
+labels: ''
+assignees: ''
+
 ---
 
 # Why

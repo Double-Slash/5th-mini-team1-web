@@ -1,5 +1,5 @@
 ---
-name: Feature Component
+name: sdfdsfds
 about: 컴포넌트 단위의 issue
 title: ''
 labels: ''

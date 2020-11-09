@@ -1,9 +1,9 @@
 ---
-name: Feature Component
+name: Feature - Page
 about: 페이지 단위의 issue
 title: ''
 labels: ''
-assignees: ''
+assignees: CharmingCheol
 
 ---
 
