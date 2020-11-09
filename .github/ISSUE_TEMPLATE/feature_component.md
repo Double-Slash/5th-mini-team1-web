@@ -1,6 +1,9 @@
 ---
-name: feature - component
+name: Feature Component
 about: 컴포넌트 단위의 issue
+title: ""
+labels: ""
+assignees: ""
 ---
 
 # Component

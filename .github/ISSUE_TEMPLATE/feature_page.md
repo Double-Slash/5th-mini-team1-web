@@ -1,6 +1,9 @@
 ---
-name: feature - component
+name: Feature Component
 about: 페이지 단위의 issue
+title: ""
+labels: ""
+assignees: ""
 ---
 
 # Page

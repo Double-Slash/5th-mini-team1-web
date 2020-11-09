@@ -1,6 +1,9 @@
 ---
 name: Bug Report
 about: 현재 발생하는 버그들을 신고해주세요
+title: ""
+labels: ""
+assignees: ""
 ---
 
 # 테스트 환경

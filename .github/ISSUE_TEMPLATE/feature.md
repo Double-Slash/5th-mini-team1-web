@@ -1,6 +1,9 @@
 ---
-name: feature
+name: Feature
 about: 컴포넌트, 페이지 외 모든 feature
+title: ""
+labels: ""
+assignees: ""
 ---
 
 # Explanation
