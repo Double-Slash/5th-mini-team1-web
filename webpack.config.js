@@ -3,6 +3,8 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const ManifestPlugin = require("webpack-manifest-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
 const appIndex = path.resolve(__dirname, "src", "index.tsx");
 const appHtml = path.resolve(__dirname, "public", "index.html");
@@ -56,6 +58,13 @@ module.exports = (webpackEnv) => {
     },
     cache: {
       type: isEnvDevelopment ? "memory" : isEnvProduction && "filesystem",
+    },
+    optimization: {
+      minimize: true,
+      minimizer: [new TerserPlugin()],
+      splitChunks: {
+        chunks: "all",
+      },
     },
     entry: appIndex,
     module: {
@@ -135,6 +144,7 @@ module.exports = (webpackEnv) => {
           };
         },
       }),
+      isEnvProduction && new BundleAnalyzerPlugin(),
     ].filter(Boolean),
     output: {
       path: appBuild,
