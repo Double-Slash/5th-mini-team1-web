@@ -60,7 +60,7 @@ module.exports = (webpackEnv) => {
       type: isEnvDevelopment ? "memory" : isEnvProduction && "filesystem",
     },
     optimization: {
-      minimize: true,
+      minimize: isEnvProduction,
       minimizer: [new TerserPlugin()],
       splitChunks: {
         chunks: "all",
