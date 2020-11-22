@@ -15,11 +15,14 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "src",
     "paths": {
-      "@hooks/*": ["hooks/*"],
+      "@apis/*": ["apis/*"],
+      "@common/*": ["common/*"],
       "@components/*": ["components/*"],
+      "@hooks/*": ["hooks/*"],
       "@pages/*": ["pages/*"],
-      "@utils/*": ["utils/*"],
-      "@static/*": ["static/*"]
+      "@static/*": ["static/*"],
+      "@store/*": ["store/*"],
+      "@utils/*": ["utils/*"]
     }
   },
   "include": ["./src/**/*"]
