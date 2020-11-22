@@ -20,15 +20,40 @@
         "extensions": [".js", ".jsx", ".tsx", ".ts", ".json"],
         "moduleDirectory": ["./src", "node_modules"]
       }
-    } 
+    }
   },
   "rules": {
     "prettier/prettier": ["error", { "endOfLine": "auto" }],
     "no-undef": "off",
     "no-param-reassign": "off",
-    "linebreak-style":"off",
+    "no-use-before-define": "off",
+    "linebreak-style": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".tsx", ".ts", ".json"] }],
-    "@typescript-eslint/no-var-requires": 0,
-    "@typescript-eslint/explicit-function-return-type": "off"
-  }
+    "react/jsx-props-no-spreading": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "import/prefer-default-export": "off",
+    "import/no-unresolved": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["**/*.tsx"],
+      "rules": {
+        "react/prop-types": "off"
+      }
+    }
+  ]
 }

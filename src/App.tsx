@@ -1,9 +1,16 @@
 import React from "react";
+import { BrowserRouter } from "react-router-dom";
+
+import StyleReset from "@utils/styles/reset";
+import Router from "./Router";
 
 const App = () => {
   return (
     <>
-      <div>work</div>
+      <StyleReset />
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
     </>
   );
 };
