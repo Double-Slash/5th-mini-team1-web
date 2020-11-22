@@ -1,0 +1,48 @@
+import React from "react";
+import { render, fireEvent } from "@testing-library/react";
+import Button, { ButtonProps } from "common/Atoms/Button";
+import MarkDownEditor from "components/Write/MarkDownEditor";
+
+describe("<EditorToolbar/>", () => {
+  const button = (props: Partial<ButtonProps> = {}) => {
+    const utils = render(<Button {...props} />);
+    const { getByTestId } = utils;
+    const btn = getByTestId(props.curryingArgs as string);
+    return {
+      ...utils,
+      btn,
+    };
+  };
+  const markDownEditor = () => {
+    const utils = render(<MarkDownEditor />);
+    const { getByText } = utils;
+    const span = getByText("placeholder");
+    return {
+      ...utils,
+      span,
+    };
+  };
+  describe("h1", () => {
+    it("h1 클릭 시 #가 추가되는가", () => {
+      //   const pre = document.createElement("pre");
+      //   const span = document.createElement("span");
+      //   const codeMirror = document.querySelector(".CodeMirror-code") as HTMLDivElement;
+      //   if (codeMirror) {
+      //     codeMirror.appendChild(pre.appendChild(span));
+      //   }
+      // const onClickCurrying = jest.fn();
+      // const { btn } = button({ curryingArgs: "h1", onClickCurrying });
+      // const { span } = markDownEditor();
+      // fireEvent.click(btn);
+      // expect(onClickCurrying).toBeCalledWith("h1");
+      // expect(span).toHaveTextContent("# ");
+    });
+  });
+});
+
+// screen.getByText((content, node) => {
+//     const hasText = (text: HTMLElement) => text.className === "CodeMirror-code";
+//     const nodeHasText = hasText(node);
+//     const childrenDontHaveText = Array.from(node.children).every((child) => !hasText(child as HTMLElement));
+//     return nodeHasText && childrenDontHaveText;
+//   });

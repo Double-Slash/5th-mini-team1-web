@@ -1,0 +1,48 @@
+import React from "react";
+import { render, fireEvent } from "@testing-library/react";
+import { ButtonProps } from "common/Atoms/Button";
+import { history, Urls } from "utils/modules/history";
+import { Router as ReactRouter } from "react-router-dom";
+import EditorFooter from "./index";
+
+describe("<EditorFooter />", () => {
+  const renderInRouter = (Component: React.FC) =>
+    render(
+      <ReactRouter history={history}>
+        <Component />
+      </ReactRouter>,
+    );
+  const setup = (props: Partial<ButtonProps>) => {
+    const utils = renderInRouter(EditorFooter);
+    const { getByText } = utils;
+    const button = getByText(props.text as string);
+    return {
+      ...utils,
+      button,
+    };
+  };
+
+  it("뒤로가기 클릭 시, 이전 url로 이동하는가", () => {
+    const onClick = jest.fn();
+    const { button } = setup({ text: "뒤로가기", onClick });
+    fireEvent.click(button);
+    console.log("DSfdsfdsf", history.location.pathname);
+    expect(history.location.pathname).not.toBe(Urls.Write);
+  });
+});
+
+//   const button = (props: Partial<ButtonProps> = {}) => {
+//     const utils = render(<Button />);
+//     const { getByText } = utils;
+//     const btn = getByText(props.text as string);
+//     return {
+//       btn,
+//       ...utils,
+//     };
+//   };
+//   it("뒤로가기 클릭 시, 이전 url로 이동하는가", () => {
+//     const onClick = jest.fn();
+//     const { btn } = button({ text: "뒤로가기", onClick });
+//     fireEvent.click(btn);
+//     expect(window.location.pathname).toEqual("/");
+//   });
