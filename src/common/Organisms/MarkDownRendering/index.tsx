@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import remark from "remark";
 import breaks from "remark-breaks";
 import htmlPlugin from "remark-html";
-import htmlParser from "html-react-parser";
+import reactParser from "html-react-parser";
 
 import prismPlugin from "@utils/modules/prism-plugin";
 import * as S from "./style";
@@ -27,7 +27,7 @@ const MarkDownRendering: React.FC<MarkDownRenderingProps> = ({ markDownText }) =
 
   return (
     <>
-      <S.MarkdownWrapper className="atom-one-dark">{htmlParser(html)}</S.MarkdownWrapper>
+      <S.MarkdownWrapper className="atom-one-dark">{reactParser(html)}</S.MarkdownWrapper>
     </>
   );
 };
