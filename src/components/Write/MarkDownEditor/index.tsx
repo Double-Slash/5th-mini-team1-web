@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
 import codemirror, { EditorFromTextArea } from "codemirror";
+import { changeMarkDownText } from "@store/Write/action";
 
 import "./atom-one-light.css";
 import "codemirror/addon/display/placeholder";
@@ -10,6 +12,7 @@ require("codemirror/mode/javascript/javascript");
 require("codemirror/mode/jsx/jsx");
 
 const MarkDownEditor = () => {
+  const dispatch = useDispatch();
   const codeMirrorRef = useRef<EditorFromTextArea | null>(null);
 
   useEffect(() => {
@@ -22,6 +25,13 @@ const MarkDownEditor = () => {
     });
     window.codeMirror = codeMirrorRef.current;
   }, []);
+
+  useEffect(() => {
+    if (!codeMirrorRef.current) return;
+    codeMirrorRef.current.on("change", (instance) => {
+      dispatch(changeMarkDownText(instance.getValue()));
+    });
+  }, [dispatch]);
 
   return (
     <>
